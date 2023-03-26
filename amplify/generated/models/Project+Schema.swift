@@ -1,0 +1,45 @@
+import Amplify
+import Foundation
+
+extension Project {
+  // MARK: - CodingKeys 
+   public enum CodingKeys: String, ModelKey {
+    case id
+    case name
+    case priority
+    case description
+    case createdAt
+    case updatedAt
+  }
+  
+  public static let keys = CodingKeys.self
+  //  MARK: - ModelSchema 
+  
+  public static let schema = defineSchema { model in
+    let project = Project.keys
+    
+    model.authRules = [
+      rule(allow: .public, operations: [.create, .update, .delete, .read])
+    ]
+    
+    model.syncPluralName = "Projects"
+    
+    model.attributes(
+      .primaryKey(fields: [project.id])
+    )
+    
+    model.fields(
+      .field(project.id, is: .required, ofType: .string),
+      .field(project.name, is: .required, ofType: .string),
+      .field(project.priority, is: .required, ofType: .enum(type: Priority.self)),
+      .field(project.description, is: .optional, ofType: .string),
+      .field(project.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
+      .field(project.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
+    )
+    }
+}
+
+extension Project: ModelIdentifiable {
+  public typealias IdentifierFormat = ModelIdentifierFormat.Default
+  public typealias IdentifierProtocol = DefaultModelIdentifier<Self>
+}

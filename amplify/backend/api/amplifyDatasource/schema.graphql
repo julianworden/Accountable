@@ -1,0 +1,13 @@
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+}
+
+type Project @model
+@auth(rules: [{ allow: public}]) {
+  id: ID!
+  name: String!
+  priority: Priority!
+  description: String
+}
