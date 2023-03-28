@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "accountable",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-03-28T02:07:12.914Z"
+}

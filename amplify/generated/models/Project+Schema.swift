@@ -22,7 +22,7 @@ extension Project {
       rule(allow: .public, operations: [.create, .update, .delete, .read])
     ]
     
-    model.syncPluralName = "Projects"
+    model.pluralName = "Projects"
     
     model.attributes(
       .primaryKey(fields: [project.id])

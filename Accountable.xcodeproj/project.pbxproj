@@ -26,6 +26,7 @@
 		28ED0A8147BCB45602FC6B75 /* Project+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Project+Schema.swift"; path = "amplify/generated/models/Project+Schema.swift"; sourceTree = "<group>"; };
 		2DE0EC291922DAB9CFB2C068 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		A21EA54876D8A5ECB6EFAFC8 /* Project.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Project.swift; path = amplify/generated/models/Project.swift; sourceTree = "<group>"; };
+		AB3CF95429D2874A00E7FD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ABD8B55C29D0DB42007BF1BC /* Accountable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accountable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD8B55F29D0DB42007BF1BC /* AccountableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountableApp.swift; sourceTree = "<group>"; };
 		ABD8B56129D0DB42007BF1BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		ABD8B55E29D0DB42007BF1BC /* Accountable */ = {
 			isa = PBXGroup;
 			children = (
+				AB3CF95429D2874A00E7FD45 /* Info.plist */,
 				ABD8B55F29D0DB42007BF1BC /* AccountableApp.swift */,
 				ABD8B56129D0DB42007BF1BC /* ContentView.swift */,
 				ABD8B56329D0DB43007BF1BC /* Assets.xcassets */,
@@ -324,7 +326,7 @@
 				DEVELOPMENT_TEAM = 9LT5ZRK64X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Accountable/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -353,7 +355,7 @@
 				DEVELOPMENT_TEAM = 9LT5ZRK64X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Accountable/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

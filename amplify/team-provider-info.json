@@ -1,0 +1,20 @@
+{
+  "macbookair": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-accountable-macbookair-182807-authRole",
+      "UnauthRoleArn": "arn:aws:iam::230492213109:role/amplify-accountable-macbookair-182807-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::230492213109:role/amplify-accountable-macbookair-182807-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-accountable-macbookair-182807-deployment",
+      "UnauthRoleName": "amplify-accountable-macbookair-182807-unauthRole",
+      "StackName": "amplify-accountable-macbookair-182807",
+      "StackId": "arn:aws:cloudformation:us-west-1:230492213109:stack/amplify-accountable-macbookair-182807/cbe45f40-cd07-11ed-891b-023cba969329",
+      "AmplifyAppId": "d3c2bgqpdfa80d"
+    },
+    "categories": {
+      "api": {
+        "accountable": {}
+      }
+    }
+  }
+}

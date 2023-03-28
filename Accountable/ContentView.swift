@@ -5,6 +5,7 @@
 //  Created by Julian Worden on 3/26/23.
 //
 
+import Amplify
 import SwiftUI
 
 struct ContentView: View {
