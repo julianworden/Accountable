@@ -7,14 +7,39 @@
 
 import Amplify
 import AWSAPIPlugin
+import AWSCognitoAuthPlugin
 import AWSDataStorePlugin
 import SwiftUI
 
 @main
 struct AccountableApp: App {
+    @StateObject private var loginController = LoginController()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                switch loginController.loginStatus {
+                case .notDetermined:
+                    SplashScreenView()
+                case .loggedIn:
+                    Text("You're Logged In!")
+                case .loggedOut:
+                    LoginView()
+                        .transition(.push(from: .bottom))
+                case .error:
+                    EmptyView()
+                }
+            }
+            .animation(.easeInOut, value: loginController.loginStatus)
+            .alert(
+                "Error",
+                isPresented: $loginController.errorMessageShowing,
+                actions: { Button("OK") { } },
+                message: { Text(loginController.errorMessageText) }
+            )
+            .task {
+                await loginController.determineLoginStatus()
+            }
         }
     }
 
@@ -29,6 +54,7 @@ struct AccountableApp: App {
         do {
             try Amplify.add(plugin: apiPlugin)
             try Amplify.add(plugin: dataStorePlugin)
+            try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()
             print("Initialized Amplify")
         } catch {

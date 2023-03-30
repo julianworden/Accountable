@@ -1,3 +1,4 @@
+// swiftlint:disable all
 import Amplify
 import Foundation
 
@@ -22,7 +23,7 @@ extension Project {
       rule(allow: .public, operations: [.create, .update, .delete, .read])
     ]
     
-    model.pluralName = "Projects"
+    model.syncPluralName = "Projects"
     
     model.attributes(
       .primaryKey(fields: [project.id])

@@ -12,13 +12,21 @@
 		65EB8B7F0792FA6A77D3F7DE /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21EA54876D8A5ECB6EFAFC8 /* Project.swift */; };
 		74FAED5A93C9CA1CBA468188 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8946CC5880A8134AE56BC /* Priority.swift */; };
 		A8453C0FEA8A0E969C7C4DBA /* Project+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED0A8147BCB45602FC6B75 /* Project+Schema.swift */; };
+		AB250F6829D32B5100CE6728 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = AB250F6729D32B5100CE6728 /* AWSCognitoAuthPlugin */; };
+		AB2D1EF829D5C30E00215C9C /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */; };
+		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
+		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
+		ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330529D475E900BA9529 /* LoginViewModel.swift */; };
+		ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330729D477EC00BA9529 /* LoginStatus.swift */; };
+		ABCD330C29D4841400BA9529 /* TextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */; };
 		ABD8B56029D0DB42007BF1BC /* AccountableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD8B55F29D0DB42007BF1BC /* AccountableApp.swift */; };
-		ABD8B56229D0DB42007BF1BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD8B56129D0DB42007BF1BC /* ContentView.swift */; };
+		ABD8B56229D0DB42007BF1BC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD8B56129D0DB42007BF1BC /* LoginView.swift */; };
 		ABD8B56429D0DB43007BF1BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD8B56329D0DB43007BF1BC /* Assets.xcassets */; };
 		ABD8B56729D0DB43007BF1BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD8B56629D0DB43007BF1BC /* Preview Assets.xcassets */; };
 		ABD8B56F29D0E185007BF1BC /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B56E29D0E185007BF1BC /* AWSAPIPlugin */; };
 		ABD8B57129D0E185007BF1BC /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B57029D0E185007BF1BC /* AWSDataStorePlugin */; };
 		ABD8B57329D0E185007BF1BC /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B57229D0E185007BF1BC /* Amplify */; };
+		ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6EF4129D4722000918FD2 /* LoginController.swift */; };
 		E0C960E8788CE8E94464E4C3 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781533A5E6CD22C412C1473 /* AmplifyModels.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,12 +34,19 @@
 		28ED0A8147BCB45602FC6B75 /* Project+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Project+Schema.swift"; path = "amplify/generated/models/Project+Schema.swift"; sourceTree = "<group>"; };
 		2DE0EC291922DAB9CFB2C068 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		A21EA54876D8A5ECB6EFAFC8 /* Project.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Project.swift; path = amplify/generated/models/Project.swift; sourceTree = "<group>"; };
+		AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		AB3CF95429D2874A00E7FD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
+		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		ABCD330529D475E900BA9529 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		ABCD330729D477EC00BA9529 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
+		ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithIcon.swift; sourceTree = "<group>"; };
 		ABD8B55C29D0DB42007BF1BC /* Accountable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accountable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD8B55F29D0DB42007BF1BC /* AccountableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountableApp.swift; sourceTree = "<group>"; };
-		ABD8B56129D0DB42007BF1BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ABD8B56129D0DB42007BF1BC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ABD8B56329D0DB43007BF1BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABD8B56629D0DB43007BF1BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABF6EF4129D4722000918FD2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D781533A5E6CD22C412C1473 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		D9179760947888B9F0613F4B /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		E1F8946CC5880A8134AE56BC /* Priority.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Priority.swift; path = amplify/generated/models/Priority.swift; sourceTree = "<group>"; };
@@ -45,6 +60,7 @@
 				ABD8B57329D0E185007BF1BC /* Amplify in Frameworks */,
 				ABD8B56F29D0E185007BF1BC /* AWSAPIPlugin in Frameworks */,
 				ABD8B57129D0E185007BF1BC /* AWSDataStorePlugin in Frameworks */,
+				AB250F6829D32B5100CE6728 /* AWSCognitoAuthPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +87,13 @@
 			name = AmplifyConfig;
 			sourceTree = "<group>";
 		};
+		AB250F6629D32B5100CE6728 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ABD8B55329D0DB42007BF1BC = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +101,7 @@
 				ABD8B55D29D0DB42007BF1BC /* Products */,
 				75C5AC0504245D94FFE6F0A3 /* AmplifyConfig */,
 				200E5784871EE73A95C0E1B4 /* AmplifyModels */,
+				AB250F6629D32B5100CE6728 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,7 +118,14 @@
 			children = (
 				AB3CF95429D2874A00E7FD45 /* Info.plist */,
 				ABD8B55F29D0DB42007BF1BC /* AccountableApp.swift */,
-				ABD8B56129D0DB42007BF1BC /* ContentView.swift */,
+				AB77867429D5CFB600CE5989 /* SplashScreenView.swift */,
+				ABD8B56129D0DB42007BF1BC /* LoginView.swift */,
+				AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */,
+				AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */,
+				ABCD330529D475E900BA9529 /* LoginViewModel.swift */,
+				ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */,
+				ABCD330729D477EC00BA9529 /* LoginStatus.swift */,
+				ABF6EF4029D4721600918FD2 /* LoginController */,
 				ABD8B56329D0DB43007BF1BC /* Assets.xcassets */,
 				ABD8B56529D0DB43007BF1BC /* Preview Content */,
 			);
@@ -107,6 +138,14 @@
 				ABD8B56629D0DB43007BF1BC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ABF6EF4029D4721600918FD2 /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				ABF6EF4129D4722000918FD2 /* LoginController.swift */,
+			);
+			path = LoginController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +168,7 @@
 				ABD8B56E29D0E185007BF1BC /* AWSAPIPlugin */,
 				ABD8B57029D0E185007BF1BC /* AWSDataStorePlugin */,
 				ABD8B57229D0E185007BF1BC /* Amplify */,
+				AB250F6729D32B5100CE6728 /* AWSCognitoAuthPlugin */,
 			);
 			productName = Accountable;
 			productReference = ABD8B55C29D0DB42007BF1BC /* Accountable.app */;
@@ -189,12 +229,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABD8B56229D0DB42007BF1BC /* ContentView.swift in Sources */,
+				AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */,
+				AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */,
+				ABD8B56229D0DB42007BF1BC /* LoginView.swift in Sources */,
 				ABD8B56029D0DB42007BF1BC /* AccountableApp.swift in Sources */,
 				E0C960E8788CE8E94464E4C3 /* AmplifyModels.swift in Sources */,
 				74FAED5A93C9CA1CBA468188 /* Priority.swift in Sources */,
+				ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */,
 				A8453C0FEA8A0E969C7C4DBA /* Project+Schema.swift in Sources */,
 				65EB8B7F0792FA6A77D3F7DE /* Project.swift in Sources */,
+				AB2D1EF829D5C30E00215C9C /* CustomDivider.swift in Sources */,
+				ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */,
+				ABCD330C29D4841400BA9529 /* TextFieldWithIcon.swift in Sources */,
+				ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,8 +376,7 @@
 				INFOPLIST_FILE = Accountable/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,9 +384,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.julianmichaeltechnologies.Accountable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -358,8 +407,7 @@
 				INFOPLIST_FILE = Accountable/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,9 +415,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.julianmichaeltechnologies.Accountable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -408,6 +459,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AB250F6729D32B5100CE6728 /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABD8B56D29D0E185007BF1BC /* XCRemoteSwiftPackageReference "amplify-swift" */;
+			productName = AWSCognitoAuthPlugin;
+		};
 		ABD8B56E29D0E185007BF1BC /* AWSAPIPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ABD8B56D29D0E185007BF1BC /* XCRemoteSwiftPackageReference "amplify-swift" */;
