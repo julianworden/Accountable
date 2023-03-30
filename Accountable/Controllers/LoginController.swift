@@ -17,6 +17,7 @@ class LoginController: ObservableObject {
 
     func determineLoginStatus() async {
         do {
+            try await Task.sleep(seconds: 2)
             _ = try await Amplify.Auth.getCurrentUser()
             loginStatus = .loggedIn
         } catch AuthError.signedOut {

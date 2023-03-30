@@ -14,7 +14,6 @@ struct SocialSignInButtonStyle: ViewModifier {
             .padding()
             .background(Color(uiColor: .systemGroupedBackground))
             .cornerRadius(7)
-//            .shadow(color: .purple.opacity(0.2), radius: 5)
     }
 }
 

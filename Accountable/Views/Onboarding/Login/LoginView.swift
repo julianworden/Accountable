@@ -39,13 +39,8 @@ struct LoginView: View {
 
             } label: {
                 Text("Log In")
-                    .bold()
-                    .foregroundColor(.white)
             }
-            .tint(.white)
-            .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
-            .background(.purple)
-            .cornerRadius(10)
+            .buttonStyle(PrimaryButton())
 
             HStack {
                 CustomDivider()
@@ -55,32 +50,7 @@ struct LoginView: View {
                 CustomDivider()
             }
 
-            HStack(spacing: 15) {
-                Button {
-
-                } label: {
-                    Image(systemName: "apple.logo")
-                }
-                .tint(.primary)
-                .imageScale(.large)
-                .socialSignInButtonStyle()
-
-                Button {
-
-                } label: {
-                    Image("googleLogo")
-                        .resizable()
-                }
-                .socialSignInButtonStyle()
-
-                Button {
-
-                } label: {
-                    Image("facebookLogo")
-                        .resizable()
-                }
-                .socialSignInButtonStyle()
-            }
+            LoginSocialMediaButtons(viewModel: viewModel)
 
             HStack {
                 Text("Don't have an account?")

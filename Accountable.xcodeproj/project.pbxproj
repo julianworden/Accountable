@@ -16,6 +16,8 @@
 		AB2D1EF829D5C30E00215C9C /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */; };
 		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
 		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
+		AB77867C29D5D37900CE5989 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButton.swift */; };
+		AB77868029D5D55A00CE5989 /* LoginSocialMediaButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867F29D5D55A00CE5989 /* LoginSocialMediaButtons.swift */; };
 		ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330529D475E900BA9529 /* LoginViewModel.swift */; };
 		ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330729D477EC00BA9529 /* LoginStatus.swift */; };
 		ABCD330C29D4841400BA9529 /* TextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */; };
@@ -38,6 +40,8 @@
 		AB3CF95429D2874A00E7FD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		AB77867B29D5D37900CE5989 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		AB77867F29D5D55A00CE5989 /* LoginSocialMediaButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSocialMediaButtons.swift; sourceTree = "<group>"; };
 		ABCD330529D475E900BA9529 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ABCD330729D477EC00BA9529 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithIcon.swift; sourceTree = "<group>"; };
@@ -94,6 +98,60 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AB77867629D5D23A00CE5989 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ABF6EF4129D4722000918FD2 /* LoginController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AB77867729D5D24500CE5989 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ABCD330729D477EC00BA9529 /* LoginStatus.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB77867829D5D24C00CE5989 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB77867A29D5D2DC00CE5989 /* Onboarding */,
+				AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */,
+				AB77867429D5CFB600CE5989 /* SplashScreenView.swift */,
+				ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AB77867929D5D25D00CE5989 /* StylesAndModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */,
+				AB77867B29D5D37900CE5989 /* PrimaryButton.swift */,
+			);
+			path = StylesAndModifiers;
+			sourceTree = "<group>";
+		};
+		AB77867A29D5D2DC00CE5989 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AB77867D29D5D53700CE5989 /* Login */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AB77867D29D5D53700CE5989 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				ABD8B56129D0DB42007BF1BC /* LoginView.swift */,
+				AB77867F29D5D55A00CE5989 /* LoginSocialMediaButtons.swift */,
+				ABCD330529D475E900BA9529 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		ABD8B55329D0DB42007BF1BC = {
 			isa = PBXGroup;
 			children = (
@@ -118,14 +176,10 @@
 			children = (
 				AB3CF95429D2874A00E7FD45 /* Info.plist */,
 				ABD8B55F29D0DB42007BF1BC /* AccountableApp.swift */,
-				AB77867429D5CFB600CE5989 /* SplashScreenView.swift */,
-				ABD8B56129D0DB42007BF1BC /* LoginView.swift */,
-				AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */,
-				AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */,
-				ABCD330529D475E900BA9529 /* LoginViewModel.swift */,
-				ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */,
-				ABCD330729D477EC00BA9529 /* LoginStatus.swift */,
-				ABF6EF4029D4721600918FD2 /* LoginController */,
+				AB77867829D5D24C00CE5989 /* Views */,
+				AB77867929D5D25D00CE5989 /* StylesAndModifiers */,
+				AB77867729D5D24500CE5989 /* Model */,
+				AB77867629D5D23A00CE5989 /* Controllers */,
 				ABD8B56329D0DB43007BF1BC /* Assets.xcassets */,
 				ABD8B56529D0DB43007BF1BC /* Preview Content */,
 			);
@@ -138,14 +192,6 @@
 				ABD8B56629D0DB43007BF1BC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		ABF6EF4029D4721600918FD2 /* LoginController */ = {
-			isa = PBXGroup;
-			children = (
-				ABF6EF4129D4722000918FD2 /* LoginController.swift */,
-			);
-			path = LoginController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +279,8 @@
 				AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */,
 				ABD8B56229D0DB42007BF1BC /* LoginView.swift in Sources */,
 				ABD8B56029D0DB42007BF1BC /* AccountableApp.swift in Sources */,
+				AB77867C29D5D37900CE5989 /* PrimaryButton.swift in Sources */,
+				AB77868029D5D55A00CE5989 /* LoginSocialMediaButtons.swift in Sources */,
 				E0C960E8788CE8E94464E4C3 /* AmplifyModels.swift in Sources */,
 				74FAED5A93C9CA1CBA468188 /* Priority.swift in Sources */,
 				ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */,
