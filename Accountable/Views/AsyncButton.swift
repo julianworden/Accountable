@@ -20,7 +20,7 @@ struct AsyncButton<Label: View>: View {
                 var progressViewTask: Task<Void, Error>
 
                 progressViewTask = Task {
-                    try await Task.sleep(seconds: 0.25)
+                    try await Task.sleep(seconds: 0.5)
 
                     withAnimation {
                         progressViewIsShown = true

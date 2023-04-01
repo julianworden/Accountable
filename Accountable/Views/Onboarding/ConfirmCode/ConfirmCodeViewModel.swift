@@ -13,6 +13,7 @@ final class ConfirmCodeViewModel: ObservableObject {
     @Published var verificationCode = ""
     let emailAddress: String?
     @Published var buttonsAreDisabled = false
+    @Published var successfulVerificationAlertIsShowing = false
 
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
@@ -27,6 +28,7 @@ final class ConfirmCodeViewModel: ObservableObject {
             case .performingWork:
                 buttonsAreDisabled = true
             case .workCompleted:
+                successfulVerificationAlertIsShowing = true
                 buttonsAreDisabled = false
             case .error(let message):
                 errorMessageText = message
@@ -54,7 +56,6 @@ final class ConfirmCodeViewModel: ObservableObject {
             viewState = .performingWork
             let result = try await Amplify.Auth.confirmSignUp(for: emailAddress, confirmationCode: verificationCode)
             if result.isSignUpComplete {
-                postAccountConfirmedNotification()
                 viewState = .workCompleted
             }
         } catch {

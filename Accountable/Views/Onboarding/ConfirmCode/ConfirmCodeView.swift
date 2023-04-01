@@ -40,6 +40,16 @@ struct ConfirmCodeView: View {
             }
             .buttonStyle(Primary())
             .disabled(viewModel.buttonsAreDisabled)
+            .alert(
+                "Success!",
+                isPresented: $viewModel.successfulVerificationAlertIsShowing,
+                actions: {
+                    Button("OK") {
+                        viewModel.postAccountConfirmedNotification()
+                    }
+                },
+                message: { Text("Your account was successfully verified! Tap the OK button to sign in and start using Accountable.") }
+            )
         }
         .padding(.horizontal)
         .navigationBarBackButtonHidden()

@@ -40,6 +40,26 @@ struct LoginView: View {
                 }
                 .buttonStyle(Primary())
                 .disabled(viewModel.buttonsAreDisabled)
+                .alert(
+                    "Error",
+                    isPresented: $viewModel.unverifiedAccountAlertIsShowing,
+                    actions: {
+                        Button("Cancel", role: .cancel) { }
+                        Button("Send Code") {
+                            Task {
+                                await viewModel.sendConfirmationCode()
+                            }
+                        }
+                    },
+                    message: {
+                        Text("It looks like you signed up for Accountable, but you haven't verified your account. Tap the button below to send a verification email to \(viewModel.emailAddress).")
+                    }
+                )
+                .onChange(of: onboardingNavigationController.userEmailAddress) { userEmailAddress in
+                    if userEmailAddress != nil {
+                        onboardingNavigationController.navigateToConfirmCodeView()
+                    }
+                }
 
                 HStack {
                     CustomDivider()

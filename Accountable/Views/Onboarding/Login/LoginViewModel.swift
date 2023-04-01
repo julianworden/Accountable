@@ -15,6 +15,7 @@ final class LoginViewModel: ObservableObject {
     @Published var password = ""
     @Published var buttonsAreDisabled = false
 
+    @Published var unverifiedAccountAlertIsShowing = false
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
 
@@ -45,15 +46,23 @@ final class LoginViewModel: ObservableObject {
                 postSignedInNotification()
                 viewState = .workCompleted
             }
+
+            switch result.nextStep {
+            case .confirmSignUp(_):
+                unverifiedAccountAlertIsShowing = true
+            case .done:
+                return
+            default:
+                print("Unknown next step: \(result.nextStep).")
+                viewState = .error(message: ErrorMessageConstants.unknown)
+            }
         } catch {
             if let error = AuthController.getAwsCognitoAuthError(from: error) {
                 switch error {
-                case .userNotConfirmed:
-                    viewState = .error(message: ErrorMessageConstants.accountNotConfirmed)
                 case .userNotFound:
                     viewState = .error(message: ErrorMessageConstants.accountDoesNotExist)
                 default:
-                    print(error)
+                    print("ERROR: \(error) \(error.localizedDescription)")
                     viewState = .error(message: ErrorMessageConstants.unknown)
                 }
             } else if let error = error as? AuthError {
@@ -62,10 +71,11 @@ final class LoginViewModel: ObservableObject {
                     // Email is correct, password is not
                     viewState = .error(message: ErrorMessageConstants.incorrectPassword)
                 default:
-                    print(error)
+                    print("ERROR: \(error) \(error.localizedDescription)")
                     viewState = .error(message: ErrorMessageConstants.unknown)
                 }
             } else {
+                print(error)
                 viewState = .error(message: ErrorMessageConstants.unknown)
             }
         }
@@ -83,7 +93,8 @@ final class LoginViewModel: ObservableObject {
                 case .userCancelled:
                     return
                 default:
-                    return
+                    print(error)
+                    viewState = .error(message: error.localizedDescription)
                 }
             } else {
                 print(error)
@@ -104,10 +115,11 @@ final class LoginViewModel: ObservableObject {
                 case .userCancelled:
                     return
                 default:
-                    return
+                    print("ERROR: \(error) \(error.localizedDescription)")
+                    viewState = .error(message: error.localizedDescription)
                 }
             } else {
-                print(error)
+                print("ERROR: \(error) \(error.localizedDescription)")
                 viewState = .error(message: ErrorMessageConstants.unknown)
             }
         }
@@ -125,16 +137,37 @@ final class LoginViewModel: ObservableObject {
                 case .userCancelled:
                     return
                 default:
-                    return
+                    print("ERROR: \(error) \(error.localizedDescription)")
+                    viewState = .error(message: error.localizedDescription)
                 }
             } else {
-                print(error)
+                print("ERROR: \(error) \(error.localizedDescription)")
                 viewState = .error(message: ErrorMessageConstants.unknown)
             }
         }
     }
 
+    func sendConfirmationCode() async {
+        do {
+            viewState = .performingWork
+            _ = try await Amplify.Auth.resendSignUpCode(for: emailAddress)
+            postUserSignedUpNotification()
+            viewState = .workCompleted
+        } catch {
+            print("ERROR: \(error) \(error.localizedDescription)")
+            viewState = .error(message: error.localizedDescription)
+        }
+    }
+
     func postSignedInNotification() {
         NotificationCenter.default.post(name: .userLoggedIn, object: nil)
+    }
+
+    func postUserSignedUpNotification() {
+        NotificationCenter.default.post(
+            name: .userSignedUp,
+            object: nil,
+            userInfo: [NotificationConstants.userEmailAddress: emailAddress]
+        )
     }
 }
