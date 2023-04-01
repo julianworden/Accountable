@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct PrimaryButton: ButtonStyle {
+struct Primary: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(.white)
@@ -17,6 +17,6 @@ struct PrimaryButton: ButtonStyle {
             .background(.purple)
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.9 : 1)
-            .animation(.easeInOut, value: configuration.isPressed)
+            .animation(.easeInOut.speed(0.5), value: configuration.isPressed)
     }
 }

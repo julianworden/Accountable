@@ -7,18 +7,12 @@
 
 import SwiftUI
 
-struct SocialSignInButtonStyle: ViewModifier {
-    func body(content: Content) -> some View {
-        content
+struct SocialSignIn: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
             .frame(width: 25, height: 25)
             .padding()
             .background(Color(uiColor: .systemGroupedBackground))
             .cornerRadius(7)
-    }
-}
-
-extension View {
-    func socialSignInButtonStyle() -> some View {
-        modifier(SocialSignInButtonStyle())
     }
 }

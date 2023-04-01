@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct TextFieldWithIcon: View {
+struct ConfirmCodeTextField: View {
     @FocusState var isFocused
 
     @Binding var text: String
 
     let iconName: String
     let placeholder: String
-    let textFieldType: TextFieldType
+    let isSecure: Bool
 
     var body: some View {
         ZStack {
@@ -28,16 +28,9 @@ struct TextFieldWithIcon: View {
 
                     Spacer()
 
-                    if textFieldType == .password {
-                        SecureField(placeholder, text: $text)
-                            .focused($isFocused)
-
-                    } else {
-                        TextField(placeholder, text: $text)
-                            .noAutoCapsOrCorrections()
-                            .keyboardType(keyboardType)
-                            .focused($isFocused)
-                    }
+                    TextField(placeholder, text: $text)
+                        .focused($isFocused)
+                        .multilineTextAlignment(.center)
                 }
 
                 RoundedRectangle(cornerRadius: 2)
@@ -47,22 +40,12 @@ struct TextFieldWithIcon: View {
                     .animation(.easeInOut(duration: 0.25), value: isFocused)
             }
         }
-    }
-
-    var keyboardType: UIKeyboardType {
-        switch textFieldType {
-        case .email:
-            return .emailAddress
-        case .numbers:
-            return .numberPad
-        default:
-            return .default
-        }
+        .frame(width: 75)
     }
 }
 
-struct TextFieldWithIcon_Previews: PreviewProvider {
+struct ConfirmCodeTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldWithIcon(text: .constant(""), iconName: "envelope", placeholder: "Email Address", textFieldType: .email)
+        ConfirmCodeTextField(text: .constant(""), iconName: "envelope", placeholder: "Email Address", isSecure: true)
     }
 }

@@ -13,29 +13,25 @@ struct LoginSocialMediaButtons: View {
     var body: some View {
         HStack(spacing: 15) {
             Button {
-
+                Task {
+                    await viewModel.signInWithApple()
+                }
             } label: {
                 Image(systemName: "apple.logo")
             }
             .tint(.primary)
             .imageScale(.large)
-            .socialSignInButtonStyle()
+            .buttonStyle(SocialSignIn())
 
             Button {
-
+                Task {
+                    await viewModel.signInWithGoogle()
+                }
             } label: {
                 Image("googleLogo")
                     .resizable()
             }
-            .socialSignInButtonStyle()
-
-            Button {
-
-            } label: {
-                Image("facebookLogo")
-                    .resizable()
-            }
-            .socialSignInButtonStyle()
+            .buttonStyle(SocialSignIn())
         }
     }
 }

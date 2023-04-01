@@ -14,10 +14,27 @@
 		A8453C0FEA8A0E969C7C4DBA /* Project+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED0A8147BCB45602FC6B75 /* Project+Schema.swift */; };
 		AB250F6829D32B5100CE6728 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = AB250F6729D32B5100CE6728 /* AWSCognitoAuthPlugin */; };
 		AB2D1EF829D5C30E00215C9C /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */; };
+		AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45540729D7110700A5CFEB /* SignUpView.swift */; };
+		AB45540A29D7110F00A5CFEB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45540929D7110F00A5CFEB /* SignUpViewModel.swift */; };
+		AB45540C29D71A6B00A5CFEB /* OnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45540B29D71A6B00A5CFEB /* OnboardingNavigationController.swift */; };
+		AB45540E29D71B1300A5CFEB /* OnboardingNavigationDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45540D29D71B1300A5CFEB /* OnboardingNavigationDestination.swift */; };
+		AB45541129D71C0500A5CFEB /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541029D71C0500A5CFEB /* ConfirmCodeView.swift */; };
+		AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541229D725AA00A5CFEB /* AuthController.swift */; };
+		AB45541529D726F200A5CFEB /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541429D726F200A5CFEB /* ViewState.swift */; };
+		AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */; };
+		AB5609E829D86AED00B75F46 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5609E729D86AEC00B75F46 /* AsyncButton.swift */; };
 		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
 		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
-		AB77867C29D5D37900CE5989 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButton.swift */; };
+		AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */; };
 		AB77868029D5D55A00CE5989 /* LoginSocialMediaButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867F29D5D55A00CE5989 /* LoginSocialMediaButtons.swift */; };
+		AB88C8C529D780D400F5DAD1 /* ConfirmCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88C8C429D780D400F5DAD1 /* ConfirmCodeTextField.swift */; };
+		AB88C8C729D7988000F5DAD1 /* NotificationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88C8C629D7988000F5DAD1 /* NotificationConstants.swift */; };
+		ABAC1F3529D87358007B0A0B /* OnboardingViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3429D87358007B0A0B /* OnboardingViewHeader.swift */; };
+		ABAC1F3729D8751C007B0A0B /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3629D8751C007B0A0B /* UiConstants.swift */; };
+		ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3829D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift */; };
+		ABAC1F3B29D87CBA007B0A0B /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3A29D87CBA007B0A0B /* TextFieldType.swift */; };
+		ABB2D84629D68BB1004F9278 /* Notification.Name+CustomNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2D84529D68BB1004F9278 /* Notification.Name+CustomNotifications.swift */; };
+		ABB2D84929D69057004F9278 /* ErrorMessageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB2D84829D69057004F9278 /* ErrorMessageConstants.swift */; };
 		ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330529D475E900BA9529 /* LoginViewModel.swift */; };
 		ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330729D477EC00BA9529 /* LoginStatus.swift */; };
 		ABCD330C29D4841400BA9529 /* TextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */; };
@@ -38,10 +55,27 @@
 		A21EA54876D8A5ECB6EFAFC8 /* Project.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Project.swift; path = amplify/generated/models/Project.swift; sourceTree = "<group>"; };
 		AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		AB3CF95429D2874A00E7FD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AB45540729D7110700A5CFEB /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		AB45540929D7110F00A5CFEB /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		AB45540B29D71A6B00A5CFEB /* OnboardingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigationController.swift; sourceTree = "<group>"; };
+		AB45540D29D71B1300A5CFEB /* OnboardingNavigationDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNavigationDestination.swift; sourceTree = "<group>"; };
+		AB45541029D71C0500A5CFEB /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
+		AB45541229D725AA00A5CFEB /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		AB45541429D726F200A5CFEB /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
+		AB5609E729D86AEC00B75F46 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
-		AB77867B29D5D37900CE5989 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867F29D5D55A00CE5989 /* LoginSocialMediaButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSocialMediaButtons.swift; sourceTree = "<group>"; };
+		AB88C8C429D780D400F5DAD1 /* ConfirmCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeTextField.swift; sourceTree = "<group>"; };
+		AB88C8C629D7988000F5DAD1 /* NotificationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstants.swift; sourceTree = "<group>"; };
+		ABAC1F3429D87358007B0A0B /* OnboardingViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewHeader.swift; sourceTree = "<group>"; };
+		ABAC1F3629D8751C007B0A0B /* UiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
+		ABAC1F3829D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAutoCapsOrCorrectionsTextField.swift; sourceTree = "<group>"; };
+		ABAC1F3A29D87CBA007B0A0B /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
+		ABB2D84529D68BB1004F9278 /* Notification.Name+CustomNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+CustomNotifications.swift"; sourceTree = "<group>"; };
+		ABB2D84829D69057004F9278 /* ErrorMessageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageConstants.swift; sourceTree = "<group>"; };
 		ABCD330529D475E900BA9529 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ABCD330729D477EC00BA9529 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithIcon.swift; sourceTree = "<group>"; };
@@ -98,10 +132,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AB45540629D710F000A5CFEB /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				AB45540729D7110700A5CFEB /* SignUpView.swift */,
+				AB45540929D7110F00A5CFEB /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		AB45540F29D71BF500A5CFEB /* ConfirmCode */ = {
+			isa = PBXGroup;
+			children = (
+				AB45541029D71C0500A5CFEB /* ConfirmCodeView.swift */,
+				AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */,
+				AB88C8C429D780D400F5DAD1 /* ConfirmCodeTextField.swift */,
+			);
+			path = ConfirmCode;
+			sourceTree = "<group>";
+		};
 		AB77867629D5D23A00CE5989 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				ABF6EF4129D4722000918FD2 /* LoginController.swift */,
+				AB45541229D725AA00A5CFEB /* AuthController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				ABCD330729D477EC00BA9529 /* LoginStatus.swift */,
+				AB45541429D726F200A5CFEB /* ViewState.swift */,
+				ABAC1F3A29D87CBA007B0A0B /* TextFieldType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +174,10 @@
 			isa = PBXGroup;
 			children = (
 				AB77867A29D5D2DC00CE5989 /* Onboarding */,
+				AB5609E729D86AEC00B75F46 /* AsyncButton.swift */,
+				ABAC1F3429D87358007B0A0B /* OnboardingViewHeader.swift */,
+				AB45540B29D71A6B00A5CFEB /* OnboardingNavigationController.swift */,
+				AB45540D29D71B1300A5CFEB /* OnboardingNavigationDestination.swift */,
 				AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */,
 				AB77867429D5CFB600CE5989 /* SplashScreenView.swift */,
 				ABCD330B29D4841400BA9529 /* TextFieldWithIcon.swift */,
@@ -129,7 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */,
-				AB77867B29D5D37900CE5989 /* PrimaryButton.swift */,
+				AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */,
+				ABAC1F3829D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift */,
 			);
 			path = StylesAndModifiers;
 			sourceTree = "<group>";
@@ -138,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				AB77867D29D5D53700CE5989 /* Login */,
+				AB45540629D710F000A5CFEB /* SignUp */,
+				AB45540F29D71BF500A5CFEB /* ConfirmCode */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -150,6 +213,32 @@
 				ABCD330529D475E900BA9529 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		ABB2D84429D68B74004F9278 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ABB2D84529D68BB1004F9278 /* Notification.Name+CustomNotifications.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ABB2D84729D69050004F9278 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				ABB2D84A29D69059004F9278 /* Constants */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		ABB2D84A29D69059004F9278 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				ABB2D84829D69057004F9278 /* ErrorMessageConstants.swift */,
+				AB88C8C629D7988000F5DAD1 /* NotificationConstants.swift */,
+				ABAC1F3629D8751C007B0A0B /* UiConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		ABD8B55329D0DB42007BF1BC = {
@@ -176,10 +265,12 @@
 			children = (
 				AB3CF95429D2874A00E7FD45 /* Info.plist */,
 				ABD8B55F29D0DB42007BF1BC /* AccountableApp.swift */,
-				AB77867829D5D24C00CE5989 /* Views */,
-				AB77867929D5D25D00CE5989 /* StylesAndModifiers */,
 				AB77867729D5D24500CE5989 /* Model */,
+				AB77867829D5D24C00CE5989 /* Views */,
 				AB77867629D5D23A00CE5989 /* Controllers */,
+				ABB2D84729D69050004F9278 /* Utilities */,
+				ABB2D84429D68B74004F9278 /* Extensions */,
+				AB77867929D5D25D00CE5989 /* StylesAndModifiers */,
 				ABD8B56329D0DB43007BF1BC /* Assets.xcassets */,
 				ABD8B56529D0DB43007BF1BC /* Preview Content */,
 			);
@@ -275,20 +366,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB2D84929D69057004F9278 /* ErrorMessageConstants.swift in Sources */,
 				AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */,
+				AB88C8C529D780D400F5DAD1 /* ConfirmCodeTextField.swift in Sources */,
+				AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */,
 				AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */,
 				ABD8B56229D0DB42007BF1BC /* LoginView.swift in Sources */,
 				ABD8B56029D0DB42007BF1BC /* AccountableApp.swift in Sources */,
-				AB77867C29D5D37900CE5989 /* PrimaryButton.swift in Sources */,
+				AB45540A29D7110F00A5CFEB /* SignUpViewModel.swift in Sources */,
+				AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */,
 				AB77868029D5D55A00CE5989 /* LoginSocialMediaButtons.swift in Sources */,
 				E0C960E8788CE8E94464E4C3 /* AmplifyModels.swift in Sources */,
 				74FAED5A93C9CA1CBA468188 /* Priority.swift in Sources */,
+				ABAC1F3529D87358007B0A0B /* OnboardingViewHeader.swift in Sources */,
+				AB45540C29D71A6B00A5CFEB /* OnboardingNavigationController.swift in Sources */,
 				ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */,
 				A8453C0FEA8A0E969C7C4DBA /* Project+Schema.swift in Sources */,
+				AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */,
+				AB45541529D726F200A5CFEB /* ViewState.swift in Sources */,
 				65EB8B7F0792FA6A77D3F7DE /* Project.swift in Sources */,
 				AB2D1EF829D5C30E00215C9C /* CustomDivider.swift in Sources */,
+				ABB2D84629D68BB1004F9278 /* Notification.Name+CustomNotifications.swift in Sources */,
+				ABAC1F3729D8751C007B0A0B /* UiConstants.swift in Sources */,
+				AB45541129D71C0500A5CFEB /* ConfirmCodeView.swift in Sources */,
+				AB45540E29D71B1300A5CFEB /* OnboardingNavigationDestination.swift in Sources */,
+				AB5609E829D86AED00B75F46 /* AsyncButton.swift in Sources */,
+				ABAC1F3B29D87CBA007B0A0B /* TextFieldType.swift in Sources */,
 				ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */,
 				ABCD330C29D4841400BA9529 /* TextFieldWithIcon.swift in Sources */,
+				ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */,
+				AB88C8C729D7988000F5DAD1 /* NotificationConstants.swift in Sources */,
+				AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */,
 				ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,57 +9,71 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
+    @StateObject private var onboardingNavigationController = OnboardingNavigationController()
 
     var body: some View {
-        VStack(spacing: 25) {
-            VStack(spacing: 7) {
-                Text("Welcome!")
-                    .font(.largeTitle.bold())
+        NavigationStack(path: $onboardingNavigationController.navigationPath) {
+            VStack(spacing: UiConstants.onboardingViewVStackSpacing) {
+                OnboardingViewHeader(
+                    title: "Welcome!",
+                    subtitle: "Thank you for staying Accountable with us."
+                )
 
-                Text("Thank you for staying Accountable with us.")
-                    .font(.title3)
-                    .multilineTextAlignment(.center)
+                TextFieldWithIcon(
+                    text: $viewModel.emailAddress,
+                    iconName: "envelope",
+                    placeholder: "Email Address",
+                    textFieldType: .email
+                )
+
+                TextFieldWithIcon(
+                    text: $viewModel.password,
+                    iconName: "key",
+                    placeholder: "Password",
+                    textFieldType: .password
+                )
+
+                AsyncButton {
+                    await viewModel.signInWithEmailAndPassword()
+                } label: {
+                    Text("Log In")
+                }
+                .buttonStyle(Primary())
+                .disabled(viewModel.buttonsAreDisabled)
+
+                HStack {
+                    CustomDivider()
+
+                    Text("Or log in with:")
+
+                    CustomDivider()
+                }
+
+                LoginSocialMediaButtons(viewModel: viewModel)
+
+                HStack {
+                    Text("Don't have an account?")
+                    Button("Sign Up") {
+                        onboardingNavigationController.navigateToSignUpView()
+                    }
+                }
             }
-
-            TextFieldWithIcon(
-                text: $viewModel.emailAddress,
-                iconName: "envelope",
-                placeholder: "Email Address",
-                isSecure: false
+            .padding(.horizontal)
+            .alert(
+                "Error",
+                isPresented: $viewModel.errorMessageIsShowing,
+                actions: { Button("OK") { } },
+                message: { Text(viewModel.errorMessageText) }
             )
-
-            TextFieldWithIcon(
-                text: $viewModel.password,
-                iconName: "key",
-                placeholder: "Password",
-                isSecure: true
-            )
-
-            Button {
-
-            } label: {
-                Text("Log In")
-            }
-            .buttonStyle(PrimaryButton())
-
-            HStack {
-                CustomDivider()
-
-                Text("Or log in with:")
-
-                CustomDivider()
-            }
-
-            LoginSocialMediaButtons(viewModel: viewModel)
-
-            HStack {
-                Text("Don't have an account?")
-                Button("Sign Up") {
-
+            .navigationDestination(for: OnboardingNavigationDestination.self) { onboardingNavigationDestination in
+                switch onboardingNavigationDestination {
+                case .signUpView:
+                    SignUpView(onboardingNavigationController: onboardingNavigationController)
+                case .confirmCodeView:
+                    ConfirmCodeView(onboardingNavigationController: onboardingNavigationController)
                 }
             }
         }
-        .padding(.horizontal)
     }
 }
 

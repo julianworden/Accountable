@@ -15,6 +15,10 @@ class LoginController: ObservableObject {
     @Published var errorMessageShowing = false
     var errorMessageText = ""
 
+    init() {
+        addUserLoggedInObserver()
+    }
+
     func determineLoginStatus() async {
         do {
             try await Task.sleep(seconds: 2)
@@ -26,6 +30,14 @@ class LoginController: ObservableObject {
             loginStatus = .error
             errorMessageText = error.localizedDescription
             errorMessageShowing = true
+        }
+    }
+
+    func addUserLoggedInObserver() {
+        NotificationCenter.default.addObserver(forName: .userLoggedIn, object: nil, queue: nil) { _ in
+            Task { @MainActor in
+                self.loginStatus = .loggedIn
+            }
         }
     }
 }

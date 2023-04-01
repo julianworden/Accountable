@@ -22,10 +22,19 @@ struct AccountableApp: App {
                 case .notDetermined:
                     SplashScreenView()
                 case .loggedIn:
-                    Text("You're Logged In!")
+                    VStack {
+                        Text("You're Logged In!")
+                            .transition(.opacity)
+
+                        Button("Log Out") {
+                            Task {
+                                await Amplify.Auth.signOut()
+                            }
+                        }
+                    }
                 case .loggedOut:
                     LoginView()
-                        .transition(.push(from: .bottom))
+                        .transition(.opacity)
                 case .error:
                     EmptyView()
                 }
