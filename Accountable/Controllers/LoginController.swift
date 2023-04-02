@@ -17,6 +17,7 @@ class LoginController: ObservableObject {
 
     init() {
         addUserLoggedInObserver()
+        addUserLoggedOutObserver()
     }
 
     func determineLoginStatus() async {
@@ -37,6 +38,14 @@ class LoginController: ObservableObject {
         NotificationCenter.default.addObserver(forName: .userLoggedIn, object: nil, queue: nil) { _ in
             Task { @MainActor in
                 self.loginStatus = .loggedIn
+            }
+        }
+    }
+
+    func addUserLoggedOutObserver() {
+        NotificationCenter.default.addObserver(forName: .userLoggedOut, object: nil, queue: nil) { _ in
+            Task { @MainActor in
+                self.loginStatus = .loggedOut
             }
         }
     }
