@@ -39,7 +39,6 @@
           "EMAIL"
         ],
         "socialProviders": [
-          "FACEBOOK",
           "GOOGLE",
           "APPLE"
         ],

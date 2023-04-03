@@ -9,6 +9,7 @@ import Amplify
 import AWSAPIPlugin
 import AWSCognitoAuthPlugin
 import AWSDataStorePlugin
+import ClientRuntime
 import SwiftUI
 
 @main
@@ -53,6 +54,7 @@ struct AccountableApp: App {
         let dataStorePlugin = AWSDataStorePlugin(modelRegistration: AmplifyModels())
 
         do {
+            SDKLoggingSystem.initialize(logLevel: .warning)
             try Amplify.add(plugin: apiPlugin)
             try Amplify.add(plugin: dataStorePlugin)
             try Amplify.add(plugin: AWSCognitoAuthPlugin())

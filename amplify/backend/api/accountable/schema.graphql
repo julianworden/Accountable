@@ -1,7 +1,7 @@
-enum Priority {
-  LOW
-  NORMAL
-  HIGH
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+  externalProvider: ExternalProvider
 }
 
 type Project @model @auth(rules: [{allow: public}]) {
@@ -10,4 +10,14 @@ type Project @model @auth(rules: [{allow: public}]) {
   priority: Priority!
   description: String
 }
- 
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+}
+
+enum ExternalProvider {
+  google
+  apple
+}

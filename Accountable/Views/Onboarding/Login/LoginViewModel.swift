@@ -43,107 +43,43 @@ final class LoginViewModel: ObservableObject {
             viewState = .performingWork
             let result = try await Amplify.Auth.signIn(username: emailAddress, password: password)
             if result.isSignedIn {
+                let currentAuthUser = try await Amplify.Auth.getCurrentUser()
+                try await handleSignInNextStep(result.nextStep, forAuthUser: currentAuthUser)
                 postSignedInNotification()
                 viewState = .workCompleted
             }
-
-            switch result.nextStep {
-            case .confirmSignUp(_):
-                unverifiedAccountAlertIsShowing = true
-            case .done:
-                return
-            default:
-                print("Unknown next step: \(result.nextStep).")
-                viewState = .error(message: ErrorMessageConstants.unknown)
-            }
         } catch {
-            if let error = AuthController.getAwsCognitoAuthError(from: error) {
-                switch error {
-                case .userNotFound:
-                    viewState = .error(message: ErrorMessageConstants.accountDoesNotExist)
-                default:
-                    print("ERROR: \(error) \(error.localizedDescription)")
-                    viewState = .error(message: ErrorMessageConstants.unknown)
-                }
-            } else if let error = error as? AuthError {
-                switch error {
-                case .notAuthorized:
-                    // Email is correct, password is not
-                    viewState = .error(message: ErrorMessageConstants.incorrectPassword)
-                default:
-                    print("ERROR: \(error) \(error.localizedDescription)")
-                    viewState = .error(message: ErrorMessageConstants.unknown)
-                }
-            } else {
-                print(error)
-                viewState = .error(message: ErrorMessageConstants.unknown)
-            }
+            handleSignInError(error)
         }
     }
 
     func signInWithApple() async {
         do {
+            viewState = .performingWork
             let signInResult = try await Amplify.Auth.signInWithWebUI(for: .apple)
             if signInResult.isSignedIn {
+                let currentAuthUser = try await Amplify.Auth.getCurrentUser()
+                try await handleSignInNextStep(signInResult.nextStep, forAuthUser: currentAuthUser, externalProvider: .apple)
                 postSignedInNotification()
+                viewState = .workCompleted
             }
         } catch {
-            if let error = AuthController.getAwsCognitoAuthError(from: error) {
-                switch error {
-                case .userCancelled:
-                    return
-                default:
-                    print(error)
-                    viewState = .error(message: error.localizedDescription)
-                }
-            } else {
-                print(error)
-                viewState = .error(message: ErrorMessageConstants.unknown)
-            }
+            handleSignInError(error)
         }
     }
 
     func signInWithGoogle() async {
         do {
+            viewState = .performingWork
             let signInResult = try await Amplify.Auth.signInWithWebUI(for: .google)
             if signInResult.isSignedIn {
+                let currentAuthUser = try await Amplify.Auth.getCurrentUser()
+                try await handleSignInNextStep(signInResult.nextStep, forAuthUser: currentAuthUser, externalProvider: .google)
                 postSignedInNotification()
+                viewState = .workCompleted
             }
         } catch {
-            if let error = AuthController.getAwsCognitoAuthError(from: error) {
-                switch error {
-                case .userCancelled:
-                    return
-                default:
-                    print("ERROR: \(error) \(error.localizedDescription)")
-                    viewState = .error(message: error.localizedDescription)
-                }
-            } else {
-                print("ERROR: \(error) \(error.localizedDescription)")
-                viewState = .error(message: ErrorMessageConstants.unknown)
-            }
-        }
-    }
-
-    func signInWithFacebook() async {
-        do {
-            let signInResult = try await Amplify.Auth.signInWithWebUI(for: .facebook)
-            if signInResult.isSignedIn {
-                postSignedInNotification()
-            }
-        } catch {
-            if let error = AuthController.getAwsCognitoAuthError(from: error) {
-                switch error {
-                case .userCancelled:
-                    return
-                default:
-                    print("ERROR: \(error) \(error.localizedDescription)")
-                    viewState = .error(message: error.localizedDescription)
-                }
-            } else {
-                print("ERROR: \(error) \(error.localizedDescription)")
-                viewState = .error(message: ErrorMessageConstants.unknown)
-            }
+            handleSignInError(error)
         }
     }
 
@@ -155,6 +91,73 @@ final class LoginViewModel: ObservableObject {
             viewState = .workCompleted
         } catch {
             print("ERROR: \(error) \(error.localizedDescription)")
+            viewState = .error(message: error.localizedDescription)
+        }
+    }
+
+    func currentAuthUserExistsInDataStore(_ authUser: AuthUser) async throws -> Bool {
+        do {
+            return try await DatabaseService.shared.authUserExistsInDataStore(authUser)
+        } catch {
+            throw error
+        }
+    }
+
+    func addAuthUserToDataStore(_ authUser: AuthUser, externalProvider: ExternalProvider?) async {
+        do {
+            let username = try await AuthService.shared.getLoggedInUserEmailAddress()
+            let authUserAsUser = User(id: authUser.userId, username: username, externalProvider: externalProvider)
+            try await DatabaseService.shared.createUserInDataStore(authUserAsUser)
+        } catch {
+            viewState = .error(message: error.localizedDescription)
+        }
+    }
+
+    func handleSignInNextStep(
+        _ nextStep: AuthSignInStep,
+        forAuthUser authUser: AuthUser,
+        externalProvider: ExternalProvider? = nil
+    ) async throws {
+        do {
+            switch nextStep {
+            case .confirmSignUp(_):
+                unverifiedAccountAlertIsShowing = true
+            case .done:
+                if try await currentAuthUserExistsInDataStore(authUser) {
+                    return
+                } else {
+                    await addAuthUserToDataStore(authUser, externalProvider: externalProvider)
+                    return
+                }
+            default:
+                print("Unknown next step: \(nextStep).")
+                viewState = .error(message: ErrorMessageConstants.unknown)
+            }
+        } catch {
+            throw DataStoreError.unknown(message: "Failed to complete sign in steps. \(ErrorMessageConstants.unknown)")
+        }
+    }
+
+    func handleSignInError(_ error: Error) {
+        if let error = AuthController.getAwsCognitoAuthError(from: error) {
+            switch error {
+            case .userNotFound:
+                viewState = .error(message: ErrorMessageConstants.accountDoesNotExist)
+            default:
+                print("ERROR: \(error) \(error.localizedDescription)")
+                viewState = .error(message: ErrorMessageConstants.unknown)
+            }
+        } else if let error = error as? AuthError {
+            switch error {
+            case .notAuthorized:
+                // Email is correct, password is not
+                viewState = .error(message: ErrorMessageConstants.incorrectPassword)
+            default:
+                print("ERROR: \(error) \(error.localizedDescription)")
+                viewState = .error(message: ErrorMessageConstants.unknown)
+            }
+        } else {
+            print(error)
             viewState = .error(message: error.localizedDescription)
         }
     }

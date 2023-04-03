@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -23,6 +23,9 @@ struct HomeView: View {
                         }
                     }
                 }
+            }
+            .task {
+                await viewModel.printCurrentUserInfo()
             }
         }
     }

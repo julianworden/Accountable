@@ -30,6 +30,17 @@ class HomeViewModel: ObservableObject {
         postLoggedOutNotification()
     }
 
+    func printCurrentUserInfo() async {
+        do {
+            let currentUser = try await Amplify.Auth.getCurrentUser()
+            print("CURRENT USER: \(currentUser)")
+            let currentUserAttributes = try await Amplify.Auth.fetchUserAttributes()
+            print("CURRENT USER ATTRIBUTES: \(currentUserAttributes)")
+        } catch {
+            print(error)
+        }
+    }
+
     func postLoggedOutNotification() {
         NotificationCenter.default.post(name: .userLoggedOut, object: nil)
     }
