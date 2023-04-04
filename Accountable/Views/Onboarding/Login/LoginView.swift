@@ -13,72 +13,81 @@ struct LoginView: View {
 
     var body: some View {
         NavigationStack(path: $onboardingNavigationController.navigationPath) {
-            VStack(spacing: UiConstants.onboardingViewVStackSpacing) {
-                OnboardingViewHeader(
-                    title: "Welcome!",
-                    subtitle: "Thank you for staying Accountable with us."
-                )
+            GeometryReader { geo in
+                ScrollView {
+                    VStack(spacing: UiConstants.vStackSpacing) {
+                        OnboardingViewHeader(
+                            title: "Welcome!",
+                            subtitle: "Thank you for staying Accountable with us."
+                        )
 
-                TextFieldWithIcon(
-                    text: $viewModel.emailAddress,
-                    iconName: "envelope",
-                    placeholder: "Email Address",
-                    textFieldType: .email
-                )
+                        TextFieldWithLine(
+                            text: $viewModel.emailAddress,
+                            iconName: "envelope",
+                            placeholder: "Email Address",
+                            keyboardType: .emailAddress,
+                            isSecure: false
+                        )
 
-                TextFieldWithIcon(
-                    text: $viewModel.password,
-                    iconName: "key",
-                    placeholder: "Password",
-                    textFieldType: .password
-                )
+                        TextFieldWithLine(
+                            text: $viewModel.password,
+                            iconName: "key",
+                            placeholder: "Password",
+                            keyboardType: .default,
+                            isSecure: true
+                        )
 
-                AsyncButton {
-                    await viewModel.signInWithEmailAndPassword()
-                } label: {
-                    Text("Log In")
-                }
-                .buttonStyle(Primary())
-                .disabled(viewModel.buttonsAreDisabled)
-                .alert(
-                    "Error",
-                    isPresented: $viewModel.unverifiedAccountAlertIsShowing,
-                    actions: {
-                        Button("Cancel", role: .cancel) { }
-                        Button("Send Code") {
-                            Task {
-                                await viewModel.sendConfirmationCode()
+                        AsyncButton {
+                            hideKeyboard()
+                            await viewModel.signInWithEmailAndPassword()
+                        } label: {
+                            Text("Log In")
+                        }
+                        .buttonStyle(Primary())
+                        .disabled(viewModel.buttonsAreDisabled)
+                        .alert(
+                            "Error",
+                            isPresented: $viewModel.unverifiedAccountAlertIsShowing,
+                            actions: {
+                                Button("Cancel", role: .cancel) { }
+                                Button("Send Code") {
+                                    Task {
+                                        await viewModel.sendConfirmationCode()
+                                    }
+                                }
+                            },
+                            message: {
+                                Text("It looks like you signed up for Accountable, but you haven't verified your account. Tap the button below to send a verification email to \(viewModel.emailAddress).")
+                            }
+                        )
+                        .onChange(of: onboardingNavigationController.userEmailAddress) { userEmailAddress in
+                            if userEmailAddress != nil {
+                                onboardingNavigationController.navigateToConfirmCodeView()
                             }
                         }
-                    },
-                    message: {
-                        Text("It looks like you signed up for Accountable, but you haven't verified your account. Tap the button below to send a verification email to \(viewModel.emailAddress).")
+
+                        HStack {
+                            CustomDivider()
+
+                            Text("Or log in with:")
+
+                            CustomDivider()
+                        }
+
+                        LoginSocialMediaButtons(viewModel: viewModel)
+
+                        HStack {
+                            Text("Don't have an account?")
+                            Button("Sign Up") {
+                                onboardingNavigationController.navigateToSignUpView()
+                            }
+                        }
                     }
-                )
-                .onChange(of: onboardingNavigationController.userEmailAddress) { userEmailAddress in
-                    if userEmailAddress != nil {
-                        onboardingNavigationController.navigateToConfirmCodeView()
-                    }
+                    .padding(.horizontal)
+                    .frame(minHeight: geo.size.height)
                 }
-
-                HStack {
-                    CustomDivider()
-
-                    Text("Or log in with:")
-
-                    CustomDivider()
-                }
-
-                LoginSocialMediaButtons(viewModel: viewModel)
-
-                HStack {
-                    Text("Don't have an account?")
-                    Button("Sign Up") {
-                        onboardingNavigationController.navigateToSignUpView()
-                    }
-                }
+                .scrollDismissesKeyboard(.interactively)
             }
-            .padding(.horizontal)
             .alert(
                 "Error",
                 isPresented: $viewModel.errorMessageIsShowing,

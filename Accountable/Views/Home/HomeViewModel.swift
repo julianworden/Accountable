@@ -8,7 +8,10 @@
 import Amplify
 import Foundation
 
-class HomeViewModel: ObservableObject {
+@MainActor
+final class HomeViewModel: ObservableObject {
+    @Published var addEditProjectSheetIsShowing = false
+
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
 

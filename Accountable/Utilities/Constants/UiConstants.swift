@@ -8,5 +8,5 @@
 import Foundation
 
 struct UiConstants {
-    static let onboardingViewVStackSpacing: CGFloat = 25
+    static let vStackSpacing: CGFloat = 25
 }

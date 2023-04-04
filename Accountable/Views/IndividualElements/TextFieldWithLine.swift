@@ -7,28 +7,39 @@
 
 import SwiftUI
 
-struct TextFieldWithIcon: View {
+struct TextFieldWithLine: View {
     @FocusState var isFocused
 
     @Binding var text: String
 
-    let iconName: String
+    let iconName: String?
     let placeholder: String
-    let textFieldType: TextFieldType
+    let keyboardType: UIKeyboardType
+    let isSecure: Bool
+
+    init(text: Binding<String>, iconName: String? = nil, placeholder: String, keyboardType: UIKeyboardType, isSecure: Bool) {
+        _text = Binding(projectedValue: text)
+        self.iconName = iconName
+        self.placeholder = placeholder
+        self.keyboardType = keyboardType
+        self.isSecure = isSecure
+    }
 
     var body: some View {
         ZStack {
             VStack {
                 HStack {
-                    Image(systemName: iconName)
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(.purple)
-                        .frame(width: 18, height: 18)
+                    if let iconName {
+                        Image(systemName: iconName)
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.purple)
+                            .frame(width: 18, height: 18)
 
-                    Spacer()
+                        Spacer()
+                    }
 
-                    if textFieldType == .password {
+                    if isSecure {
                         SecureField(placeholder, text: $text)
                             .focused($isFocused)
 
@@ -48,21 +59,10 @@ struct TextFieldWithIcon: View {
             }
         }
     }
-
-    var keyboardType: UIKeyboardType {
-        switch textFieldType {
-        case .email:
-            return .emailAddress
-        case .numbers:
-            return .numberPad
-        default:
-            return .default
-        }
-    }
 }
 
-struct TextFieldWithIcon_Previews: PreviewProvider {
+struct TextFieldWithLine_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldWithIcon(text: .constant(""), iconName: "envelope", placeholder: "Email Address", textFieldType: .email)
+        TextFieldWithLine(text: .constant(""), iconName: "envelope", placeholder: "Email Address", keyboardType: .emailAddress, isSecure: false)
     }
 }

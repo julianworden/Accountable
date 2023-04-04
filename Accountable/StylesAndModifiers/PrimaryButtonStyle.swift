@@ -17,6 +17,16 @@ struct Primary: ButtonStyle {
             .background(.purple)
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.9 : 1)
-            .animation(.easeInOut.speed(0.5), value: configuration.isPressed)
+            .animation(.easeInOut.speed(2), value: configuration.isPressed)
+    }
+}
+
+struct Primary_Previews: PreviewProvider {
+    static var previews: some View {
+        Button("Hello") {
+
+        }
+        .buttonStyle(Primary())
+        .padding()
     }
 }

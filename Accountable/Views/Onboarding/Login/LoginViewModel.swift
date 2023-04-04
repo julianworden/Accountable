@@ -47,6 +47,8 @@ final class LoginViewModel: ObservableObject {
                 try await handleSignInNextStep(result.nextStep, forAuthUser: currentAuthUser)
                 postSignedInNotification()
                 viewState = .workCompleted
+            } else {
+                try await handleSignInNextStep(result.nextStep, forAuthUser: nil)
             }
         } catch {
             handleSignInError(error)
@@ -115,7 +117,7 @@ final class LoginViewModel: ObservableObject {
 
     func handleSignInNextStep(
         _ nextStep: AuthSignInStep,
-        forAuthUser authUser: AuthUser,
+        forAuthUser authUser: AuthUser?,
         externalProvider: ExternalProvider? = nil
     ) async throws {
         do {
@@ -123,6 +125,8 @@ final class LoginViewModel: ObservableObject {
             case .confirmSignUp(_):
                 unverifiedAccountAlertIsShowing = true
             case .done:
+                guard let authUser else { viewState = .error(message: ErrorMessageConstants.unknown); return }
+
                 if try await currentAuthUserExistsInDataStore(authUser) {
                     return
                 } else {
@@ -149,9 +153,13 @@ final class LoginViewModel: ObservableObject {
             }
         } else if let error = error as? AuthError {
             switch error {
+            case .validation:
+                // User did not enter an email address
+                viewState = .error(message: ErrorMessageConstants.emptyOnboardingField)
             case .notAuthorized:
                 // Email is correct, password is not
                 viewState = .error(message: ErrorMessageConstants.incorrectPassword)
+
             default:
                 print("ERROR: \(error) \(error.localizedDescription)")
                 viewState = .error(message: ErrorMessageConstants.unknown)

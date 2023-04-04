@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-@MainActor
 final class OnboardingNavigationController: ObservableObject {
     @Published var navigationPath = [OnboardingNavigationDestination]()
     /// The email address of a new user that created an account. This is stored here so that it's readily
@@ -35,18 +34,14 @@ final class OnboardingNavigationController: ObservableObject {
     func addUserSignedUpNotificationObserver() {
         NotificationCenter.default.addObserver(forName: .userSignedUp, object: nil, queue: nil) { notification in
             if let emailAddress = notification.userInfo?[NotificationConstants.userEmailAddress] as? String {
-                Task { @MainActor in
-                    self.userEmailAddress = emailAddress
-                }
+                self.userEmailAddress = emailAddress
             }
         }
     }
 
     func addUserConfirmedAccountNotificationObserver() {
         NotificationCenter.default.addObserver(forName: .userConfirmedAccount, object: nil, queue: nil) { _ in
-            Task { @MainActor in
-                self.popToRoot()
-            }
+            self.popToRoot()
         }
     }
 }

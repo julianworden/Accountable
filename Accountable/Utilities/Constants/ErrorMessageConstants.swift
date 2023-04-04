@@ -21,4 +21,5 @@ struct ErrorMessageConstants {
     static let accountNotConfirmed = "You'll need to confirm your account before you can log in. Tap the button below to do so."
     static let accountDoesNotExist = "This email address is not registered with Accountable. Use the sign up button below if you need to create a new account."
     static let passwordTooShort = "Your password is too short, it must be at least 8 characters long."
+    static let emptyOnboardingField = "Please ensure you've filled in all fields in the form."
 }

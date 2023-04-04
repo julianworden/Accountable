@@ -64,21 +64,7 @@ final class SignUpViewModel: ObservableObject {
             try await signUpUser()
             viewState = .workCompleted
         } catch {
-            if let cognitoAuthError = AuthController.getAwsCognitoAuthError(from: error) {
-                switch cognitoAuthError {
-                case .usernameExists:
-                    viewState = .error(message: ErrorMessageConstants.emailAddressAlreadyInUse)
-                case .invalidParameter:
-                    viewState = .error(message: ErrorMessageConstants.invalidEmailAddressOnSignUp)
-                case .invalidPassword:
-                    viewState = .error(message: ErrorMessageConstants.passwordTooShort)
-                default:
-                    print(error)
-                    viewState = .error(message: ErrorMessageConstants.unknown)
-                }
-            } else {
-                viewState = .error(message: error.localizedDescription)
-            }
+            handleSignUpError(error)
         }
     }
 
@@ -99,6 +85,35 @@ final class SignUpViewModel: ObservableObject {
             default:
                 viewState = .error(message: ErrorMessageConstants.unknown)
             }
+        }
+    }
+
+    func handleSignUpError(_ error: Error) {
+        if let cognitoAuthError = AuthController.getAwsCognitoAuthError(from: error) {
+            switch cognitoAuthError {
+            case .usernameExists:
+                viewState = .error(message: ErrorMessageConstants.emailAddressAlreadyInUse)
+            case .invalidParameter:
+                viewState = .error(message: ErrorMessageConstants.invalidEmailAddressOnSignUp)
+            case .invalidPassword:
+                viewState = .error(message: ErrorMessageConstants.passwordTooShort)
+            default:
+                print(error)
+                viewState = .error(message: ErrorMessageConstants.unknown)
+            }
+        } else if let error = error as? AuthError {
+            switch error {
+            case .validation:
+                // User did not enter an email address
+                viewState = .error(message: ErrorMessageConstants.emptyOnboardingField)
+
+            default:
+                print("ERROR: \(error) \(error.localizedDescription)")
+                viewState = .error(message: ErrorMessageConstants.unknown)
+            }
+        } else {
+            print(error)
+            viewState = .error(message: error.localizedDescription)
         }
     }
 

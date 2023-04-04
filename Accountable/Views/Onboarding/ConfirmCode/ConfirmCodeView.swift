@@ -17,48 +17,55 @@ struct ConfirmCodeView: View {
     }
 
     var body: some View {
-        VStack(spacing: UiConstants.onboardingViewVStackSpacing) {
-            OnboardingViewHeader(
-                title: "Enter Code",
-                subtitle: "A verification code was sent to your email address, please enter it below."
-            )
+        GeometryReader { geo in
+            ScrollView {
+                VStack(spacing: UiConstants.vStackSpacing) {
+                    OnboardingViewHeader(
+                        title: "Enter Code",
+                        subtitle: "A verification code was sent to your email address, please enter it below."
+                    )
 
-            TextFieldWithIcon(
-                text: $viewModel.verificationCode,
-                iconName: "key",
-                placeholder: "Verification Code",
-                textFieldType: .numbers
-            )
-            .onChange(of: viewModel.verificationCode) { _ in
-                viewModel.checkCodeLength()
-            }
-
-            AsyncButton {
-                await viewModel.verifyButtonTapped()
-            } label: {
-                Text("Verify")
-            }
-            .buttonStyle(Primary())
-            .disabled(viewModel.buttonsAreDisabled)
-            .alert(
-                "Success!",
-                isPresented: $viewModel.successfulVerificationAlertIsShowing,
-                actions: {
-                    Button("OK") {
-                        viewModel.postAccountConfirmedNotification()
+                    TextFieldWithLine(
+                        text: $viewModel.verificationCode,
+                        iconName: "key",
+                        placeholder: "Verification Code",
+                        keyboardType: .numberPad,
+                        isSecure: false
+                    )
+                    .onChange(of: viewModel.verificationCode) { _ in
+                        viewModel.checkCodeLength()
                     }
-                },
-                message: { Text("Your account was successfully verified! Tap the OK button to sign in and start using Accountable.") }
-            )
+
+                    AsyncButton {
+                        hideKeyboard()
+                        await viewModel.verifyButtonTapped()
+                    } label: {
+                        Text("Verify")
+                    }
+                    .buttonStyle(Primary())
+                    .disabled(viewModel.buttonsAreDisabled)
+                    .alert(
+                        "Success!",
+                        isPresented: $viewModel.successfulVerificationAlertIsShowing,
+                        actions: {
+                            Button("OK") {
+                                viewModel.postAccountConfirmedNotification()
+                            }
+                        },
+                        message: { Text("Your account was successfully verified! Tap the OK button to sign in and start using Accountable.") }
+                    )
+                }
+                .padding(.horizontal)
+                .frame(minHeight: geo.size.height)
+                .toolbar(.hidden)
+                .alert(
+                    "Error",
+                    isPresented: $viewModel.errorMessageIsShowing,
+                    actions: { Button("OK") { } },
+                    message: { Text(viewModel.errorMessageText) }
+                )
         }
-        .padding(.horizontal)
-        .navigationBarBackButtonHidden()
-        .alert(
-            "Error",
-            isPresented: $viewModel.errorMessageIsShowing,
-            actions: { Button("OK") { } },
-            message: { Text(viewModel.errorMessageText) }
-        )
+        }
     }
 }
 

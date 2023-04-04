@@ -8,54 +8,72 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @Environment(\.dismiss) var dismiss
+
     @StateObject private var viewModel = SignUpViewModel()
 
     @ObservedObject var onboardingNavigationController: OnboardingNavigationController
 
     var body: some View {
-        VStack(spacing: UiConstants.onboardingViewVStackSpacing) {
-            OnboardingViewHeader(
-                title: "Sign Up",
-                subtitle: "You'll need to create an account before you can use Accountable"
-            )
+        ZStack(alignment: .topLeading) {
+            GeometryReader { geo in
+                ScrollView {
+                    VStack(spacing: UiConstants.vStackSpacing) {
+                        OnboardingViewHeader(
+                            title: "Sign Up",
+                            subtitle: "You'll need to create an account before you can use Accountable"
+                        )
 
-            TextFieldWithIcon(
-                text: $viewModel.emailAddress,
-                iconName: "envelope",
-                placeholder: "Email Address",
-                textFieldType: .email
-            )
+                        TextFieldWithLine(
+                            text: $viewModel.emailAddress,
+                            iconName: "envelope",
+                            placeholder: "Email Address",
+                            keyboardType: .emailAddress,
+                            isSecure: false
+                        )
 
-            TextFieldWithIcon(
-                text: $viewModel.confirmedEmailAddress,
-                iconName: "envelope",
-                placeholder: "Confirm Email Address",
-                textFieldType: .email
-            )
+                        TextFieldWithLine(
+                            text: $viewModel.confirmedEmailAddress,
+                            iconName: "envelope",
+                            placeholder: "Confirm Email Address",
+                            keyboardType: .emailAddress,
+                            isSecure: false
+                        )
 
-            TextFieldWithIcon(
-                text: $viewModel.password,
-                iconName: "key",
-                placeholder: "Password",
-                textFieldType: .password
-            )
+                        TextFieldWithLine(
+                            text: $viewModel.password,
+                            iconName: "key",
+                            placeholder: "Password",
+                            keyboardType: .default,
+                            isSecure: true
+                        )
 
-            TextFieldWithIcon(
-                text: $viewModel.confirmedPassword,
-                iconName: "key",
-                placeholder: "Confirm Password",
-                textFieldType: .password
-            )
+                        TextFieldWithLine(
+                            text: $viewModel.confirmedPassword,
+                            iconName: "key",
+                            placeholder: "Confirm Password",
+                            keyboardType: .default,
+                            isSecure: true
+                        )
 
-            AsyncButton {
-                await viewModel.signUpButtonTapped()
-            } label: {
-                Text("Sign Up")
+                        AsyncButton {
+                            hideKeyboard()
+                            await viewModel.signUpButtonTapped()
+                        } label: {
+                            Text("Sign Up")
+                        }
+                        .buttonStyle(Primary())
+                        .disabled(viewModel.buttonsAreDisabled)
+                    }
+                    .padding(.horizontal)
+                    .frame(minHeight: geo.frame(in: .global).height)
+                }
+                .scrollDismissesKeyboard(.interactively)
             }
-            .buttonStyle(Primary())
-            .disabled(viewModel.buttonsAreDisabled)
+
+            CustomBackButton()
         }
-        .padding(.horizontal)
+        .toolbar(.hidden)
         .alert(
             "Error",
             isPresented: $viewModel.errorMessageIsShowing,
@@ -72,6 +90,10 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView(onboardingNavigationController: OnboardingNavigationController())
+        NavigationStack {
+            SignUpView(onboardingNavigationController: OnboardingNavigationController())
+                .navigationTitle("TEST")
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
