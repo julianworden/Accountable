@@ -15,12 +15,47 @@ struct ProjectDetailsView: View {
     }
 
     var body: some View {
-        Text(viewModel.project.name)
+        ScrollView {
+            GeometryReader { geo in
+                VStack(spacing: UiConstants.vStackSpacing) {
+                    VStack {
+                        SectionTitle(text: "This Week")
+
+                        CustomGroupBox()
+                            .frame(height: UiConstants.primaryBoxHeight)
+                    }
+
+                    Grid(alignment: .center, horizontalSpacing: UiConstants.vStackSpacing, verticalSpacing: nil) {
+                        GridRow {
+                            CustomGroupBox()
+                                .frame(height: abs((geo.size.width / 2) - 25))
+
+                            CustomGroupBox()
+                                .frame(height: abs((geo.size.width / 2) - 25))
+                        }
+                    }
+
+                    SectionTitle(text: "Recent Sessions")
+
+                    Button("Start Session") {
+
+                    }
+                    .buttonStyle(Primary())
+                }
+                .navigationTitle(viewModel.project.name)
+                .navigationBarTitleDisplayMode(.inline)
+            }
+            .padding(.horizontal)
+        }
     }
 }
 
 struct ProjectDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectDetailsView(project: Project.example)
+        NavigationStack {
+            ProjectDetailsView(project: Project.example)
+                .navigationTitle("Learn to Code")
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }

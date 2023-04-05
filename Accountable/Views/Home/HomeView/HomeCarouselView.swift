@@ -10,19 +10,15 @@ import SwiftUI
 struct HomeCarouselView: View {
     @ObservedObject var viewModel: HomeViewModel
 
-    @Environment(\.colorScheme) var colorScheme
-
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(colorScheme == .light ? .white : .lightGray)
-                .shadow(color: .purple.opacity(0.25), radius: 5)
+            CustomGroupBox()
 
             Text("You haven't worked on Accountable yet. When you do, you'll see your hours here.")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
         }
-        .frame(height: 300)
+        .frame(height: UiConstants.primaryBoxHeight)
     }
 }
 

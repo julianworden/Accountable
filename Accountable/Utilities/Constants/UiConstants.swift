@@ -9,4 +9,5 @@ import Foundation
 
 struct UiConstants {
     static let vStackSpacing: CGFloat = 25
+    static let primaryBoxHeight: CGFloat = 300
 }

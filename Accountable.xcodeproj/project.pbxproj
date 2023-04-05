@@ -43,6 +43,7 @@
 		AB67AA0129DDFBD400D797BD /* HomeProjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */; };
 		AB67AA0329DDFC6200D797BD /* HomeCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0229DDFC6200D797BD /* HomeCarouselView.swift */; };
 		AB67AA0529DDFCD700D797BD /* HomeProjectsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */; };
+		AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */; };
 		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
 		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
 		AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */; };
@@ -111,6 +112,7 @@
 		AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProjectsList.swift; sourceTree = "<group>"; };
 		AB67AA0229DDFC6200D797BD /* HomeCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarouselView.swift; sourceTree = "<group>"; };
 		AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProjectsHeader.swift; sourceTree = "<group>"; };
+		AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBox.swift; sourceTree = "<group>"; };
 		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
@@ -192,8 +194,8 @@
 		AB2C0A5D29DB11500018B62F /* Projects */ = {
 			isa = PBXGroup;
 			children = (
-				AB59AB2429DDB9EF0041F6F8 /* ProjectDetails */,
 				AB2C0A5E29DB115E0018B62F /* AddEditProject */,
+				AB59AB2429DDB9EF0041F6F8 /* ProjectDetails */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -378,6 +380,7 @@
 				AB06CDE729DB08EF00F4D912 /* SectionTitle.swift */,
 				AB2C0A6329DB152C0018B62F /* CustomSegmentedPicker.swift */,
 				AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */,
+				AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */,
 			);
 			path = IndividualElements;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				74FAED5A93C9CA1CBA468188 /* Priority.swift in Sources */,
 				AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */,
 				ABAC1F3529D87358007B0A0B /* OnboardingViewHeader.swift in Sources */,
+				AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */,
 				AB45540C29D71A6B00A5CFEB /* OnboardingNavigationController.swift in Sources */,
 				ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */,
 				A8453C0FEA8A0E969C7C4DBA /* Project+Schema.swift in Sources */,

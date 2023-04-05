@@ -23,9 +23,11 @@ struct HomeView: View {
                 case .error, .dataLoaded:
                     ScrollView {
                         VStack(alignment: .leading, spacing: UiConstants.vStackSpacing) {
-                            SectionTitle(text: "At A Glance")
+                            VStack {
+                                SectionTitle(text: "At A Glance")
 
-                            HomeCarouselView(viewModel: viewModel)
+                                HomeCarouselView(viewModel: viewModel)
+                            }
 
                             HomeProjectsHeader(viewModel: viewModel)
 
