@@ -21,55 +21,17 @@ struct HomeView: View {
                     CustomProgressView()
 
                 case .error, .dataLoaded:
-                    GeometryReader { geo in
-                        ScrollView {
-                            VStack(alignment: .leading, spacing: UiConstants.vStackSpacing) {
-                                SectionTitle(text: "At A Glance")
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: UiConstants.vStackSpacing) {
+                            SectionTitle(text: "At A Glance")
 
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(colorScheme == .light ? .white : .lightGray)
-                                        .shadow(color: .purple.opacity(0.25), radius: 5)
+                            HomeCarouselView(viewModel: viewModel)
 
-                                    Text("You haven't worked on Accountable yet. When you do, you'll see your hours here.")
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal)
-                                }
-                                .frame(height: geo.size.height / 3)
+                            HomeProjectsHeader(viewModel: viewModel)
 
-                                HStack {
-                                    SectionTitle(text: "Your Projects")
-                                    Spacer()
-                                    Button("Create a Project") {
-                                        viewModel.addEditProjectSheetIsShowing.toggle()
-                                    }
-                                    .sheet(
-                                        isPresented: $viewModel.addEditProjectSheetIsShowing,
-                                        onDismiss: {
-                                            Task {
-                                                await viewModel.getLoggedInUserProjects()
-                                            }
-                                        },
-                                        content: {
-                                            AddEditProjectView()
-                                        }
-                                    )
-                                }
-
-                                VStack {
-                                    ForEach(viewModel.userProjects) { project in
-                                        NavigationLink {
-                                            ProjectDetailsView(project: project)
-                                        } label: {
-                                            HomeViewProjectRow(project: project)
-                                        }
-                                        .tint(.primary)
-                                    }
-                                }
-                                .padding(.top, -5)
-                            }
-                            .padding(.horizontal)
+                            HomeProjectsList(viewModel: viewModel)
                         }
+                        .padding(.horizontal)
                     }
                     .navigationTitle("Accountable")
                     .transition(.opacity)

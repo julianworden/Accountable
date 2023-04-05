@@ -40,6 +40,9 @@
 		AB59AB2B29DDBAA00041F6F8 /* Project+example.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2A29DDBAA00041F6F8 /* Project+example.swift */; };
 		AB59AB2D29DDBCA20041F6F8 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */; };
 		AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */; };
+		AB67AA0129DDFBD400D797BD /* HomeProjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */; };
+		AB67AA0329DDFC6200D797BD /* HomeCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0229DDFC6200D797BD /* HomeCarouselView.swift */; };
+		AB67AA0529DDFCD700D797BD /* HomeProjectsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */; };
 		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
 		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
 		AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */; };
@@ -105,6 +108,9 @@
 		AB59AB2A29DDBAA00041F6F8 /* Project+example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+example.swift"; sourceTree = "<group>"; };
 		AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProjectRow.swift; sourceTree = "<group>"; };
+		AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProjectsList.swift; sourceTree = "<group>"; };
+		AB67AA0229DDFC6200D797BD /* HomeCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarouselView.swift; sourceTree = "<group>"; };
+		AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProjectsHeader.swift; sourceTree = "<group>"; };
 		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
@@ -243,6 +249,9 @@
 			isa = PBXGroup;
 			children = (
 				ABB998EB29D9B7C700421E01 /* HomeView.swift */,
+				AB67AA0229DDFC6200D797BD /* HomeCarouselView.swift */,
+				AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */,
+				AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */,
 				ABB998EE29D9B7F900421E01 /* HomeViewModel.swift */,
 			);
 			path = HomeView;
@@ -550,6 +559,7 @@
 				ABB998EF29D9B7F900421E01 /* HomeViewModel.swift in Sources */,
 				AB45541529D726F200A5CFEB /* ViewState.swift in Sources */,
 				65EB8B7F0792FA6A77D3F7DE /* Project.swift in Sources */,
+				AB67AA0129DDFBD400D797BD /* HomeProjectsList.swift in Sources */,
 				AB2D1EF829D5C30E00215C9C /* CustomDivider.swift in Sources */,
 				ABB998F229D9CCF600421E01 /* DatabaseService.swift in Sources */,
 				ABB2D84629D68BB1004F9278 /* Notification.Name+CustomNotifications.swift in Sources */,
@@ -558,6 +568,7 @@
 				AB45541129D71C0500A5CFEB /* ConfirmCodeView.swift in Sources */,
 				AB2C0A6029DB11660018B62F /* AddEditProjectView.swift in Sources */,
 				AB45540E29D71B1300A5CFEB /* OnboardingNavigationDestination.swift in Sources */,
+				AB67AA0329DDFC6200D797BD /* HomeCarouselView.swift in Sources */,
 				AB5609E829D86AED00B75F46 /* AsyncButton.swift in Sources */,
 				ABAC1F3B29D87CBA007B0A0B /* TextFieldType.swift in Sources */,
 				ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */,
@@ -570,6 +581,7 @@
 				AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */,
 				ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */,
 				ABA728AC29DC6E4100E66D98 /* Color+CustomColors.swift in Sources */,
+				AB67AA0529DDFCD700D797BD /* HomeProjectsHeader.swift in Sources */,
 				244EB944306004A5CB42C338 /* User+Schema.swift in Sources */,
 				A6D207C73E6C0835E2EE6E4C /* User.swift in Sources */,
 				6FA8CE26E35A7E70EFA5618E /* ExternalProvider.swift in Sources */,
