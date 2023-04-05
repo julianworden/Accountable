@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.defaultMinListRowHeight) var minListRowHeight
 
     @StateObject private var viewModel = HomeViewModel()
 
@@ -19,8 +18,7 @@ struct HomeView: View {
                 switch viewModel.viewState {
 
                 case .dataLoading:
-                    ProgressView()
-                        .transition(.opacity)
+                    CustomProgressView()
 
                 case .error, .dataLoaded:
                     GeometryReader { geo in
@@ -58,17 +56,17 @@ struct HomeView: View {
                                     )
                                 }
 
-                                ForEach(viewModel.userProjects) { project in
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .fill(colorScheme == .light ? .white : .lightGray)
-                                            .shadow(color: .purple.opacity(0.25), radius: 5)
-
-                                        Text(project.name)
+                                VStack {
+                                    ForEach(viewModel.userProjects) { project in
+                                        NavigationLink {
+                                            ProjectDetailsView(project: project)
+                                        } label: {
+                                            HomeViewProjectRow(project: project)
+                                        }
+                                        .tint(.primary)
                                     }
-                                    .listRowSeparator(.hidden)
-                                    .frame(height: minListRowHeight + 20)
                                 }
+                                .padding(.top, -5)
                             }
                             .padding(.horizontal)
                         }
@@ -89,7 +87,6 @@ struct HomeView: View {
                     Text("Invalid viewState: \(String(describing: viewModel.viewState))")
                 }
             }
-            .animation(.easeInOut, value: viewModel.viewState)
             .alert(
                 "Error",
                 isPresented: $viewModel.errorMessageIsShowing,

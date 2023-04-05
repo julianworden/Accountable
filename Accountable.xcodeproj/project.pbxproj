@@ -35,6 +35,11 @@
 		AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */; };
 		AB5609E829D86AED00B75F46 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5609E729D86AEC00B75F46 /* AsyncButton.swift */; };
 		AB59AB2329DDAA190041F6F8 /* Project+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */; };
+		AB59AB2629DDB9F80041F6F8 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2529DDB9F80041F6F8 /* ProjectDetailsView.swift */; };
+		AB59AB2829DDBA000041F6F8 /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2729DDBA000041F6F8 /* ProjectDetailsViewModel.swift */; };
+		AB59AB2B29DDBAA00041F6F8 /* Project+example.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2A29DDBAA00041F6F8 /* Project+example.swift */; };
+		AB59AB2D29DDBCA20041F6F8 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */; };
+		AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */; };
 		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
 		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
 		AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */; };
@@ -95,6 +100,11 @@
 		AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
 		AB5609E729D86AEC00B75F46 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Identifiable.swift"; sourceTree = "<group>"; };
+		AB59AB2529DDB9F80041F6F8 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
+		AB59AB2729DDBA000041F6F8 /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
+		AB59AB2A29DDBAA00041F6F8 /* Project+example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+example.swift"; sourceTree = "<group>"; };
+		AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProjectRow.swift; sourceTree = "<group>"; };
 		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
@@ -176,6 +186,7 @@
 		AB2C0A5D29DB11500018B62F /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				AB59AB2429DDB9EF0041F6F8 /* ProjectDetails */,
 				AB2C0A5E29DB115E0018B62F /* AddEditProject */,
 			);
 			path = Projects;
@@ -207,6 +218,42 @@
 				AB88C8C429D780D400F5DAD1 /* ConfirmCodeTextField.swift */,
 			);
 			path = ConfirmCode;
+			sourceTree = "<group>";
+		};
+		AB59AB2429DDB9EF0041F6F8 /* ProjectDetails */ = {
+			isa = PBXGroup;
+			children = (
+				AB59AB2529DDB9F80041F6F8 /* ProjectDetailsView.swift */,
+				AB59AB2729DDBA000041F6F8 /* ProjectDetailsViewModel.swift */,
+			);
+			path = ProjectDetails;
+			sourceTree = "<group>";
+		};
+		AB59AB2929DDBA8E0041F6F8 /* AmplifyModelExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB2C0A6629DB15D10018B62F /* Priority+CaseIterable.swift */,
+				AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */,
+				AB59AB2A29DDBAA00041F6F8 /* Project+example.swift */,
+			);
+			path = AmplifyModelExtensions;
+			sourceTree = "<group>";
+		};
+		AB59AB2F29DDBDA70041F6F8 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				ABB998EB29D9B7C700421E01 /* HomeView.swift */,
+				ABB998EE29D9B7F900421E01 /* HomeViewModel.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		AB59AB3029DDBDAD0041F6F8 /* IndividualElements */ = {
+			isa = PBXGroup;
+			children = (
+				AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */,
+			);
+			path = IndividualElements;
 			sourceTree = "<group>";
 		};
 		AB77867629D5D23A00CE5989 /* Controllers */ = {
@@ -258,7 +305,6 @@
 				ABAC1F3429D87358007B0A0B /* OnboardingViewHeader.swift */,
 				AB45540B29D71A6B00A5CFEB /* OnboardingNavigationController.swift */,
 				AB45540D29D71B1300A5CFEB /* OnboardingNavigationDestination.swift */,
-				ABA728A929DC5C6D00E66D98 /* CustomBackButton.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -276,10 +322,9 @@
 		ABB2D84429D68B74004F9278 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AB59AB2929DDBA8E0041F6F8 /* AmplifyModelExtensions */,
 				ABB2D84529D68BB1004F9278 /* Notification.Name+CustomNotifications.swift */,
 				AB019BD929DCC57D007010ED /* String+isReallyEmpty.swift */,
-				AB2C0A6629DB15D10018B62F /* Priority+CaseIterable.swift */,
-				AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */,
 				ABB8CD9529DB815D00367A62 /* View+HideKeyboard.swift */,
 				ABA728AB29DC6E4100E66D98 /* Color+CustomColors.swift */,
 			);
@@ -307,8 +352,8 @@
 		ABB998EA29D9B7C000421E01 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				ABB998EB29D9B7C700421E01 /* HomeView.swift */,
-				ABB998EE29D9B7F900421E01 /* HomeViewModel.swift */,
+				AB59AB2F29DDBDA70041F6F8 /* HomeView */,
+				AB59AB3029DDBDAD0041F6F8 /* IndividualElements */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -316,12 +361,14 @@
 		ABB998ED29D9B7CA00421E01 /* IndividualElements */ = {
 			isa = PBXGroup;
 			children = (
+				ABA728A929DC5C6D00E66D98 /* CustomBackButton.swift */,
 				AB5609E729D86AEC00B75F46 /* AsyncButton.swift */,
 				AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */,
 				AB77867429D5CFB600CE5989 /* SplashScreenView.swift */,
 				ABCD330B29D4841400BA9529 /* TextFieldWithLine.swift */,
 				AB06CDE729DB08EF00F4D912 /* SectionTitle.swift */,
 				AB2C0A6329DB152C0018B62F /* CustomSegmentedPicker.swift */,
+				AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */,
 			);
 			path = IndividualElements;
 			sourceTree = "<group>";
@@ -474,11 +521,13 @@
 				ABB2D84929D69057004F9278 /* ErrorMessageConstants.swift in Sources */,
 				AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */,
 				AB2C0A6429DB152C0018B62F /* CustomSegmentedPicker.swift in Sources */,
+				AB59AB2D29DDBCA20041F6F8 /* CustomProgressView.swift in Sources */,
 				AB019BDA29DCC57D007010ED /* String+isReallyEmpty.swift in Sources */,
 				AB88C8C529D780D400F5DAD1 /* ConfirmCodeTextField.swift in Sources */,
 				AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */,
 				AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */,
 				ABD8B56229D0DB42007BF1BC /* LoginView.swift in Sources */,
+				AB59AB2B29DDBAA00041F6F8 /* Project+example.swift in Sources */,
 				ABD8B56029D0DB42007BF1BC /* AccountableApp.swift in Sources */,
 				AB06CDE329DA2CC000F4D912 /* AuthService.swift in Sources */,
 				ABA728AA29DC5C6D00E66D98 /* CustomBackButton.swift in Sources */,
@@ -491,6 +540,7 @@
 				AB2C0A6229DB13220018B62F /* AddEditProjectViewModel.swift in Sources */,
 				AB06CDE829DB08EF00F4D912 /* SectionTitle.swift in Sources */,
 				74FAED5A93C9CA1CBA468188 /* Priority.swift in Sources */,
+				AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */,
 				ABAC1F3529D87358007B0A0B /* OnboardingViewHeader.swift in Sources */,
 				AB45540C29D71A6B00A5CFEB /* OnboardingNavigationController.swift in Sources */,
 				ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */,
@@ -503,6 +553,7 @@
 				AB2D1EF829D5C30E00215C9C /* CustomDivider.swift in Sources */,
 				ABB998F229D9CCF600421E01 /* DatabaseService.swift in Sources */,
 				ABB2D84629D68BB1004F9278 /* Notification.Name+CustomNotifications.swift in Sources */,
+				AB59AB2829DDBA000041F6F8 /* ProjectDetailsViewModel.swift in Sources */,
 				ABAC1F3729D8751C007B0A0B /* UiConstants.swift in Sources */,
 				AB45541129D71C0500A5CFEB /* ConfirmCodeView.swift in Sources */,
 				AB2C0A6029DB11660018B62F /* AddEditProjectView.swift in Sources */,
@@ -514,6 +565,7 @@
 				ABB8CD9629DB815D00367A62 /* View+HideKeyboard.swift in Sources */,
 				ABCD330C29D4841400BA9529 /* TextFieldWithLine.swift in Sources */,
 				ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */,
+				AB59AB2629DDB9F80041F6F8 /* ProjectDetailsView.swift in Sources */,
 				AB88C8C729D7988000F5DAD1 /* NotificationConstants.swift in Sources */,
 				AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */,
 				ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */,

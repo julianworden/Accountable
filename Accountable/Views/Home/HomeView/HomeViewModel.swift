@@ -31,11 +31,13 @@ final class HomeViewModel: ObservableObject {
         }
     }
 
+    init() {
+        viewState = .dataLoading
+    }
+
     func getLoggedInUserProjects() async {
         do {
-            viewState = .dataLoading
             userProjects = try await DatabaseService.shared.getLoggedInUserProjects()
-
             userProjects.isEmpty ? (viewState = .dataNotFound) : (viewState = .dataLoaded)
         } catch {
             viewState = .error(message: ErrorMessageConstants.unknown)
