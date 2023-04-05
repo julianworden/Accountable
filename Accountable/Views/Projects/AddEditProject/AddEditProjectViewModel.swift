@@ -5,6 +5,7 @@
 //  Created by Julian Worden on 4/3/23.
 //
 
+import Amplify
 import Foundation
 
 @MainActor
@@ -12,4 +13,62 @@ final class AddEditProjectViewModel: ObservableObject {
     @Published var projectName = ""
     @Published var projectDescription = ""
     @Published var selectedPriorityIndex = 1
+    @Published var buttonsAreDisabled = false
+    @Published var projectOperationCompleted = false
+
+    @Published var errorMessageIsShowing = false
+    var errorMessageText = ""
+
+    @Published var viewState = ViewState.displayingView {
+        didSet {
+            switch viewState {
+            case .performingWork:
+                buttonsAreDisabled = true
+            case .workCompleted:
+                buttonsAreDisabled = false
+                projectOperationCompleted = true
+            case .error(let message):
+                errorMessageText = message
+                errorMessageIsShowing = true
+                buttonsAreDisabled = false
+            default:
+                errorMessageText = ErrorMessageConstants.invalidViewState
+                errorMessageIsShowing = true
+                buttonsAreDisabled = false
+            }
+        }
+    }
+
+    func createProject() async {
+        guard !projectName.isReallyEmpty else {
+            viewState = .error(message: ErrorMessageConstants.noProjectNameEntered)
+            return
+        }
+
+        do {
+            viewState = .performingWork
+            var loggedInUser = try await DatabaseService.shared.getLoggedInUser()
+            try await loggedInUser.projects?.fetch()
+
+            let project = Project(
+                creator: loggedInUser,
+                name: projectName,
+                priority: Priority.allCases[selectedPriorityIndex],
+                description: projectDescription
+            )
+
+            if let loggedInUserProjects = loggedInUser.projects {
+                var loggedInUserProjectsAsArray = loggedInUserProjects.map { $0 }
+                loggedInUserProjectsAsArray += [project]
+                loggedInUser.projects = List(elements: loggedInUserProjectsAsArray)
+            } else {
+                loggedInUser.projects = List(elements: [project])
+            }
+
+            try await Amplify.DataStore.save(project)
+            viewState = .workCompleted
+        } catch {
+            viewState = .error(message: error.localizedDescription)
+        }
+    }
 }

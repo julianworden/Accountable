@@ -10,14 +10,17 @@ import Foundation
 
 @MainActor
 final class HomeViewModel: ObservableObject {
+    @Published var userProjects = [Project]()
     @Published var addEditProjectSheetIsShowing = false
 
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
 
-    @Published var viewState = ViewState.displayingView {
+    @Published var viewState = ViewState.dataLoading {
         didSet {
             switch viewState {
+            case .dataLoading, .dataLoaded:
+                return
             case .error(let message):
                 errorMessageText = message
                 errorMessageIsShowing = true
@@ -28,6 +31,17 @@ final class HomeViewModel: ObservableObject {
         }
     }
 
+    func getLoggedInUserProjects() async {
+        do {
+            viewState = .dataLoading
+            userProjects = try await DatabaseService.shared.getLoggedInUserProjects()
+
+            userProjects.isEmpty ? (viewState = .dataNotFound) : (viewState = .dataLoaded)
+        } catch {
+            viewState = .error(message: ErrorMessageConstants.unknown)
+        }
+    }
+
     func logOut() async {
         _ = await Amplify.Auth.signOut()
         postLoggedOutNotification()
@@ -35,10 +49,18 @@ final class HomeViewModel: ObservableObject {
 
     func printCurrentUserInfo() async {
         do {
-            let currentUser = try await Amplify.Auth.getCurrentUser()
-            print("CURRENT USER: \(currentUser)")
+            let currentAuthUser = try await Amplify.Auth.getCurrentUser()
+            print("CURRENT USER: \(currentAuthUser)")
             let currentUserAttributes = try await Amplify.Auth.fetchUserAttributes()
             print("CURRENT USER ATTRIBUTES: \(currentUserAttributes)")
+            let currentUser = try await DatabaseService.shared.getLoggedInUser()
+            try await currentUser.projects?.fetch()
+            if let currentUserProjects = currentUser.projects {
+                for project in currentUserProjects {
+                    print("CURRENT USER PROJECT: \(project.name)")
+                }
+            }
+            #warning("get rid of excess projects")
         } catch {
             print(error)
         }

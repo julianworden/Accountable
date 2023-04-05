@@ -3,7 +3,7 @@ import Amplify
 import Foundation
 
 public enum Priority: String, EnumPersistable {
-  case low = "LOW"
-  case normal = "NORMAL"
-  case high = "HIGH"
+  case low
+  case normal
+  case high
 }

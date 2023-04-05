@@ -25,7 +25,22 @@ struct AddEditProjectView: View {
                         isSecure: false
                     )
 
-                    CustomSegmentedPicker(selectedIndex: $viewModel.selectedPriorityIndex)
+                    TextFieldWithLine(
+                        text: $viewModel.projectDescription,
+                        placeholder: "Description",
+                        keyboardType: .default,
+                        isSecure: false
+                    )
+
+                    CustomSegmentedPicker(selectedIndex: $viewModel.selectedPriorityIndex, title: "Priority")
+
+                    AsyncButton {
+                        await viewModel.createProject()
+                    } label: {
+                        Text("Create Project")
+                    }
+                    .buttonStyle(Primary())
+                    .disabled(viewModel.buttonsAreDisabled)
                 }
                 .padding([.top, .horizontal])
             }
@@ -36,6 +51,17 @@ struct AddEditProjectView: View {
                     Button("Cancel", role: .cancel) {
                         dismiss()
                     }
+                }
+            }
+            .alert(
+                "Error",
+                isPresented: $viewModel.errorMessageIsShowing,
+                actions: { Button("OK") { } },
+                message: { Text(viewModel.errorMessageText) }
+            )
+            .onChange(of: viewModel.projectOperationCompleted) { projectOperationCompleted in
+                if projectOperationCompleted {
+                    dismiss()
                 }
             }
         }

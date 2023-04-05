@@ -6,6 +6,7 @@ extension Project {
   // MARK: - CodingKeys 
    public enum CodingKeys: String, ModelKey {
     case id
+    case creator
     case name
     case priority
     case description
@@ -23,7 +24,7 @@ extension Project {
       rule(allow: .public, operations: [.create, .update, .delete, .read])
     ]
     
-    model.syncPluralName = "Projects"
+    model.pluralName = "Projects"
     
     model.attributes(
       .primaryKey(fields: [project.id])
@@ -31,6 +32,7 @@ extension Project {
     
     model.fields(
       .field(project.id, is: .required, ofType: .string),
+      .belongsTo(project.creator, is: .required, ofType: User.self, targetNames: ["userProjectsId"]),
       .field(project.name, is: .required, ofType: .string),
       .field(project.priority, is: .required, ofType: .enum(type: Priority.self)),
       .field(project.description, is: .optional, ofType: .string),

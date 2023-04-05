@@ -34,10 +34,10 @@ struct ConfirmCodeTextField: View {
                 }
 
                 RoundedRectangle(cornerRadius: 2)
+                    .fill(.purple)
                     .frame(height: 2)
-                    .foregroundColor(.purple)
                     .opacity(isFocused ? 1.0 : 0.3)
-                    .animation(.easeInOut(duration: 0.25), value: isFocused)
+                    .animation(.easeInOut(duration: 2), value: isFocused)
             }
         }
         .frame(width: 75)

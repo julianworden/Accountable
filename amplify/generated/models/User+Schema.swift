@@ -8,6 +8,7 @@ extension User {
     case id
     case username
     case externalProvider
+    case projects
     case createdAt
     case updatedAt
   }
@@ -22,7 +23,7 @@ extension User {
       rule(allow: .public, operations: [.create, .update, .delete, .read])
     ]
     
-    model.syncPluralName = "Users"
+    model.pluralName = "Users"
     
     model.attributes(
       .primaryKey(fields: [user.id])
@@ -32,6 +33,7 @@ extension User {
       .field(user.id, is: .required, ofType: .string),
       .field(user.username, is: .required, ofType: .string),
       .field(user.externalProvider, is: .optional, ofType: .enum(type: ExternalProvider.self)),
+      .hasMany(user.projects, is: .optional, ofType: Project.self, associatedWith: Project.keys.creator),
       .field(user.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(user.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
     )

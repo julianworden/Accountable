@@ -2,19 +2,21 @@ type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   username: String!
   externalProvider: ExternalProvider
+  projects: [Project] @hasMany
 }
 
 type Project @model @auth(rules: [{allow: public}]) {
   id: ID!
+  creator: User! @belongsTo
   name: String!
   priority: Priority!
   description: String
 }
 
 enum Priority {
-  LOW
-  NORMAL
-  HIGH
+  low
+  normal
+  high
 }
 
 enum ExternalProvider {

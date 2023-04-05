@@ -7,9 +7,12 @@
 
 import Foundation
 
-enum ViewState {
+enum ViewState: Equatable {
     case displayingView
     case performingWork
     case workCompleted
+    case dataLoading
+    case dataLoaded
+    case dataNotFound
     case error(message: String)
 }

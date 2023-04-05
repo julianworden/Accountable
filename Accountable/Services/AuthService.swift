@@ -29,4 +29,13 @@ class AuthService {
             throw AuthServiceError.unknown(message: "Failed to fetch logged in user's email address. \(ErrorMessageConstants.unknown)")
         }
     }
+
+    func getLoggedInUserId() async throws -> String {
+        do {
+            let currentUser = try await Amplify.Auth.getCurrentUser()
+            return currentUser.userId
+        } catch {
+            throw AuthServiceError.unknown(message: "Failed to fetch logged in user's ID. \(ErrorMessageConstants.unknown)")
+        }
+    }
 }
