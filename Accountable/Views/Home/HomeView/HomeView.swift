@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme
 
+    @EnvironmentObject var ongoingSessionController: OngoingSessionController
+
     @StateObject private var viewModel = HomeViewModel()
 
     var body: some View {
@@ -23,6 +25,19 @@ struct HomeView: View {
                 case .error, .dataLoaded:
                     ScrollView {
                         VStack(alignment: .leading, spacing: UiConstants.vStackSpacing) {
+                            if ongoingSessionController.sessionIsActive {
+                                VStack {
+                                    SectionTitle(text: "Current Session")
+
+                                    ZStack {
+                                        CustomGroupBox()
+                                            .frame(height: 100)
+
+                                        Text(ongoingSessionController.display)
+                                    }
+                                }
+                            }
+
                             VStack {
                                 SectionTitle(text: "At A Glance")
 
@@ -68,5 +83,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(OngoingSessionController())
     }
 }

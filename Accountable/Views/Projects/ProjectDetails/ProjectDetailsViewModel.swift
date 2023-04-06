@@ -8,6 +8,8 @@
 import Foundation
 
 class ProjectDetailsViewModel: ObservableObject {
+    @Published var sessionViewIsShowing = false
+
     let project: Project
 
     init(project: Project) {

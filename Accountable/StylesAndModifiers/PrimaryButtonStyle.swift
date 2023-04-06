@@ -9,12 +9,18 @@ import Foundation
 import SwiftUI
 
 struct Primary: ButtonStyle {
+    let backgroundColor: Color
+
+    init(backgroundColor: Color = .accentColor) {
+        self.backgroundColor = backgroundColor
+    }
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(.white)
             .bold()
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
-            .background(.purple)
+            .background(backgroundColor)
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.9 : 1)
             .animation(.easeInOut.speed(2), value: configuration.isPressed)
@@ -26,7 +32,7 @@ struct Primary_Previews: PreviewProvider {
         Button("Hello") {
 
         }
-        .buttonStyle(Primary())
+        .buttonStyle(Primary(backgroundColor: .purple))
         .padding()
     }
 }

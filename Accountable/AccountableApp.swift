@@ -15,6 +15,7 @@ import SwiftUI
 @main
 struct AccountableApp: App {
     @StateObject private var loginController = LoginController()
+    @StateObject private var ongoingSessionController = OngoingSessionController()
 
     var body: some Scene {
         WindowGroup {
@@ -24,6 +25,7 @@ struct AccountableApp: App {
                     SplashScreenView()
                 case .loggedIn:
                     HomeView()
+                        .environmentObject(ongoingSessionController)
                         .transition(.opacity)
                 case .loggedOut:
                     LoginView()

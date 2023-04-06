@@ -38,9 +38,14 @@ struct ProjectDetailsView: View {
                     SectionTitle(text: "Recent Sessions")
 
                     Button("Start Session") {
-
+                        viewModel.sessionViewIsShowing.toggle()
                     }
                     .buttonStyle(Primary())
+                    .sheet(isPresented: $viewModel.sessionViewIsShowing) {
+                        SessionView()
+                            .presentationDetents([.medium])
+                            .presentationDragIndicator(.visible)
+                    }
                 }
                 .navigationTitle(viewModel.project.name)
                 .navigationBarTitleDisplayMode(.inline)
