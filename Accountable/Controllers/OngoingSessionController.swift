@@ -98,8 +98,6 @@ final class OngoingSessionController: ObservableObject {
     }
 
     func stopTimer() async {
-        guard timerIsRunning else { return }
-
         sessionIsActive = false
         unsubscribeToTimer()
         timer.upstream.connect().cancel()

@@ -10,6 +10,8 @@ import SwiftUI
 struct ProjectDetailsView: View {
     @Environment(\.dismiss) var dismiss
 
+    @EnvironmentObject var ongoingSessionController: OngoingSessionController
+
     @StateObject var viewModel: ProjectDetailsViewModel
 
     init(project: Project) {
@@ -20,6 +22,10 @@ struct ProjectDetailsView: View {
         ScrollView {
             GeometryReader { geo in
                 VStack(spacing: UiConstants.vStackSpacing) {
+                    if ongoingSessionController.sessionIsActive {
+                        OngoingSessionTitleAndBox()
+                    }
+
                     VStack {
                         SectionTitle(text: "This Week")
 
@@ -39,15 +45,6 @@ struct ProjectDetailsView: View {
 
                     SectionTitle(text: "Recent Sessions")
 
-                    Button("Start Session") {
-                        viewModel.sessionViewIsShowing.toggle()
-                    }
-                    .buttonStyle(Primary())
-                    .sheet(isPresented: $viewModel.sessionViewIsShowing) {
-                        SessionView(project: viewModel.project)
-                            .presentationDetents([.medium])
-                            .presentationDragIndicator(.visible)
-                    }
                 }
                 .navigationTitle(viewModel.project.name)
                 .navigationBarTitleDisplayMode(.inline)
@@ -55,12 +52,25 @@ struct ProjectDetailsView: View {
             .padding(.horizontal)
         }
         .toolbar {
-            Button {
-                Task {
-                    await viewModel.deleteProject()
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(role: ongoingSessionController.sessionIsActive ? .destructive : nil) {
+                    viewModel.sessionViewIsShowing.toggle()
+                } label: {
+                    Image(systemName: ongoingSessionController.primaryTimerButtonIconName)
                 }
-            } label: {
-                Image(systemName: "trash")
+                .sheet(isPresented: $viewModel.sessionViewIsShowing) {
+                    SessionView(project: viewModel.project)
+                        .presentationDetents([.medium])
+                        .presentationDragIndicator(.visible)
+                }
+
+                Button(role: .destructive) {
+                    Task {
+                        await viewModel.deleteProject()
+                    }
+                } label: {
+                    Image(systemName: "trash")
+                }
             }
         }
         .onChange(of: viewModel.projectWasDeleted) { projectWasDeleted in
@@ -68,6 +78,7 @@ struct ProjectDetailsView: View {
                 dismiss()
             }
         }
+        .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)
     }
 }
 

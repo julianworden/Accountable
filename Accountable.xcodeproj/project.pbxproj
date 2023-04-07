@@ -34,6 +34,7 @@
 		AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541229D725AA00A5CFEB /* AuthController.swift */; };
 		AB45541529D726F200A5CFEB /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541429D726F200A5CFEB /* ViewState.swift */; };
 		AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */; };
+		AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */; };
 		AB5609E829D86AED00B75F46 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5609E729D86AEC00B75F46 /* AsyncButton.swift */; };
 		AB59AB2329DDAA190041F6F8 /* Project+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */; };
 		AB59AB2629DDB9F80041F6F8 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2529DDB9F80041F6F8 /* ProjectDetailsView.swift */; };
@@ -83,12 +84,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CB941005A219887539F437F /* Session.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = Session.swift; path = amplify/generated/models/Session.swift; sourceTree = "<group>"; };
+		0CB941005A219887539F437F /* Session.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Session.swift; path = amplify/generated/models/Session.swift; sourceTree = "<group>"; };
 		28ED0A8147BCB45602FC6B75 /* Project+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Project+Schema.swift"; path = "amplify/generated/models/Project+Schema.swift"; sourceTree = "<group>"; };
 		2DE0EC291922DAB9CFB2C068 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		2EC5A52B98EBCAC916F4BC09 /* ExternalProvider.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = ExternalProvider.swift; path = amplify/generated/models/ExternalProvider.swift; sourceTree = "<group>"; };
 		5BBC0B37A32F33423FE5F60D /* User+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "User+Schema.swift"; path = "amplify/generated/models/User+Schema.swift"; sourceTree = "<group>"; };
-		8F4DB6D200749F1674B76C74 /* Session+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "Session+Schema.swift"; path = "amplify/generated/models/Session+Schema.swift"; sourceTree = "<group>"; };
+		8F4DB6D200749F1674B76C74 /* Session+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Session+Schema.swift"; path = "amplify/generated/models/Session+Schema.swift"; sourceTree = "<group>"; };
 		946F237B04D95635BE6B041E /* User.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = User.swift; path = amplify/generated/models/User.swift; sourceTree = "<group>"; };
 		A21EA54876D8A5ECB6EFAFC8 /* Project.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Project.swift; path = amplify/generated/models/Project.swift; sourceTree = "<group>"; };
 		AB019BD929DCC57D007010ED /* String+isReallyEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isReallyEmpty.swift"; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		AB45541229D725AA00A5CFEB /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		AB45541429D726F200A5CFEB /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
+		AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingSessionTitleAndBox.swift; sourceTree = "<group>"; };
 		AB5609E729D86AEC00B75F46 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Identifiable.swift"; sourceTree = "<group>"; };
 		AB59AB2529DDB9F80041F6F8 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				AB2C0A6329DB152C0018B62F /* CustomSegmentedPicker.swift */,
 				AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */,
 				AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */,
+				AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */,
 			);
 			path = IndividualElements;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				244EB944306004A5CB42C338 /* User+Schema.swift in Sources */,
 				A6D207C73E6C0835E2EE6E4C /* User.swift in Sources */,
 				6FA8CE26E35A7E70EFA5618E /* ExternalProvider.swift in Sources */,
+				AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */,
 				AB59AB2329DDAA190041F6F8 /* Project+Identifiable.swift in Sources */,
 				B0B82126D421A137CB3DF277 /* Session+Schema.swift in Sources */,
 				64C6A9509AE91BF8107231E0 /* Session.swift in Sources */,

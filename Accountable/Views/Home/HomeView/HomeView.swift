@@ -26,16 +26,13 @@ struct HomeView: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: UiConstants.vStackSpacing) {
                             if ongoingSessionController.sessionIsActive {
-                                VStack {
-                                    SectionTitle(text: "Current Session")
-
-                                    ZStack {
-                                        CustomGroupBox()
-                                            .frame(height: 100)
-
-                                        Text(ongoingSessionController.display)
-                                    }
+                                NavigationLink {
+                                    // Force unwrap safe because NavigationLink isn't tappable unless projectForActiveSession != nil
+                                    ProjectDetailsView(project: ongoingSessionController.projectForActiveSession!)
+                                } label: {
+                                    OngoingSessionTitleAndBox()
                                 }
+                                .allowsHitTesting(ongoingSessionController.projectForActiveSession != nil)
                             }
 
                             VStack {
@@ -76,6 +73,7 @@ struct HomeView: View {
                 await viewModel.printCurrentUserInfo()
                 await viewModel.getLoggedInUserProjects()
             }
+            .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)
         }
     }
 }
