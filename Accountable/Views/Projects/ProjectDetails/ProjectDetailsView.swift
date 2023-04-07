@@ -19,8 +19,8 @@ struct ProjectDetailsView: View {
     }
 
     var body: some View {
-        ScrollView {
-            GeometryReader { geo in
+        GeometryReader { geo in
+            ScrollView {
                 VStack(spacing: UiConstants.vStackSpacing) {
                     if ongoingSessionController.sessionIsActive {
                         OngoingSessionTitleAndBox()
@@ -43,13 +43,14 @@ struct ProjectDetailsView: View {
                         }
                     }
 
-                    SectionTitle(text: "Recent Sessions")
+                    FirstThreeProjectSessionsHeader(viewModel: viewModel)
 
+                    FirstThreeProjectSessionsList(viewModel: viewModel)
                 }
+                .padding(.horizontal)
                 .navigationTitle(viewModel.project.name)
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .padding(.horizontal)
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -77,6 +78,9 @@ struct ProjectDetailsView: View {
             if projectWasDeleted {
                 dismiss()
             }
+        }
+        .task {
+            await viewModel.getProjectSessions()
         }
         .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)
     }

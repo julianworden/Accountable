@@ -9,6 +9,7 @@ import Foundation
 
 @MainActor
 final class ProjectDetailsViewModel: ObservableObject {
+    @Published var projectSessions = [Session]()
     @Published var sessionViewIsShowing = false
     @Published var buttonsAreDisabled = false
     @Published var projectWasDeleted = false
@@ -39,6 +40,14 @@ final class ProjectDetailsViewModel: ObservableObject {
 
     init(project: Project) {
         self.project = project
+    }
+
+    func getProjectSessions() async {
+        do {
+            projectSessions = try await DatabaseService.shared.getSessions(for: project)
+        } catch {
+            viewState = .error(message: error.localizedDescription)
+        }
     }
 
     func deleteProject() async {

@@ -18,7 +18,7 @@ struct OngoingSessionTitleAndBox: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(.purple)
-                    .shadow(color: .purple.opacity(0.25), radius: 5)
+                    .shadow(color: .purple.opacity(UiConstants.purpleShadowOpacity), radius: UiConstants.purpleShadowRadius)
 
                 HStack {
                     VStack(alignment: .leading) {

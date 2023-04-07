@@ -100,4 +100,17 @@ final class DatabaseService {
             throw DataStoreError.unknown(message: "Failed to save session. \(ErrorMessageConstants.unknown)")
         }
     }
+
+    func getSessions(for project: Project) async throws -> [Session] {
+        do {
+            try await project.sessions?.fetch()
+            if let projectSessions = project.sessions {
+                return projectSessions.map { $0 }.sorted { $0.unixDate > $1.unixDate }
+            }
+
+            return []
+        } catch {
+            throw DataStoreError.unknown(message: "Failed to fetch project sessions. \(ErrorMessageConstants.unknown)")
+        }
+    }
 }

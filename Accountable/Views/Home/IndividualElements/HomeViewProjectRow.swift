@@ -14,9 +14,7 @@ struct HomeViewProjectRow: View {
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(colorScheme == .light ? .white : .lightGray)
-                .shadow(color: .purple.opacity(0.25), radius: 5)
+            CustomGroupBox()
 
             VStack(alignment: .leading) {
                 HStack {

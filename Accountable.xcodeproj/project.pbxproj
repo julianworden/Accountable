@@ -35,11 +35,17 @@
 		AB45541529D726F200A5CFEB /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541429D726F200A5CFEB /* ViewState.swift */; };
 		AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */; };
 		AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */; };
+		AB4ADC0929E05DDE000AFDCA /* Session+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0829E05DDE000AFDCA /* Session+Identifiable.swift */; };
+		AB4ADC0B29E06291000AFDCA /* Session+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0A29E06291000AFDCA /* Session+Helpers.swift */; };
+		AB4ADC0D29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0C29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift */; };
+		AB4ADC1029E06623000AFDCA /* FirstThreeProjectSessionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0F29E06623000AFDCA /* FirstThreeProjectSessionsList.swift */; };
+		AB4ADC1229E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC1129E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift */; };
+		AB4ADC1429E066E4000AFDCA /* ProjectDetailsSessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC1329E066E4000AFDCA /* ProjectDetailsSessionRow.swift */; };
 		AB5609E829D86AED00B75F46 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5609E729D86AEC00B75F46 /* AsyncButton.swift */; };
 		AB59AB2329DDAA190041F6F8 /* Project+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */; };
 		AB59AB2629DDB9F80041F6F8 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2529DDB9F80041F6F8 /* ProjectDetailsView.swift */; };
 		AB59AB2829DDBA000041F6F8 /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2729DDBA000041F6F8 /* ProjectDetailsViewModel.swift */; };
-		AB59AB2B29DDBAA00041F6F8 /* Project+example.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2A29DDBAA00041F6F8 /* Project+example.swift */; };
+		AB59AB2B29DDBAA00041F6F8 /* Project+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2A29DDBAA00041F6F8 /* Project+Helpers.swift */; };
 		AB59AB2D29DDBCA20041F6F8 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */; };
 		AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */; };
 		AB67AA0129DDFBD400D797BD /* HomeProjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */; };
@@ -111,11 +117,17 @@
 		AB45541429D726F200A5CFEB /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
 		AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingSessionTitleAndBox.swift; sourceTree = "<group>"; };
+		AB4ADC0829E05DDE000AFDCA /* Session+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Identifiable.swift"; sourceTree = "<group>"; };
+		AB4ADC0A29E06291000AFDCA /* Session+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Helpers.swift"; sourceTree = "<group>"; };
+		AB4ADC0C29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+secondsAsPeriodOfTime.swift"; sourceTree = "<group>"; };
+		AB4ADC0F29E06623000AFDCA /* FirstThreeProjectSessionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstThreeProjectSessionsList.swift; sourceTree = "<group>"; };
+		AB4ADC1129E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstThreeProjectSessionsHeader.swift; sourceTree = "<group>"; };
+		AB4ADC1329E066E4000AFDCA /* ProjectDetailsSessionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsSessionRow.swift; sourceTree = "<group>"; };
 		AB5609E729D86AEC00B75F46 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Identifiable.swift"; sourceTree = "<group>"; };
 		AB59AB2529DDB9F80041F6F8 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
 		AB59AB2729DDBA000041F6F8 /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
-		AB59AB2A29DDBAA00041F6F8 /* Project+example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+example.swift"; sourceTree = "<group>"; };
+		AB59AB2A29DDBAA00041F6F8 /* Project+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Helpers.swift"; sourceTree = "<group>"; };
 		AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProjectRow.swift; sourceTree = "<group>"; };
 		AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProjectsList.swift; sourceTree = "<group>"; };
@@ -242,11 +254,22 @@
 			path = ConfirmCode;
 			sourceTree = "<group>";
 		};
+		AB4ADC0E29E06610000AFDCA /* IndividualElements */ = {
+			isa = PBXGroup;
+			children = (
+				AB4ADC1129E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift */,
+				AB4ADC0F29E06623000AFDCA /* FirstThreeProjectSessionsList.swift */,
+				AB4ADC1329E066E4000AFDCA /* ProjectDetailsSessionRow.swift */,
+			);
+			path = IndividualElements;
+			sourceTree = "<group>";
+		};
 		AB59AB2429DDB9EF0041F6F8 /* ProjectDetails */ = {
 			isa = PBXGroup;
 			children = (
 				AB59AB2529DDB9F80041F6F8 /* ProjectDetailsView.swift */,
 				AB59AB2729DDBA000041F6F8 /* ProjectDetailsViewModel.swift */,
+				AB4ADC0E29E06610000AFDCA /* IndividualElements */,
 			);
 			path = ProjectDetails;
 			sourceTree = "<group>";
@@ -256,7 +279,9 @@
 			children = (
 				AB2C0A6629DB15D10018B62F /* Priority+CaseIterable.swift */,
 				AB59AB2229DDAA190041F6F8 /* Project+Identifiable.swift */,
-				AB59AB2A29DDBAA00041F6F8 /* Project+example.swift */,
+				AB59AB2A29DDBAA00041F6F8 /* Project+Helpers.swift */,
+				AB4ADC0829E05DDE000AFDCA /* Session+Identifiable.swift */,
+				AB4ADC0A29E06291000AFDCA /* Session+Helpers.swift */,
 			);
 			path = AmplifyModelExtensions;
 			sourceTree = "<group>";
@@ -364,6 +389,7 @@
 				AB019BD929DCC57D007010ED /* String+isReallyEmpty.swift */,
 				ABB8CD9529DB815D00367A62 /* View+HideKeyboard.swift */,
 				ABA728AB29DC6E4100E66D98 /* Color+CustomColors.swift */,
+				AB4ADC0C29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -574,8 +600,9 @@
 				AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */,
 				AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */,
 				ABD8B56229D0DB42007BF1BC /* LoginView.swift in Sources */,
-				AB59AB2B29DDBAA00041F6F8 /* Project+example.swift in Sources */,
+				AB59AB2B29DDBAA00041F6F8 /* Project+Helpers.swift in Sources */,
 				ABD8B56029D0DB42007BF1BC /* AccountableApp.swift in Sources */,
+				AB4ADC1029E06623000AFDCA /* FirstThreeProjectSessionsList.swift in Sources */,
 				AB06CDE329DA2CC000F4D912 /* AuthService.swift in Sources */,
 				ABA728AA29DC5C6D00E66D98 /* CustomBackButton.swift in Sources */,
 				ABB998F529D9CE7900421E01 /* DataStoreError.swift in Sources */,
@@ -591,9 +618,11 @@
 				ABAC1F3529D87358007B0A0B /* OnboardingViewHeader.swift in Sources */,
 				AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */,
 				AB45540C29D71A6B00A5CFEB /* OnboardingNavigationController.swift in Sources */,
+				AB4ADC1229E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift in Sources */,
 				ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */,
 				A8453C0FEA8A0E969C7C4DBA /* Project+Schema.swift in Sources */,
 				AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */,
+				AB4ADC0B29E06291000AFDCA /* Session+Helpers.swift in Sources */,
 				AB2C0A6729DB15D10018B62F /* Priority+CaseIterable.swift in Sources */,
 				ABB998EF29D9B7F900421E01 /* HomeViewModel.swift in Sources */,
 				AB45541529D726F200A5CFEB /* ViewState.swift in Sources */,
@@ -612,12 +641,14 @@
 				AB5609E829D86AED00B75F46 /* AsyncButton.swift in Sources */,
 				ABAC1F3B29D87CBA007B0A0B /* TextFieldType.swift in Sources */,
 				ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */,
+				AB4ADC0D29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift in Sources */,
 				AB67AA0C29DE327F00D797BD /* SessionView.swift in Sources */,
 				ABB998EC29D9B7C700421E01 /* HomeView.swift in Sources */,
 				ABB8CD9629DB815D00367A62 /* View+HideKeyboard.swift in Sources */,
 				ABCD330C29D4841400BA9529 /* TextFieldWithLine.swift in Sources */,
 				ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */,
 				AB59AB2629DDB9F80041F6F8 /* ProjectDetailsView.swift in Sources */,
+				AB4ADC0929E05DDE000AFDCA /* Session+Identifiable.swift in Sources */,
 				AB88C8C729D7988000F5DAD1 /* NotificationConstants.swift in Sources */,
 				AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */,
 				ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */,
@@ -625,6 +656,7 @@
 				AB67AA0529DDFCD700D797BD /* HomeProjectsHeader.swift in Sources */,
 				244EB944306004A5CB42C338 /* User+Schema.swift in Sources */,
 				A6D207C73E6C0835E2EE6E4C /* User.swift in Sources */,
+				AB4ADC1429E066E4000AFDCA /* ProjectDetailsSessionRow.swift in Sources */,
 				6FA8CE26E35A7E70EFA5618E /* ExternalProvider.swift in Sources */,
 				AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */,
 				AB59AB2329DDAA190041F6F8 /* Project+Identifiable.swift in Sources */,
