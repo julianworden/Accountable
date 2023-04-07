@@ -19,12 +19,13 @@ final class HomeViewModel: ObservableObject {
     @Published var viewState = ViewState.dataLoading {
         didSet {
             switch viewState {
-            case .dataLoading, .dataLoaded:
+            case .dataLoading, .dataLoaded, .dataNotFound:
                 return
             case .error(let message):
                 errorMessageText = message
                 errorMessageIsShowing = true
             default:
+                print(viewState)
                 errorMessageText = ErrorMessageConstants.invalidViewState
                 errorMessageIsShowing = true
             }
@@ -62,7 +63,6 @@ final class HomeViewModel: ObservableObject {
                     print("CURRENT USER PROJECT: \(project.name)")
                 }
             }
-            #warning("get rid of excess projects")
         } catch {
             print(error)
         }

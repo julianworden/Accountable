@@ -7,12 +7,45 @@
 
 import Foundation
 
-class ProjectDetailsViewModel: ObservableObject {
+@MainActor
+final class ProjectDetailsViewModel: ObservableObject {
     @Published var sessionViewIsShowing = false
+    @Published var buttonsAreDisabled = false
+    @Published var projectWasDeleted = false
+
+    @Published var errorMessageIsShowing = false
+    var errorMessageText = ""
+
+    @Published var viewState = ViewState.displayingView {
+        didSet {
+            switch viewState {
+            case .performingWork:
+                buttonsAreDisabled = true
+            case .workCompleted:
+                projectWasDeleted = true
+            case .error(let message):
+                errorMessageText = message
+                errorMessageIsShowing = true
+                buttonsAreDisabled = false
+            default:
+                errorMessageText = ErrorMessageConstants.invalidViewState
+                errorMessageIsShowing = true
+                buttonsAreDisabled = false
+            }
+        }
+    }
 
     let project: Project
 
     init(project: Project) {
         self.project = project
+    }
+
+    func deleteProject() async {
+        do {
+            try await DatabaseService.shared.deleteProject(project)
+        } catch {
+            viewState = .error(message: error.localizedDescription)
+        }
     }
 }

@@ -17,8 +17,25 @@ final class OngoingSessionController: ObservableObject {
     @Published var timerIsRunning = false
     @Published var sessionIsActive = false
 
+    @Published var errorMessageIsShowing = false
+    var errorMessageText = ""
+
+    @Published var viewState = ViewState.displayingView {
+        didSet {
+            switch viewState {
+            case .error(let message):
+                errorMessageText = message
+                errorMessageIsShowing = true
+            default:
+                errorMessageText = ErrorMessageConstants.invalidViewState
+                errorMessageIsShowing = true
+            }
+        }
+    }
+
+    var projectForActiveSession: Project?
     var cancellables = Set<AnyCancellable>()
-    var timerDuration: TimeInterval = 0
+    var timerDuration = 0
 
     var primaryTimerButtonText: String {
         if timerIsRunning {
@@ -52,9 +69,9 @@ final class OngoingSessionController: ObservableObject {
         }
     }
 
-    func primaryTimerButtonTapped() {
+    func primaryTimerButtonTapped() async {
         if timerIsRunning {
-            stopTimer()
+            await stopTimer()
         } else {
             startTimer()
         }
@@ -80,13 +97,16 @@ final class OngoingSessionController: ObservableObject {
         timerIsRunning = true
     }
 
-    func stopTimer() {
+    func stopTimer() async {
         guard timerIsRunning else { return }
 
         sessionIsActive = false
         unsubscribeToTimer()
         timer.upstream.connect().cancel()
         timerIsRunning = false
+        display = "00:00:00"
+
+        await createSession()
     }
 
     func resumeTimer() {
@@ -111,7 +131,7 @@ final class OngoingSessionController: ObservableObject {
         formatter.allowedUnits = [.hour, .minute, .second]
         formatter.unitsStyle = .positional
         formatter.zeroFormattingBehavior = .pad
-        display = formatter.string(from: timerDuration) ?? ""
+        display = formatter.string(from: TimeInterval(timerDuration)) ?? ""
         print("NEW TIMER VALUE: \(display)")
     }
 
@@ -125,5 +145,23 @@ final class OngoingSessionController: ObservableObject {
 
     func unsubscribeToTimer() {
         cancellables.removeAll()
+    }
+
+    func createSession() async {
+        guard let projectForActiveSession else { return }
+
+        do {
+            let newSession = Session(
+                project: projectForActiveSession,
+                durationInSeconds: timerDuration,
+                unixDate: Date.now.timeIntervalSince1970
+            )
+
+            try await DatabaseService.shared.createSession(newSession)
+
+            sessionIsActive = false
+        } catch {
+            viewState = .error(message: error.localizedDescription)
+        }
     }
 }

@@ -22,7 +22,7 @@ struct HomeView: View {
                 case .dataLoading:
                     CustomProgressView()
 
-                case .error, .dataLoaded:
+                case .error, .dataLoaded, .dataNotFound:
                     ScrollView {
                         VStack(alignment: .leading, spacing: UiConstants.vStackSpacing) {
                             if ongoingSessionController.sessionIsActive {

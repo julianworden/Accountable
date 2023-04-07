@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProjectDetailsView: View {
+    @Environment(\.dismiss) var dismiss
+
     @StateObject var viewModel: ProjectDetailsViewModel
 
     init(project: Project) {
@@ -42,7 +44,7 @@ struct ProjectDetailsView: View {
                     }
                     .buttonStyle(Primary())
                     .sheet(isPresented: $viewModel.sessionViewIsShowing) {
-                        SessionView()
+                        SessionView(project: viewModel.project)
                             .presentationDetents([.medium])
                             .presentationDragIndicator(.visible)
                     }
@@ -51,6 +53,20 @@ struct ProjectDetailsView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             .padding(.horizontal)
+        }
+        .toolbar {
+            Button {
+                Task {
+                    await viewModel.deleteProject()
+                }
+            } label: {
+                Image(systemName: "trash")
+            }
+        }
+        .onChange(of: viewModel.projectWasDeleted) { projectWasDeleted in
+            if projectWasDeleted {
+                dismiss()
+            }
         }
     }
 }

@@ -109,7 +109,7 @@ final class LoginViewModel: ObservableObject {
         do {
             let username = try await AuthService.shared.getLoggedInUserEmailAddress()
             let authUserAsUser = User(id: authUser.userId, username: username, externalProvider: externalProvider)
-            try await DatabaseService.shared.createUserInDataStore(authUserAsUser)
+            try await DatabaseService.shared.createOrUpdateUser(authUserAsUser)
         } catch {
             viewState = .error(message: error.localizedDescription)
         }

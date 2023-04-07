@@ -9,7 +9,7 @@ import Foundation
 
 extension Project {
     static let example = Project(
-        creator: User(username: "jimjones@gmail.com"),
+        creator: User(username: "example@test.com"),
         name: "Run a marathon",
         priority: .high,
         description: "Run 3 miles every day."

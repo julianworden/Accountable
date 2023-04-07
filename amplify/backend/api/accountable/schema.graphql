@@ -7,10 +7,18 @@ type User @model @auth(rules: [{allow: public}]) {
 
 type Project @model @auth(rules: [{allow: public}]) {
   id: ID!
-  creator: User! @belongsTo
+  creator: User @belongsTo
   name: String!
   priority: Priority!
   description: String
+  sessions: [Session] @hasMany
+}
+
+type Session @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  project: Project! @belongsTo
+  durationInSeconds: Int!
+  unixDate: Float!
 }
 
 enum Priority {
@@ -23,3 +31,4 @@ enum ExternalProvider {
   google
   apple
 }
+ 

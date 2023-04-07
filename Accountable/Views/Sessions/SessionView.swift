@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct SessionView: View {
+    @Environment(\.dismiss) var dismiss
+
     @EnvironmentObject var ongoingSessionController: OngoingSessionController
+
+    let project: Project
 
     var body: some View {
         VStack {
@@ -16,34 +20,52 @@ struct SessionView: View {
                 .font(.largeTitle)
 
             HStack {
-                Button(role: .destructive) {
-                    ongoingSessionController.primaryTimerButtonTapped()
+                AsyncButton {
+                    ongoingSessionController.projectForActiveSession = project
+                    await ongoingSessionController.primaryTimerButtonTapped()
                 } label: {
-                    Label(ongoingSessionController.primaryTimerButtonText, systemImage: ongoingSessionController.primaryTimerButtonIconName)
+                    Label(
+                        ongoingSessionController.primaryTimerButtonText,
+                        systemImage: ongoingSessionController.primaryTimerButtonIconName
+                    )
                 }
 
                 if ongoingSessionController.timerIsRunning || ongoingSessionController.display != "00:00:00" {
                     Button {
                         ongoingSessionController.secondaryTimerButtonTapped()
                     } label: {
-                        Label(ongoingSessionController.secondaryTimerButtonText, systemImage: ongoingSessionController.secondaryTimerButtonIconName)
+                        Label(
+                            ongoingSessionController.secondaryTimerButtonText,
+                            systemImage: ongoingSessionController.secondaryTimerButtonIconName
+                        )
                     }
                 }
             }
             .buttonStyle(Primary(backgroundColor: ongoingSessionController.timerIsRunning ? .red : .accentColor))
-
-
         }
         .padding(.horizontal)
         .navigationTitle("Create Session")
         .navigationBarTitleDisplayMode(.inline)
         .animation(.easeInOut, value: ongoingSessionController.timerIsRunning)
+        .alert(
+            "Error",
+            isPresented: $ongoingSessionController.errorMessageIsShowing,
+            actions: { Button("OK") { } },
+            message: { Text(ongoingSessionController.errorMessageText)
+            }
+        )
+        .onChange(
+            of: ongoingSessionController.sessionIsActive) { sessionIsActive in
+                if !sessionIsActive {
+                    dismiss()
+                }
+            }
     }
 }
 
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionView()
+        SessionView(project: Project.example)
             .environmentObject(OngoingSessionController())
     }
 }

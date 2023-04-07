@@ -25,7 +25,6 @@ struct AccountableApp: App {
                     SplashScreenView()
                 case .loggedIn:
                     HomeView()
-                        .environmentObject(ongoingSessionController)
                         .transition(.opacity)
                 case .loggedOut:
                     LoginView()
@@ -44,6 +43,7 @@ struct AccountableApp: App {
             .task {
                 await loginController.determineLoginStatus()
             }
+            .environmentObject(ongoingSessionController)
         }
     }
 
@@ -52,7 +52,7 @@ struct AccountableApp: App {
     }
 
     func configureAmplify() {
-        let apiPlugin = AWSAPIPlugin(modelRegistration: AmplifyModels())
+        let apiPlugin = AWSAPIPlugin()
         let dataStorePlugin = AWSDataStorePlugin(modelRegistration: AmplifyModels())
 
         do {
@@ -61,6 +61,9 @@ struct AccountableApp: App {
             try Amplify.add(plugin: dataStorePlugin)
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()
+//            Task {
+//                try await Amplify.DataStore.clear()
+//            }
             print("Initialized Amplify")
         } catch {
             // simplified error handling for the tutorial

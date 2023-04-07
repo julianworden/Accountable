@@ -10,6 +10,7 @@ extension Project {
     case name
     case priority
     case description
+    case sessions
     case createdAt
     case updatedAt
   }
@@ -32,10 +33,11 @@ extension Project {
     
     model.fields(
       .field(project.id, is: .required, ofType: .string),
-      .belongsTo(project.creator, is: .required, ofType: User.self, targetNames: ["userProjectsId"]),
+      .belongsTo(project.creator, is: .optional, ofType: User.self, targetNames: ["userProjectsId"]),
       .field(project.name, is: .required, ofType: .string),
       .field(project.priority, is: .required, ofType: .enum(type: Priority.self)),
       .field(project.description, is: .optional, ofType: .string),
+      .hasMany(project.sessions, is: .optional, ofType: Session.self, associatedWith: Session.keys.project),
       .field(project.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(project.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
     )

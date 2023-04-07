@@ -47,7 +47,7 @@ final class AddEditProjectViewModel: ObservableObject {
 
         do {
             viewState = .performingWork
-            var loggedInUser = try await DatabaseService.shared.getLoggedInUser()
+            let loggedInUser = try await DatabaseService.shared.getLoggedInUser()
             try await loggedInUser.projects?.fetch()
 
             let project = Project(
@@ -57,15 +57,7 @@ final class AddEditProjectViewModel: ObservableObject {
                 description: projectDescription
             )
 
-            if let loggedInUserProjects = loggedInUser.projects {
-                var loggedInUserProjectsAsArray = loggedInUserProjects.map { $0 }
-                loggedInUserProjectsAsArray += [project]
-                loggedInUser.projects = List(elements: loggedInUserProjectsAsArray)
-            } else {
-                loggedInUser.projects = List(elements: [project])
-            }
-
-            try await Amplify.DataStore.save(project)
+            try await DatabaseService.shared.createProject(project)
             viewState = .workCompleted
         } catch {
             viewState = .error(message: error.localizedDescription)

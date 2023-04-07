@@ -10,7 +10,9 @@ import Foundation
 
 final class DatabaseService {
     static let shared = DatabaseService()
-    
+
+    // MARK: - Users
+
     func authUserExistsInDataStore(_ authUser: AuthUser) async throws -> Bool {
         do {
             if try await Amplify.DataStore.query(User.self, byId: authUser.userId) != nil {
@@ -23,7 +25,7 @@ final class DatabaseService {
         }
     }
 
-    func createUserInDataStore(_ user: User) async throws {
+    func createOrUpdateUser(_ user: User) async throws {
         do {
             try await Amplify.DataStore.save(user)
         } catch {
@@ -68,6 +70,34 @@ final class DatabaseService {
             }
         } catch {
             throw DataStoreError.unknown(message: "Failed to fetch project data. \(ErrorMessageConstants.unknown)")
+        }
+    }
+
+    // MARK: - Projects
+
+    func createProject(_ project: Project) async throws {
+        do {
+            try await Amplify.DataStore.save(project)
+        } catch {
+            throw DataStoreError.unknown(message: "Failed to save project. \(ErrorMessageConstants.unknown)")
+        }
+    }
+
+    func deleteProject(_ project: Project) async throws {
+        do {
+            try await Amplify.DataStore.delete(project)
+        } catch {
+            throw DataStoreError.unknown(message: "Failed to delete project. \(ErrorMessageConstants.unknown)")
+        }
+    }
+
+    // MARK: - Sessions
+
+    func createSession(_ session: Session) async throws {
+        do {
+            try await Amplify.DataStore.save(session)
+        } catch {
+            throw DataStoreError.unknown(message: "Failed to save session. \(ErrorMessageConstants.unknown)")
         }
     }
 }
