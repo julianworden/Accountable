@@ -61,9 +61,11 @@ struct AccountableApp: App {
             try Amplify.add(plugin: dataStorePlugin)
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()
-//            Task {
+            Task {
+                // Without this, syncing will not start immediately when the app starts.
+                try await Amplify.DataStore.start()
 //                try await Amplify.DataStore.clear()
-//            }
+            }
             print("Initialized Amplify")
         } catch {
             // simplified error handling for the tutorial
