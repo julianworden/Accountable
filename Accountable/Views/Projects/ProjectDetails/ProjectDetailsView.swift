@@ -81,6 +81,10 @@ struct ProjectDetailsView: View {
         }
         .task {
             await viewModel.getProjectSessions()
+            viewModel.addNewSessionCreatedObserver()
+        }
+        .onDisappear {
+            viewModel.removeNewSessionCreatedObserver()
         }
         .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)
     }

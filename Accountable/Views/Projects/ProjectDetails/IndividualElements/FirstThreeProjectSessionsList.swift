@@ -13,6 +13,7 @@ struct FirstThreeProjectSessionsList: View {
     var body: some View {
         ForEach(viewModel.projectSessions.prefix(3)) { session in
             ProjectDetailsSessionRow(session: session)
+                .transition(.move(edge: .top).combined(with: .opacity))
         }
     }
 }

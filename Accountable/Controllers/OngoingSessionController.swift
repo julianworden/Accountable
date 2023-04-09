@@ -156,10 +156,18 @@ final class OngoingSessionController: ObservableObject {
             )
 
             try await DatabaseService.shared.createSession(newSession)
-
+            postSessionCreatedNotification(forNewSession: newSession)
             sessionIsActive = false
         } catch {
             viewState = .error(message: error.localizedDescription)
         }
+    }
+
+    func postSessionCreatedNotification(forNewSession newSession: Session) {
+        NotificationCenter.default.post(
+            name: .newSessionCreated,
+            object: nil,
+            userInfo: [NotificationConstants.newSession: newSession]
+        )
     }
 }

@@ -7,7 +7,11 @@
 
 import Foundation
 
-extension Project {
+extension Project: Equatable, Identifiable {
+    public static func == (lhs: Project, rhs: Project) -> Bool {
+        lhs.id == rhs.id
+    }
+
     static let example = Project(
         creator: User(username: "example@test.com"),
         name: "Run a marathon",

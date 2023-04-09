@@ -57,4 +57,23 @@ final class ProjectDetailsViewModel: ObservableObject {
             viewState = .error(message: error.localizedDescription)
         }
     }
+
+    func addNewSessionCreatedObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleNewSessionCreatedNotification(_:)),
+            name: .newSessionCreated,
+            object: nil
+        )
+    }
+
+    @objc func handleNewSessionCreatedNotification(_ notification: Notification) {
+        if let newSession = notification.userInfo?[NotificationConstants.newSession] as? Session {
+            projectSessions.insert(newSession, at: 0)
+        }
+    }
+
+    func removeNewSessionCreatedObserver() {
+        NotificationCenter.default.removeObserver(self, name: .newSessionCreated, object: nil)
+    }
 }

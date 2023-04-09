@@ -5,9 +5,14 @@
 //  Created by Julian Worden on 4/7/23.
 //
 
+import Amplify
 import Foundation
 
-extension Session {
+extension Session: Equatable, Identifiable {
+    public static func == (lhs: Session, rhs: Session) -> Bool {
+        lhs.id == rhs.id
+    }
+
     static let example = Session(
         project: Project.example,
         durationInSeconds: 30,
