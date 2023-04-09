@@ -5,6 +5,8 @@
 //  Created by Julian Worden on 4/5/23.
 //
 
+import Amplify
+import Combine
 import Foundation
 
 @MainActor
@@ -36,7 +38,11 @@ final class ProjectDetailsViewModel: ObservableObject {
         }
     }
 
-    let project: Project
+    @Published var project: Project
+
+    /// Holds the subscription for the project that's currently being shown by `ProjectDetailsView`. Necessary for updating the view
+    /// when a session is deleted, but does not update the view when a session is created for reasons unknown.
+    var projectSubscription: AnyCancellable?
 
     init(project: Project) {
         self.project = project
@@ -56,6 +62,32 @@ final class ProjectDetailsViewModel: ObservableObject {
         } catch {
             viewState = .error(message: error.localizedDescription)
         }
+    }
+
+    func subscribeToProject() async {
+        let project = Project.keys
+        projectSubscription = Amplify.Publisher.create(
+            Amplify.DataStore.observeQuery(for: Project.self, where: project.id == self.project.id)
+        )
+        .sink (
+            receiveCompletion: { [weak self] in
+                if case let .failure(error) = $0 {
+                    print(error)
+                    self?.viewState = .error(message: error.localizedDescription)
+                }
+            },
+            receiveValue: { [weak self] querySnapshot in
+                if let updatedProject = querySnapshot.items.first {
+                    Task { @MainActor in
+                        self?.project = updatedProject
+                    }
+                }
+            }
+        )
+    }
+
+    func unsubscribeFromProject() {
+        projectSubscription?.cancel()
     }
 
     func addNewSessionCreatedObserver() {

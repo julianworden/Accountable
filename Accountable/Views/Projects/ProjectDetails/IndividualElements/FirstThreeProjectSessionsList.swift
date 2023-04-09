@@ -12,9 +12,10 @@ struct FirstThreeProjectSessionsList: View {
 
     var body: some View {
         ForEach(viewModel.projectSessions.prefix(3)) { session in
-            ProjectDetailsSessionRow(session: session)
+            SessionRow(session: session)
                 .transition(.move(edge: .top).combined(with: .opacity))
         }
+        .animation(.easeInOut, value: viewModel.projectSessions)
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  ProjectDetailsSessionRow.swift
+//  SessionRow.swift
 //  Accountable
 //
 //  Created by Julian Worden on 4/7/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProjectDetailsSessionRow: View {
+struct SessionRow: View {
     let session: Session
 
     var body: some View {
@@ -28,8 +28,8 @@ struct ProjectDetailsSessionRow: View {
     }
 }
 
-struct ProjectDetailsSessionRow_Previews: PreviewProvider {
+struct SessionRow_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectDetailsSessionRow(session: Session.example)
+        SessionRow(session: Session.example)
     }
 }

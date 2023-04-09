@@ -48,10 +48,10 @@ struct ProjectDetailsView: View {
                     FirstThreeProjectSessionsList(viewModel: viewModel)
                 }
                 .padding(.horizontal)
-                .navigationTitle(viewModel.project.name)
-                .navigationBarTitleDisplayMode(.inline)
             }
         }
+        .navigationTitle(viewModel.project.name)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(role: ongoingSessionController.sessionIsActive ? .destructive : nil) {
@@ -74,6 +74,12 @@ struct ProjectDetailsView: View {
                 }
             }
         }
+        .alert(
+            "Error",
+            isPresented: $viewModel.errorMessageIsShowing,
+            actions: { Button("OK") { } },
+            message: { Text(viewModel.errorMessageText) }
+        )
         .onChange(of: viewModel.projectWasDeleted) { projectWasDeleted in
             if projectWasDeleted {
                 dismiss()
@@ -81,9 +87,11 @@ struct ProjectDetailsView: View {
         }
         .task {
             await viewModel.getProjectSessions()
+            await viewModel.subscribeToProject()
             viewModel.addNewSessionCreatedObserver()
         }
         .onDisappear {
+            viewModel.unsubscribeFromProject()
             viewModel.removeNewSessionCreatedObserver()
         }
         .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)

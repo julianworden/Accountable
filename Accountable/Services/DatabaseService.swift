@@ -113,4 +113,12 @@ final class DatabaseService {
             throw DataStoreError.unknown(message: "Failed to fetch project sessions. \(ErrorMessageConstants.unknown)")
         }
     }
+
+    func deleteSession(_ session: Session) async throws {
+        do {
+            try await Amplify.DataStore.delete(session)
+        } catch {
+            throw DataStoreError.unknown(message: "Failed to delete session. \(ErrorMessageConstants.unknown)")
+        }
+    }
 }
