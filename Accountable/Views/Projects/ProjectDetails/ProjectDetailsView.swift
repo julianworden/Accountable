@@ -5,6 +5,7 @@
 //  Created by Julian Worden on 4/5/23.
 //
 
+import Charts
 import SwiftUI
 
 struct ProjectDetailsView: View {
@@ -27,10 +28,32 @@ struct ProjectDetailsView: View {
                     }
 
                     VStack {
-                        SectionTitle(text: "This Week")
+                        SectionTitle(text: "The Past Week")
 
-                        CustomGroupBox()
-                            .frame(height: UiConstants.primaryBoxHeight)
+                        ZStack {
+                            CustomGroupBox()
+
+                            Chart {
+                                ForEach(Weekday.allCases) { weekday in
+                                    BarMark (
+                                        x: .value("Weekday Name", weekday.abbreviated),
+                                        y: .value("Total Hours", viewModel.getTotalLengthOfSessions(for: weekday))
+                                    )
+                                    .annotation {
+                                        if viewModel.getTotalLengthOfSessions(for: weekday) != 0 {
+                                            Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsPeriodOfTime)
+                                                .font(.caption)
+                                                .multilineTextAlignment(.center)
+                                                .frame(width: 30)
+                                        }
+                                    }
+                                }
+                            }
+                            .chartYAxis(.hidden)
+                            .padding()
+                            .animation(.easeInOut, value: viewModel.projectSessionsInPastWeek)
+                        }
+                        .frame(height: UiConstants.primaryBoxHeight)
                     }
 
                     Grid(alignment: .center, horizontalSpacing: UiConstants.vStackSpacing, verticalSpacing: nil) {

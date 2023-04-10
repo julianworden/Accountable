@@ -152,7 +152,8 @@ final class OngoingSessionController: ObservableObject {
             let newSession = Session(
                 project: projectForActiveSession,
                 durationInSeconds: timerDuration,
-                unixDate: Date.now.timeIntervalSince1970
+                unixDate: Date.now.timeIntervalSince1970,
+                weekday: Weekday.getWeekdayFor(Date.now)
             )
 
             try await DatabaseService.shared.createSession(newSession)

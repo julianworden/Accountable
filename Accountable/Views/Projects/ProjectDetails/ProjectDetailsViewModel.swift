@@ -38,10 +38,14 @@ final class ProjectDetailsViewModel: ObservableObject {
         }
     }
 
+    var projectSessionsInPastWeek: [Session] {
+        projectSessions.filter { $0.occurredInLastWeek }
+    }
+
     @Published var project: Project
 
     /// Holds the subscription for the project that's currently being shown by `ProjectDetailsView`. Necessary for updating the view
-    /// when a session is deleted, but does not update the view when a session is created for reasons unknown.
+    /// when a `Session` is deleted, but does not update the view when a `Session` is created for reasons unknown.
     var projectSubscription: AnyCancellable?
 
     init(project: Project) {
@@ -54,6 +58,15 @@ final class ProjectDetailsViewModel: ObservableObject {
         } catch {
             viewState = .error(message: error.localizedDescription)
         }
+    }
+
+    func getTotalLengthOfSessions(for weekday: Weekday) -> Int {
+        var totalDurationInSeconds = 0
+        projectSessionsInPastWeek.forEach {
+            $0.weekday == weekday ? totalDurationInSeconds += $0.durationInSeconds : nil
+        }
+
+        return totalDurationInSeconds
     }
 
     func deleteProject() async {

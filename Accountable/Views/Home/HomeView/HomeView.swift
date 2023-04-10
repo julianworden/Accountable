@@ -5,6 +5,7 @@
 //  Created by Julian Worden on 4/2/23.
 //
 
+import Amplify
 import SwiftUI
 
 struct HomeView: View {

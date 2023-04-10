@@ -9,6 +9,7 @@ extension Session {
     case project
     case durationInSeconds
     case unixDate
+    case weekday
     case createdAt
     case updatedAt
   }
@@ -31,9 +32,10 @@ extension Session {
     
     model.fields(
       .field(session.id, is: .required, ofType: .string),
-      .belongsTo(session.project, is: .required, ofType: Project.self, targetNames: ["projectSessionsId"]),
+      .belongsTo(session.project, is: .optional, ofType: Project.self, targetNames: ["projectSessionsId"]),
       .field(session.durationInSeconds, is: .required, ofType: .int),
       .field(session.unixDate, is: .required, ofType: .double),
+      .field(session.weekday, is: .required, ofType: .enum(type: Weekday.self)),
       .field(session.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(session.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
     )

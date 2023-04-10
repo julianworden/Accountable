@@ -52,6 +52,7 @@
 		AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */; };
 		AB67AA0929DE2CA100D797BD /* OngoingSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0829DE2CA100D797BD /* OngoingSessionController.swift */; };
 		AB67AA0C29DE327F00D797BD /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0B29DE327F00D797BD /* SessionView.swift */; };
+		AB6D7C3D29E30AD800C2DB1F /* DateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D7C3C29E30AD800C2DB1F /* DateConstants.swift */; };
 		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
 		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
 		AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */; };
@@ -81,12 +82,14 @@
 		ABD8B56F29D0E185007BF1BC /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B56E29D0E185007BF1BC /* AWSAPIPlugin */; };
 		ABD8B57129D0E185007BF1BC /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B57029D0E185007BF1BC /* AWSDataStorePlugin */; };
 		ABD8B57329D0E185007BF1BC /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B57229D0E185007BF1BC /* Amplify */; };
+		ABDB663E29E2FFA300684219 /* Weekday+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB663D29E2FFA300684219 /* Weekday+Helpers.swift */; };
 		ABDC752629E237D70020E5F9 /* User+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC752529E237D70020E5F9 /* User+Helpers.swift */; };
 		ABDC752929E23A100020E5F9 /* AllSessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC752829E23A100020E5F9 /* AllSessionsView.swift */; };
 		ABDC752B29E23A1A0020E5F9 /* AllSessionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC752A29E23A1A0020E5F9 /* AllSessionsViewModel.swift */; };
 		ABF6DA1429DEFAE8003F412A /* DestructiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6DA1329DEFAE8003F412A /* DestructiveButtonStyle.swift */; };
 		ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6EF4129D4722000918FD2 /* LoginController.swift */; };
 		B0B82126D421A137CB3DF277 /* Session+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DB6D200749F1674B76C74 /* Session+Schema.swift */; };
+		B544ADD6DEC40FB4F639C956 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9070A37BC6840D06E536FB42 /* Weekday.swift */; };
 		E0C960E8788CE8E94464E4C3 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781533A5E6CD22C412C1473 /* AmplifyModels.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +100,7 @@
 		2EC5A52B98EBCAC916F4BC09 /* ExternalProvider.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = ExternalProvider.swift; path = amplify/generated/models/ExternalProvider.swift; sourceTree = "<group>"; };
 		5BBC0B37A32F33423FE5F60D /* User+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "User+Schema.swift"; path = "amplify/generated/models/User+Schema.swift"; sourceTree = "<group>"; };
 		8F4DB6D200749F1674B76C74 /* Session+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Session+Schema.swift"; path = "amplify/generated/models/Session+Schema.swift"; sourceTree = "<group>"; };
+		9070A37BC6840D06E536FB42 /* Weekday.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Weekday.swift; path = amplify/generated/models/Weekday.swift; sourceTree = "<group>"; };
 		946F237B04D95635BE6B041E /* User.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = User.swift; path = amplify/generated/models/User.swift; sourceTree = "<group>"; };
 		A21EA54876D8A5ECB6EFAFC8 /* Project.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Project.swift; path = amplify/generated/models/Project.swift; sourceTree = "<group>"; };
 		AB019BD929DCC57D007010ED /* String+isReallyEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isReallyEmpty.swift"; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBox.swift; sourceTree = "<group>"; };
 		AB67AA0829DE2CA100D797BD /* OngoingSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingSessionController.swift; sourceTree = "<group>"; };
 		AB67AA0B29DE327F00D797BD /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		AB6D7C3C29E30AD800C2DB1F /* DateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConstants.swift; sourceTree = "<group>"; };
 		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
@@ -162,6 +167,7 @@
 		ABD8B56129D0DB42007BF1BC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ABD8B56329D0DB43007BF1BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABD8B56629D0DB43007BF1BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABDB663D29E2FFA300684219 /* Weekday+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weekday+Helpers.swift"; sourceTree = "<group>"; };
 		ABDC752529E237D70020E5F9 /* User+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Helpers.swift"; sourceTree = "<group>"; };
 		ABDC752829E23A100020E5F9 /* AllSessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSessionsView.swift; sourceTree = "<group>"; };
 		ABDC752A29E23A1A0020E5F9 /* AllSessionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSessionsViewModel.swift; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 				2EC5A52B98EBCAC916F4BC09 /* ExternalProvider.swift */,
 				8F4DB6D200749F1674B76C74 /* Session+Schema.swift */,
 				0CB941005A219887539F437F /* Session.swift */,
+				9070A37BC6840D06E536FB42 /* Weekday.swift */,
 			);
 			name = AmplifyModels;
 			sourceTree = "<group>";
@@ -278,10 +285,11 @@
 		AB59AB2929DDBA8E0041F6F8 /* AmplifyModelExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				AB2C0A6629DB15D10018B62F /* Priority+Helpers.swift */,
+				ABDC752529E237D70020E5F9 /* User+Helpers.swift */,
 				AB59AB2A29DDBAA00041F6F8 /* Project+Helpers.swift */,
 				AB4ADC0A29E06291000AFDCA /* Session+Helpers.swift */,
-				ABDC752529E237D70020E5F9 /* User+Helpers.swift */,
+				AB2C0A6629DB15D10018B62F /* Priority+Helpers.swift */,
+				ABDB663D29E2FFA300684219 /* Weekday+Helpers.swift */,
 			);
 			path = AmplifyModelExtensions;
 			sourceTree = "<group>";
@@ -409,6 +417,7 @@
 				ABB2D84829D69057004F9278 /* ErrorMessageConstants.swift */,
 				AB88C8C629D7988000F5DAD1 /* NotificationConstants.swift */,
 				ABAC1F3629D8751C007B0A0B /* UiConstants.swift */,
+				AB6D7C3C29E30AD800C2DB1F /* DateConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -626,6 +635,7 @@
 				E0C960E8788CE8E94464E4C3 /* AmplifyModels.swift in Sources */,
 				AB06CDE529DA2D4F00F4D912 /* AuthServiceError.swift in Sources */,
 				AB2C0A6229DB13220018B62F /* AddEditProjectViewModel.swift in Sources */,
+				ABDB663E29E2FFA300684219 /* Weekday+Helpers.swift in Sources */,
 				AB06CDE829DB08EF00F4D912 /* SectionTitle.swift in Sources */,
 				74FAED5A93C9CA1CBA468188 /* Priority.swift in Sources */,
 				AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */,
@@ -637,6 +647,7 @@
 				A8453C0FEA8A0E969C7C4DBA /* Project+Schema.swift in Sources */,
 				AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */,
 				AB4ADC0B29E06291000AFDCA /* Session+Helpers.swift in Sources */,
+				AB6D7C3D29E30AD800C2DB1F /* DateConstants.swift in Sources */,
 				AB2C0A6729DB15D10018B62F /* Priority+Helpers.swift in Sources */,
 				ABB998EF29D9B7F900421E01 /* HomeViewModel.swift in Sources */,
 				AB45541529D726F200A5CFEB /* ViewState.swift in Sources */,
@@ -674,6 +685,7 @@
 				AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */,
 				B0B82126D421A137CB3DF277 /* Session+Schema.swift in Sources */,
 				64C6A9509AE91BF8107231E0 /* Session.swift in Sources */,
+				B544ADD6DEC40FB4F639C956 /* Weekday.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

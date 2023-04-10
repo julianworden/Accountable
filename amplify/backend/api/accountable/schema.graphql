@@ -16,9 +16,10 @@ type Project @model @auth(rules: [{allow: public}]) {
 
 type Session @model @auth(rules: [{allow: public}]) {
   id: ID!
-  project: Project! @belongsTo
+  project: Project @belongsTo
   durationInSeconds: Int!
   unixDate: Float!
+  weekday: Weekday!
 }
 
 enum Priority {
@@ -30,5 +31,15 @@ enum Priority {
 enum ExternalProvider {
   google
   apple
+}
+
+enum Weekday {
+  sunday
+  monday
+  tuesday
+  wednesday
+  thursday
+  friday
+  saturday
 }
  
