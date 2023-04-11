@@ -5,7 +5,6 @@
 //  Created by Julian Worden on 4/5/23.
 //
 
-import Charts
 import SwiftUI
 
 struct ProjectDetailsView: View {
@@ -27,42 +26,53 @@ struct ProjectDetailsView: View {
                         OngoingSessionTitleAndBox()
                     }
 
-                    VStack {
-                        SectionTitle(text: "The Past Week")
-
-                        ZStack {
-                            CustomGroupBox()
-
-                            Chart {
-                                ForEach(Weekday.allCases) { weekday in
-                                    BarMark (
-                                        x: .value("Weekday Name", weekday.abbreviated),
-                                        y: .value("Total Hours", viewModel.getTotalLengthOfSessions(for: weekday))
-                                    )
-                                    .annotation {
-                                        if viewModel.getTotalLengthOfSessions(for: weekday) != 0 {
-                                            Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsPeriodOfTime)
-                                                .font(.caption)
-                                                .multilineTextAlignment(.center)
-                                                .frame(width: 30)
-                                        }
-                                    }
-                                }
-                            }
-                            .chartYAxis(.hidden)
-                            .padding()
-                            .animation(.easeInOut, value: viewModel.projectSessionsInPastWeek)
-                        }
-                        .frame(height: UiConstants.primaryBoxHeight)
-                    }
+                    ProjectDetailsPastWeekSection(viewModel: viewModel)
 
                     Grid(alignment: .center, horizontalSpacing: UiConstants.vStackSpacing, verticalSpacing: nil) {
                         GridRow {
-                            CustomGroupBox()
-                                .frame(height: abs((geo.size.width / 2) - 25))
+                            ZStack {
+                                CustomGroupBox()
+                                    .frame(height: abs((geo.size.width / 2) - UiConstants.vStackSpacing))
 
-                            CustomGroupBox()
-                                .frame(height: abs((geo.size.width / 2) - 25))
+                                VStack {
+                                    Label {
+                                        Text(viewModel.totalHoursWorked)
+                                            .lineLimit(1)
+                                            .minimumScaleFactor(0.01)
+                                    } icon: {
+                                        Image(systemName: "timer")
+                                            .foregroundColor(.purple)
+                                    }
+                                    .font(.title.bold())
+
+                                    Text("Total Hours Worked (All Time)")
+                                        .font(.title3)
+                                        .multilineTextAlignment(.center)
+                                }
+                                .padding()
+                            }
+
+                            ZStack {
+                                CustomGroupBox()
+                                    .frame(height: abs((geo.size.width / 2) - UiConstants.vStackSpacing))
+
+                                VStack {
+                                    Label {
+                                        Text(viewModel.averageHourWorkedPerSession)
+                                            .lineLimit(1)
+                                            .minimumScaleFactor(0.01)
+                                    } icon: {
+                                        Image(systemName: "timer")
+                                            .foregroundColor(.purple)
+                                    }
+                                    .font(.title.bold())
+
+                                    Text("Average Hours Worked Per Session")
+                                        .font(.title3)
+                                        .multilineTextAlignment(.center)
+                                }
+                                .padding()
+                            }
                         }
                     }
 

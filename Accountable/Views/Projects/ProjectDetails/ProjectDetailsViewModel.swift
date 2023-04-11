@@ -42,6 +42,28 @@ final class ProjectDetailsViewModel: ObservableObject {
         projectSessions.filter { $0.occurredInLastWeek }
     }
 
+    var totalHoursWorked: String {
+        var totalTime = 0
+        projectSessions.forEach {
+            totalTime += $0.durationInSeconds
+        }
+
+        return totalTime.secondsAsHours
+    }
+
+    var averageHourWorkedPerSession: String {
+        var totalTime = 0
+        projectSessions.forEach {
+            totalTime += $0.durationInSeconds
+        }
+
+        if !projectSessions.isEmpty {
+            return Int(totalTime / projectSessions.count).secondsAsHours
+        } else {
+            return 0.secondsAsHours
+        }
+    }
+
     @Published var project: Project
 
     /// Holds the subscription for the project that's currently being shown by `ProjectDetailsView`. Necessary for updating the view

@@ -72,6 +72,8 @@
 		ABB998EF29D9B7F900421E01 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB998EE29D9B7F900421E01 /* HomeViewModel.swift */; };
 		ABB998F229D9CCF600421E01 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB998F129D9CCF600421E01 /* DatabaseService.swift */; };
 		ABB998F529D9CE7900421E01 /* DataStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB998F429D9CE7900421E01 /* DataStoreError.swift */; };
+		ABBC403829E4B98800FD447A /* ProjectDetailsSessionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBC403729E4B98800FD447A /* ProjectDetailsSessionChart.swift */; };
+		ABBC403A29E4BB3000FD447A /* ProjectDetailsPastWeekSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBC403929E4BB3000FD447A /* ProjectDetailsPastWeekSection.swift */; };
 		ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330529D475E900BA9529 /* LoginViewModel.swift */; };
 		ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330729D477EC00BA9529 /* LoginStatus.swift */; };
 		ABCD330C29D4841400BA9529 /* TextFieldWithLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330B29D4841400BA9529 /* TextFieldWithLine.swift */; };
@@ -159,6 +161,8 @@
 		ABB998EE29D9B7F900421E01 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		ABB998F129D9CCF600421E01 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		ABB998F429D9CE7900421E01 /* DataStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreError.swift; sourceTree = "<group>"; };
+		ABBC403729E4B98800FD447A /* ProjectDetailsSessionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsSessionChart.swift; sourceTree = "<group>"; };
+		ABBC403929E4BB3000FD447A /* ProjectDetailsPastWeekSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPastWeekSection.swift; sourceTree = "<group>"; };
 		ABCD330529D475E900BA9529 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ABCD330729D477EC00BA9529 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		ABCD330B29D4841400BA9529 /* TextFieldWithLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLine.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 			children = (
 				AB4ADC1129E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift */,
 				AB4ADC0F29E06623000AFDCA /* FirstThreeProjectSessionsList.swift */,
+				ABBC403929E4BB3000FD447A /* ProjectDetailsPastWeekSection.swift */,
+				ABBC403729E4B98800FD447A /* ProjectDetailsSessionChart.swift */,
 			);
 			path = IndividualElements;
 			sourceTree = "<group>";
@@ -630,6 +636,7 @@
 				ABA728AA29DC5C6D00E66D98 /* CustomBackButton.swift in Sources */,
 				ABB998F529D9CE7900421E01 /* DataStoreError.swift in Sources */,
 				AB45540A29D7110F00A5CFEB /* SignUpViewModel.swift in Sources */,
+				ABBC403A29E4BB3000FD447A /* ProjectDetailsPastWeekSection.swift in Sources */,
 				AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */,
 				AB77868029D5D55A00CE5989 /* LoginSocialMediaButtons.swift in Sources */,
 				E0C960E8788CE8E94464E4C3 /* AmplifyModels.swift in Sources */,
@@ -653,6 +660,7 @@
 				AB45541529D726F200A5CFEB /* ViewState.swift in Sources */,
 				65EB8B7F0792FA6A77D3F7DE /* Project.swift in Sources */,
 				AB67AA0129DDFBD400D797BD /* HomeProjectsList.swift in Sources */,
+				ABBC403829E4B98800FD447A /* ProjectDetailsSessionChart.swift in Sources */,
 				AB2D1EF829D5C30E00215C9C /* CustomDivider.swift in Sources */,
 				AB67AA0929DE2CA100D797BD /* OngoingSessionController.swift in Sources */,
 				ABB998F229D9CCF600421E01 /* DatabaseService.swift in Sources */,
