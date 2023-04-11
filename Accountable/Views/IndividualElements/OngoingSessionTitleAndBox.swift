@@ -11,61 +11,55 @@ struct OngoingSessionTitleAndBox: View {
     @EnvironmentObject var ongoingSessionController: OngoingSessionController
 
     var body: some View {
-        VStack {
-            SectionTitle(text: "Ongoing Session")
-                .tint(.primary)
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(.purple)
+                .shadow(color: .purple.opacity(UiConstants.purpleShadowOpacity), radius: UiConstants.purpleShadowRadius)
 
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.purple)
-                    .shadow(color: .purple.opacity(UiConstants.purpleShadowOpacity), radius: UiConstants.purpleShadowRadius)
+            HStack {
+                VStack(alignment: .leading) {
+                    SectionTitle(text: "Ongoing Session", font: .title2.bold())
+                        .foregroundColor(.white)
 
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(ongoingSessionController.projectForActiveSession?.name ?? "Unknown Project")
-                            .font(.title2)
-                            .bold()
+                    Text(ongoingSessionController.projectForActiveSession?.name ?? "Unknown Project")
+                        .font(.title3)
 
-                        Text(ongoingSessionController.display)
-                    }
-                    .foregroundColor(.white)
-
-                    Spacer()
-
-                    AsyncButton {
-                        await ongoingSessionController.stopTimer()
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .fill(.white)
-
-                            Image(systemName: "stop")
-                                .bold()
-                        }
-                        .frame(width: 44, height: 44)
-                    }
-                    .tint(.purple)
-
-                    Button {
-                        ongoingSessionController.secondaryTimerButtonTapped()
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .fill(.white)
-
-                            Image(systemName: ongoingSessionController.secondaryTimerButtonIconName)
-                                .bold()
-                        }
-                        .frame(width: 44, height: 44)
-                    }
-                    .tint(.purple)
+                    Text(ongoingSessionController.display)
                 }
-                .padding()
-            }
-            .frame(height: 65)
-        }
-        .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .top)).combined(with: .opacity))
+                .foregroundColor(.white)
 
+                Spacer()
+
+                AsyncButton {
+                    await ongoingSessionController.stopTimer()
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(.white)
+
+                        Image(systemName: "stop")
+                            .bold()
+                    }
+                    .frame(width: 44, height: 44)
+                }
+                .tint(.purple)
+
+                Button {
+                    ongoingSessionController.secondaryTimerButtonTapped()
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(.white)
+
+                        Image(systemName: ongoingSessionController.secondaryTimerButtonIconName)
+                            .bold()
+                    }
+                    .frame(width: 44, height: 44)
+                }
+                .tint(.purple)
+            }
+            .padding()
+        }
     }
 }
 

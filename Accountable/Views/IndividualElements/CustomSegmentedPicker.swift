@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CustomSegmentedPicker: View {
+    @Namespace private var animation
+
     @Binding var selectedIndex: Int
 
     let title: String?
@@ -25,18 +27,21 @@ struct CustomSegmentedPicker: View {
                         Rectangle()
                             .fill(.purple.opacity(0.2))
 
-                        Rectangle()
-                            .fill(.purple)
-                            .cornerRadius(20)
-                            .opacity(index == selectedIndex ? 1 : 0.01)
-                            .onTapGesture {
-                                selectedIndex = index
-                            }
-                            .animation(.easeInOut, value: selectedIndex)
+                        if index == selectedIndex {
+                            Rectangle()
+                                .fill(.purple)
+                                .cornerRadius(20)
+                                .matchedGeometryEffect(id: "SELECTION", in: animation)
+                        }
                     }
                     .overlay {
                         Text(Priority.allCases[index].rawValue.capitalized)
                             .foregroundColor(.white)
+                            .onTapGesture {
+                                withAnimation {
+                                    selectedIndex = index
+                                }
+                            }
                     }
                 }
             }

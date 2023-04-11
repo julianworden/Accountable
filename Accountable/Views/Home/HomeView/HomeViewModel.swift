@@ -50,24 +50,6 @@ final class HomeViewModel: ObservableObject {
         postLoggedOutNotification()
     }
 
-    func printCurrentUserInfo() async {
-        do {
-            let currentAuthUser = try await Amplify.Auth.getCurrentUser()
-            print("CURRENT USER: \(currentAuthUser)")
-            let currentUserAttributes = try await Amplify.Auth.fetchUserAttributes()
-            print("CURRENT USER ATTRIBUTES: \(currentUserAttributes)")
-            let currentUser = try await DatabaseService.shared.getLoggedInUser()
-            try await currentUser.projects?.fetch()
-            if let currentUserProjects = currentUser.projects {
-                for project in currentUserProjects {
-                    print("CURRENT USER PROJECT: \(project.name)")
-                }
-            }
-        } catch {
-            print(error)
-        }
-    }
-
     func postLoggedOutNotification() {
         NotificationCenter.default.post(name: .userLoggedOut, object: nil)
     }

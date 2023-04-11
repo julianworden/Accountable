@@ -70,7 +70,6 @@ struct HomeView: View {
                 message: { Text(viewModel.errorMessageText) }
             )
             .task {
-                await viewModel.printCurrentUserInfo()
                 await viewModel.getLoggedInUserProjects()
             }
             .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)

@@ -9,11 +9,17 @@ import SwiftUI
 
 struct SectionTitle: View {
     let text: String
+    let font: Font
+
+    init(text: String, font: Font = .title3.bold()) {
+        self.text = text
+        self.font = font
+    }
 
     var body: some View {
         HStack {
             Text(text)
-                .font(.title3.bold())
+                .font(font)
             Spacer()
         }
     }

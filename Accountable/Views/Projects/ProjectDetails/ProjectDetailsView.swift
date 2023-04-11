@@ -28,52 +28,15 @@ struct ProjectDetailsView: View {
 
                     ProjectDetailsPastWeekSection(viewModel: viewModel)
 
-                    Grid(alignment: .center, horizontalSpacing: UiConstants.vStackSpacing, verticalSpacing: nil) {
-                        GridRow {
-                            ZStack {
-                                CustomGroupBox()
-                                    .frame(height: abs((geo.size.width / 2) - UiConstants.vStackSpacing))
+                    ProjectDetailsStatsGrid(viewModel: viewModel, geo: geo)
 
-                                VStack {
-                                    Label {
-                                        Text(viewModel.totalHoursWorked)
-                                            .lineLimit(1)
-                                            .minimumScaleFactor(0.01)
-                                    } icon: {
-                                        Image(systemName: "timer")
-                                            .foregroundColor(.purple)
-                                    }
-                                    .font(.title.bold())
-
-                                    Text("Total Hours Worked (All Time)")
-                                        .font(.title3)
-                                        .multilineTextAlignment(.center)
-                                }
-                                .padding()
-                            }
-
-                            ZStack {
-                                CustomGroupBox()
-                                    .frame(height: abs((geo.size.width / 2) - UiConstants.vStackSpacing))
-
-                                VStack {
-                                    Label {
-                                        Text(viewModel.averageHourWorkedPerSession)
-                                            .lineLimit(1)
-                                            .minimumScaleFactor(0.01)
-                                    } icon: {
-                                        Image(systemName: "timer")
-                                            .foregroundColor(.purple)
-                                    }
-                                    .font(.title.bold())
-
-                                    Text("Average Hours Worked Per Session")
-                                        .font(.title3)
-                                        .multilineTextAlignment(.center)
-                                }
-                                .padding()
-                            }
+                    if !ongoingSessionController.sessionIsActive {
+                        Button {
+                            viewModel.sessionViewIsShowing.toggle()
+                        } label: {
+                            Label("Start New Session", systemImage: "play")
                         }
+                        .buttonStyle(Primary())
                     }
 
                     FirstThreeProjectSessionsHeader(viewModel: viewModel)

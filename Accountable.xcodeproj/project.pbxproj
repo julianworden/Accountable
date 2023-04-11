@@ -53,6 +53,7 @@
 		AB67AA0929DE2CA100D797BD /* OngoingSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0829DE2CA100D797BD /* OngoingSessionController.swift */; };
 		AB67AA0C29DE327F00D797BD /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0B29DE327F00D797BD /* SessionView.swift */; };
 		AB6D7C3D29E30AD800C2DB1F /* DateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D7C3C29E30AD800C2DB1F /* DateConstants.swift */; };
+		AB74D08D29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB74D08C29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift */; };
 		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
 		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
 		AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */; };
@@ -88,7 +89,6 @@
 		ABDC752629E237D70020E5F9 /* User+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC752529E237D70020E5F9 /* User+Helpers.swift */; };
 		ABDC752929E23A100020E5F9 /* AllSessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC752829E23A100020E5F9 /* AllSessionsView.swift */; };
 		ABDC752B29E23A1A0020E5F9 /* AllSessionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC752A29E23A1A0020E5F9 /* AllSessionsViewModel.swift */; };
-		ABF6DA1429DEFAE8003F412A /* DestructiveButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6DA1329DEFAE8003F412A /* DestructiveButtonStyle.swift */; };
 		ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6EF4129D4722000918FD2 /* LoginController.swift */; };
 		B0B82126D421A137CB3DF277 /* Session+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DB6D200749F1674B76C74 /* Session+Schema.swift */; };
 		B544ADD6DEC40FB4F639C956 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9070A37BC6840D06E536FB42 /* Weekday.swift */; };
@@ -142,6 +142,7 @@
 		AB67AA0829DE2CA100D797BD /* OngoingSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingSessionController.swift; sourceTree = "<group>"; };
 		AB67AA0B29DE327F00D797BD /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		AB6D7C3C29E30AD800C2DB1F /* DateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConstants.swift; sourceTree = "<group>"; };
+		AB74D08C29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsStatsGrid.swift; sourceTree = "<group>"; };
 		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
@@ -175,7 +176,6 @@
 		ABDC752529E237D70020E5F9 /* User+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Helpers.swift"; sourceTree = "<group>"; };
 		ABDC752829E23A100020E5F9 /* AllSessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSessionsView.swift; sourceTree = "<group>"; };
 		ABDC752A29E23A1A0020E5F9 /* AllSessionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSessionsViewModel.swift; sourceTree = "<group>"; };
-		ABF6DA1329DEFAE8003F412A /* DestructiveButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveButtonStyle.swift; sourceTree = "<group>"; };
 		ABF6EF4129D4722000918FD2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D781533A5E6CD22C412C1473 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		D9179760947888B9F0613F4B /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
@@ -274,6 +274,7 @@
 				AB4ADC0F29E06623000AFDCA /* FirstThreeProjectSessionsList.swift */,
 				ABBC403929E4BB3000FD447A /* ProjectDetailsPastWeekSection.swift */,
 				ABBC403729E4B98800FD447A /* ProjectDetailsSessionChart.swift */,
+				AB74D08C29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift */,
 			);
 			path = IndividualElements;
 			sourceTree = "<group>";
@@ -308,6 +309,7 @@
 				AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */,
 				AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */,
 				ABB998EE29D9B7F900421E01 /* HomeViewModel.swift */,
+				AB59AB3029DDBDAD0041F6F8 /* IndividualElements */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -367,7 +369,6 @@
 			children = (
 				AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */,
 				AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */,
-				ABF6DA1329DEFAE8003F412A /* DestructiveButtonStyle.swift */,
 				ABAC1F3829D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift */,
 			);
 			path = StylesAndModifiers;
@@ -432,7 +433,6 @@
 			isa = PBXGroup;
 			children = (
 				AB59AB2F29DDBDA70041F6F8 /* HomeView */,
-				AB59AB3029DDBDAD0041F6F8 /* IndividualElements */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -620,7 +620,6 @@
 				AB44AD4829E244DF003175BB /* SessionRow.swift in Sources */,
 				AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */,
 				AB2C0A6429DB152C0018B62F /* CustomSegmentedPicker.swift in Sources */,
-				ABF6DA1429DEFAE8003F412A /* DestructiveButtonStyle.swift in Sources */,
 				AB59AB2D29DDBCA20041F6F8 /* CustomProgressView.swift in Sources */,
 				AB019BDA29DCC57D007010ED /* String+isReallyEmpty.swift in Sources */,
 				ABDC752629E237D70020E5F9 /* User+Helpers.swift in Sources */,
@@ -681,6 +680,7 @@
 				ABB8CD9629DB815D00367A62 /* View+HideKeyboard.swift in Sources */,
 				ABCD330C29D4841400BA9529 /* TextFieldWithLine.swift in Sources */,
 				ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */,
+				AB74D08D29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift in Sources */,
 				AB59AB2629DDB9F80041F6F8 /* ProjectDetailsView.swift in Sources */,
 				AB88C8C729D7988000F5DAD1 /* NotificationConstants.swift in Sources */,
 				AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */,
