@@ -72,7 +72,9 @@ final class HomeViewModel: ObservableObject {
     func getTotalLengthOfSessions(for weekday: Weekday) -> Int {
         var totalDurationInSeconds = 0
         projectSessionsInPastWeek.forEach {
-            $0.weekday == weekday ? totalDurationInSeconds += $0.durationInSeconds : nil
+            if $0.weekday == weekday {
+                totalDurationInSeconds += $0.durationInSeconds
+            }
         }
 
         return totalDurationInSeconds
@@ -81,8 +83,8 @@ final class HomeViewModel: ObservableObject {
     func logOut() async {
         _ = await Amplify.Auth.signOut()
         clearKeychain()
-        WidgetCenter.shared.reloadAllTimelines()
         postLoggedOutNotification()
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     func postLoggedOutNotification() {

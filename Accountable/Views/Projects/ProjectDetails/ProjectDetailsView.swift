@@ -24,24 +24,37 @@ struct ProjectDetailsView: View {
                 VStack(spacing: UiConstants.vStackSpacing) {
                     if ongoingSessionController.sessionIsActive {
                         OngoingSessionTitleAndBox()
+                            .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .top)).combined(with: .opacity))
+                            .onAppear {
+                                withAnimation(.easeInOut) {
+                                    viewModel.startNewSessionButtonIsShowing = false
+                                }
+                            }
+                            .onDisappear {
+                                withAnimation(.easeInOut) {
+                                    viewModel.startNewSessionButtonIsShowing = true
+                                }
+                            }
                     }
 
                     ProjectDetailsPastWeekSection(viewModel: viewModel)
 
                     ProjectDetailsStatsGrid(viewModel: viewModel, geo: geo)
 
-                    if !ongoingSessionController.sessionIsActive {
+                    if viewModel.startNewSessionButtonIsShowing {
                         Button {
                             viewModel.sessionViewIsShowing.toggle()
                         } label: {
                             Label("Start New Session", systemImage: "play")
                         }
                         .buttonStyle(Primary())
+                        .transition(.opacity)
                     }
 
                     FirstThreeProjectSessionsHeader(viewModel: viewModel)
 
                     FirstThreeProjectSessionsList(viewModel: viewModel)
+
                 }
                 .padding(.horizontal)
             }

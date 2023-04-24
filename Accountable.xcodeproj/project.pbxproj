@@ -120,6 +120,12 @@
 		ABC1267629E7153C007C2996 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABC1267529E7153C007C2996 /* AWSAPIPlugin */; };
 		ABC1267829E7153C007C2996 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABC1267729E7153C007C2996 /* AWSCognitoAuthPlugin */; };
 		ABC1267A29E7153C007C2996 /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABC1267929E7153C007C2996 /* AWSDataStorePlugin */; };
+		ABC1CE6A29F6D193007452C7 /* FileManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC1CE6929F6D193007452C7 /* FileManagerError.swift */; };
+		ABC1CE6B29F6D1F6007452C7 /* FileManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC1CE6929F6D193007452C7 /* FileManagerError.swift */; };
+		ABC1CE6D29F6D2DB007452C7 /* Data+prettyPrintedJSONString().swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC1CE6C29F6D2DB007452C7 /* Data+prettyPrintedJSONString().swift */; };
+		ABC1CE6E29F6D2DD007452C7 /* Data+prettyPrintedJSONString().swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC1CE6C29F6D2DB007452C7 /* Data+prettyPrintedJSONString().swift */; };
+		ABC1CE9429F6DC8A007452C7 /* URL+storeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC1CE9329F6DC8A007452C7 /* URL+storeUrl.swift */; };
+		ABC1CE9529F6DC8A007452C7 /* URL+storeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC1CE9329F6DC8A007452C7 /* URL+storeUrl.swift */; };
 		ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330529D475E900BA9529 /* LoginViewModel.swift */; };
 		ABCD330829D477EC00BA9529 /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330729D477EC00BA9529 /* LoginStatus.swift */; };
 		ABCD330C29D4841400BA9529 /* TextFieldWithLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD330B29D4841400BA9529 /* TextFieldWithLine.swift */; };
@@ -260,6 +266,9 @@
 		ABB998F429D9CE7900421E01 /* DataStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreError.swift; sourceTree = "<group>"; };
 		ABBC403729E4B98800FD447A /* ProjectDetailsSessionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsSessionChart.swift; sourceTree = "<group>"; };
 		ABBC403929E4BB3000FD447A /* ProjectDetailsPastWeekSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPastWeekSection.swift; sourceTree = "<group>"; };
+		ABC1CE6929F6D193007452C7 /* FileManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerError.swift; sourceTree = "<group>"; };
+		ABC1CE6C29F6D2DB007452C7 /* Data+prettyPrintedJSONString().swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+prettyPrintedJSONString().swift"; sourceTree = "<group>"; };
+		ABC1CE9329F6DC8A007452C7 /* URL+storeUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+storeUrl.swift"; sourceTree = "<group>"; };
 		ABCD330529D475E900BA9529 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ABCD330729D477EC00BA9529 /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		ABCD330B29D4841400BA9529 /* TextFieldWithLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLine.swift; sourceTree = "<group>"; };
@@ -399,11 +408,11 @@
 		AB4ADC0E29E06610000AFDCA /* IndividualElements */ = {
 			isa = PBXGroup;
 			children = (
-				AB4ADC1129E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift */,
-				AB4ADC0F29E06623000AFDCA /* FirstThreeProjectSessionsList.swift */,
 				ABBC403929E4BB3000FD447A /* ProjectDetailsPastWeekSection.swift */,
 				ABBC403729E4B98800FD447A /* ProjectDetailsSessionChart.swift */,
 				AB74D08C29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift */,
+				AB4ADC1129E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift */,
+				AB4ADC0F29E06623000AFDCA /* FirstThreeProjectSessionsList.swift */,
 			);
 			path = IndividualElements;
 			sourceTree = "<group>";
@@ -540,11 +549,13 @@
 			children = (
 				AB59AB2929DDBA8E0041F6F8 /* AmplifyModelExtensions */,
 				ABB2D84529D68BB1004F9278 /* Notification.Name+CustomNotifications.swift */,
+				ABC1CE6C29F6D2DB007452C7 /* Data+prettyPrintedJSONString().swift */,
 				AB019BD929DCC57D007010ED /* String+isReallyEmpty.swift */,
 				ABB8CD9529DB815D00367A62 /* View+HideKeyboard.swift */,
 				ABA728AB29DC6E4100E66D98 /* Color+CustomColors.swift */,
 				AB4ADC0C29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift */,
 				ABDCA77A29F58C63009B0DA9 /* Date+Helpers.swift */,
+				ABC1CE9329F6DC8A007452C7 /* URL+storeUrl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -613,6 +624,7 @@
 				ABB998F429D9CE7900421E01 /* DataStoreError.swift */,
 				AB06CDE429DA2D4F00F4D912 /* AuthServiceError.swift */,
 				AB1F420029F01EFE00344FDA /* KeychainError.swift */,
+				ABC1CE6929F6D193007452C7 /* FileManagerError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -842,6 +854,7 @@
 				AB75E35A29EC751300609496 /* SectionTitle.swift in Sources */,
 				AB3207C729E6EF1C007AC36E /* Project+Schema.swift in Sources */,
 				AB75E35929EC742F00609496 /* BarMarkAnnotationTextStyle.swift in Sources */,
+				ABC1CE6E29F6D2DD007452C7 /* Data+prettyPrintedJSONString().swift in Sources */,
 				AB3207CA29E6EF1C007AC36E /* User+Schema.swift in Sources */,
 				AB3207C929E6EF1C007AC36E /* Priority.swift in Sources */,
 				ABDCA77829F585EA009B0DA9 /* ViewState.swift in Sources */,
@@ -862,10 +875,12 @@
 				AB68DA0229F2D448008F5077 /* SimpleEntry.swift in Sources */,
 				ABC1267229E70EE4007C2996 /* Session+Helpers.swift in Sources */,
 				AB3207D329E6EF3A007AC36E /* DataStoreError.swift in Sources */,
+				ABC1CE9529F6DC8A007452C7 /* URL+storeUrl.swift in Sources */,
 				AB3207CE29E6EF24007AC36E /* AuthService.swift in Sources */,
 				ABC1267129E70EE4007C2996 /* Project+Helpers.swift in Sources */,
 				AB3207A129E6E81A007AC36E /* LastWeekChartWidgetView.swift in Sources */,
 				ABDCA78529F5E3B7009B0DA9 /* AppGroupConstants.swift in Sources */,
+				ABC1CE6B29F6D1F6007452C7 /* FileManagerError.swift in Sources */,
 				AB3207CB29E6EF1C007AC36E /* Session+Schema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -909,6 +924,7 @@
 				AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */,
 				ABDCA78029F5D359009B0DA9 /* FileManagerConstants.swift in Sources */,
 				AB45540C29D71A6B00A5CFEB /* OnboardingNavigationController.swift in Sources */,
+				ABC1CE9429F6DC8A007452C7 /* URL+storeUrl.swift in Sources */,
 				AB4ADC1229E0666A000AFDCA /* FirstThreeProjectSessionsHeader.swift in Sources */,
 				ABCD330629D475E900BA9529 /* LoginViewModel.swift in Sources */,
 				A8453C0FEA8A0E969C7C4DBA /* Project+Schema.swift in Sources */,
@@ -942,6 +958,7 @@
 				ABB998EC29D9B7C700421E01 /* HomeView.swift in Sources */,
 				ABB8CD9629DB815D00367A62 /* View+HideKeyboard.swift in Sources */,
 				ABCD330C29D4841400BA9529 /* TextFieldWithLine.swift in Sources */,
+				ABC1CE6D29F6D2DB007452C7 /* Data+prettyPrintedJSONString().swift in Sources */,
 				ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */,
 				AB74D08D29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift in Sources */,
 				AB59AB2629DDB9F80041F6F8 /* ProjectDetailsView.swift in Sources */,
@@ -956,6 +973,7 @@
 				AB1F420329F0208600344FDA /* KeychainConstants.swift in Sources */,
 				AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */,
 				ABDCA78229F5D36C009B0DA9 /* AppGroupConstants.swift in Sources */,
+				ABC1CE6A29F6D193007452C7 /* FileManagerError.swift in Sources */,
 				B0B82126D421A137CB3DF277 /* Session+Schema.swift in Sources */,
 				64C6A9509AE91BF8107231E0 /* Session.swift in Sources */,
 				B544ADD6DEC40FB4F639C956 /* Weekday.swift in Sources */,

@@ -84,6 +84,9 @@ struct HomeView: View {
             )
             .task {
                 await viewModel.getLoggedInUserProjectsAndSessions()
+//                try? FileManagerController.shared.deleteAllSessions()
+                print("SESSIONS: \(FileManagerController.shared.getSessions())")
+                print("PROJECTS: \(FileManagerController.shared.getProjects())")
             }
             .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)
         }

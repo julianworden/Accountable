@@ -8,6 +8,7 @@
 import Amplify
 import Combine
 import Foundation
+import WidgetKit
 
 @MainActor
 final class ProjectDetailsViewModel: ObservableObject {
@@ -15,6 +16,7 @@ final class ProjectDetailsViewModel: ObservableObject {
     @Published var sessionViewIsShowing = false
     @Published var buttonsAreDisabled = false
     @Published var projectWasDeleted = false
+    @Published var startNewSessionButtonIsShowing = true
 
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
@@ -85,7 +87,9 @@ final class ProjectDetailsViewModel: ObservableObject {
     func getTotalLengthOfSessions(for weekday: Weekday) -> Int {
         var totalDurationInSeconds = 0
         projectSessionsInPastWeek.forEach {
-            $0.weekday == weekday ? totalDurationInSeconds += $0.durationInSeconds : nil
+            if $0.weekday == weekday {
+                totalDurationInSeconds += $0.durationInSeconds
+            }
         }
 
         return totalDurationInSeconds
@@ -94,6 +98,8 @@ final class ProjectDetailsViewModel: ObservableObject {
     func deleteProject() async {
         do {
             try await DatabaseService.shared.deleteProject(project)
+            try FileManagerController.shared.deleteProject(project)
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             viewState = .error(message: error.localizedDescription)
         }

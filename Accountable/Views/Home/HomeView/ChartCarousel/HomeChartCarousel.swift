@@ -22,13 +22,15 @@ struct HomeChartCarousel: View {
 
                         Chart {
                             ForEach(viewModel.userProjects) { project in
-                                BarMark(
-                                    x: .value("Project Name", project.name),
-                                    y: .value("Number of Hours", project.totalSecondsPracticed)
-                                )
-                                .annotation {
-                                    Text(project.totalSecondsPracticed.secondsAsHours)
-                                        .barMarkAnnotation()
+                                if project.totalSecondsPracticed > 0 {
+                                    BarMark(
+                                        x: .value("Project Name", project.name),
+                                        y: .value("Number of Hours", project.totalSecondsPracticed)
+                                    )
+                                    .annotation {
+                                        Text(project.totalSecondsPracticed.secondsAsHours)
+                                            .barMarkAnnotation()
+                                    }
                                 }
                             }
                         }

@@ -58,8 +58,7 @@ final class AddEditProjectViewModel: ObservableObject {
             )
 
             try await DatabaseService.shared.createOrUpdateProject(project)
-            let allUserProjects = try await loggedInUser.getProjects()
-            try FileManagerController.shared.saveProjects(allUserProjects)
+            try FileManagerController.shared.saveProject(project)
 
             viewState = .workCompleted
         } catch {

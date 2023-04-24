@@ -37,6 +37,7 @@ final class AllSessionsViewModel: ObservableObject {
                 if sessions.indices.contains(index) {
                     let sessionToBeDeleted = sessions[index]
                     try await DatabaseService.shared.deleteSession(sessionToBeDeleted)
+                    try FileManagerController.shared.deleteSession(sessionToBeDeleted)
                 }
             }
 

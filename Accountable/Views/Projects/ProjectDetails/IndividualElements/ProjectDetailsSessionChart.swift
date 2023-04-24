@@ -27,7 +27,7 @@ struct ProjectDetailsSessionChart: View {
             }
         }
         .chartYAxis(.hidden)
-        .animation(.easeInOut, value: viewModel.projectSessionsInPastWeek)
+//        .animation(.easeInOut, value: viewModel.projectSessionsInPastWeek)
     }
 }
 

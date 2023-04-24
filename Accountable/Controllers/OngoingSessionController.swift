@@ -148,6 +148,8 @@ final class OngoingSessionController: ObservableObject {
     func createSession() async {
         guard var projectForActiveSession else { return }
 
+        sessionIsActive = false
+
         do {
             let newSession = Session(
                 project: projectForActiveSession,
@@ -158,15 +160,8 @@ final class OngoingSessionController: ObservableObject {
 
             projectForActiveSession.totalSecondsPracticed += timerDuration
             try await DatabaseService.shared.createSession(newSession)
+            try FileManagerController.shared.saveSession(newSession)
             postSessionCreatedNotification(forNewSession: newSession)
-            let allLoggedInUserProjects = try await DatabaseService.shared.getAllLoggedInUserProjects()
-            var allUserSessions = [Session]()
-            for project in allLoggedInUserProjects {
-                let sessions = try await project.getSessions()
-                allUserSessions.append(contentsOf: sessions)
-            }
-            try FileManagerController.shared.saveSession(allUserSessions)
-            sessionIsActive = false
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
             viewState = .error(message: error.localizedDescription)

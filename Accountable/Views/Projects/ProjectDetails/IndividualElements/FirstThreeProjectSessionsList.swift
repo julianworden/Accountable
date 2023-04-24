@@ -11,9 +11,10 @@ struct FirstThreeProjectSessionsList: View {
     @ObservedObject var viewModel: ProjectDetailsViewModel
 
     var body: some View {
-        ForEach(viewModel.projectSessions.prefix(3)) { session in
-            SessionRow(session: session)
-                .transition(.move(edge: .top).combined(with: .opacity))
+        VStack {
+            ForEach(viewModel.projectSessions.prefix(3)) { session in
+                SessionRow(session: session)
+            }
         }
         .animation(.easeInOut, value: viewModel.projectSessions)
     }

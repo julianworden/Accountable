@@ -74,7 +74,6 @@ final class DatabaseService {
     func createOrUpdateProject(_ project: Project) async throws {
         do {
             try await Amplify.DataStore.save(project)
-
         } catch {
             throw DataStoreError.unknown(message: "Failed to save project. \(ErrorMessageConstants.unknown)")
         }

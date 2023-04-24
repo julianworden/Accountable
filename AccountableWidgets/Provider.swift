@@ -33,7 +33,6 @@ struct Provider: TimelineProvider {
         Task {
             do {
                 try await checkKeychain()
-//                let currentUser = try await DatabaseService.shared.getLoggedInUser()
                 let userProjects = FileManagerController.shared.getProjects()
                 let userSessions = FileManagerController.shared.getSessions()
                 let entry = SimpleEntry(date: Date.now, userProjects: userProjects, userSessions: userSessions)
