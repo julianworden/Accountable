@@ -8,6 +8,7 @@ extension Project {
     case id
     case creator
     case name
+    case totalSecondsPracticed
     case priority
     case description
     case sessions
@@ -35,6 +36,7 @@ extension Project {
       .field(project.id, is: .required, ofType: .string),
       .belongsTo(project.creator, is: .optional, ofType: User.self, targetNames: ["userProjectsId"]),
       .field(project.name, is: .required, ofType: .string),
+      .field(project.totalSecondsPracticed, is: .required, ofType: .int),
       .field(project.priority, is: .required, ofType: .enum(type: Priority.self)),
       .field(project.description, is: .optional, ofType: .string),
       .hasMany(project.sessions, is: .optional, ofType: Session.self, associatedWith: Session.keys.project),

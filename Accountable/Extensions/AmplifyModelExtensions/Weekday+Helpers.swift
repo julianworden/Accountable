@@ -22,4 +22,10 @@ extension Weekday: CaseIterable, Identifiable {
     var abbreviated: String {
         String(self.rawValue.capitalized.prefix(3))
     }
+
+    var matchesTodaysWeekday: Bool {
+        let todaysWeekday = Date.now.weekday
+
+        return todaysWeekday == self.rawValue
+    }
 }

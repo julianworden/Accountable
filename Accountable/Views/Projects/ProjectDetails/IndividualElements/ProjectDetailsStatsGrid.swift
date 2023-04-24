@@ -13,51 +13,11 @@ struct ProjectDetailsStatsGrid: View {
     let geo: GeometryProxy
 
     var body: some View {
-        Grid(alignment: .center, horizontalSpacing: UiConstants.vStackSpacing, verticalSpacing: nil) {
+        StatGrid {
             GridRow {
-                ZStack {
-                    CustomGroupBox()
-                        .frame(height: abs((geo.size.width / 2) - UiConstants.vStackSpacing))
+                StatBox(title: viewModel.totalHoursWorked, subtitle: "Total Hours Worked (All Time)", iconName: "timer", geo: geo)
 
-                    VStack {
-                        Label {
-                            Text(viewModel.totalHoursWorked)
-                                .lineLimit(1)
-                                .minimumScaleFactor(0.01)
-                        } icon: {
-                            Image(systemName: "timer")
-                                .foregroundColor(.purple)
-                        }
-                        .font(.title2.bold())
-
-                        Text("Total Hours Worked (All Time)")
-                            .font(.title3)
-                            .multilineTextAlignment(.center)
-                    }
-                    .padding()
-                }
-
-                ZStack {
-                    CustomGroupBox()
-                        .frame(height: abs((geo.size.width / 2) - UiConstants.vStackSpacing))
-
-                    VStack {
-                        Label {
-                            Text(viewModel.averageHourWorkedPerSession)
-                                .lineLimit(1)
-                                .minimumScaleFactor(0.01)
-                        } icon: {
-                            Image(systemName: "timer")
-                                .foregroundColor(.purple)
-                        }
-                        .font(.title2.bold())
-
-                        Text("Average Hours Worked Per Session")
-                            .font(.title3)
-                            .multilineTextAlignment(.center)
-                    }
-                    .padding()
-                }
+                StatBox(title: viewModel.averageHourWorkedPerSession, subtitle: "Average Hours Worked Per Session", iconName: "timer", geo: geo)
             }
         }
     }

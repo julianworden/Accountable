@@ -15,15 +15,13 @@ struct ProjectDetailsSessionChart: View {
         Chart {
             ForEach(Weekday.allCases) { weekday in
                 BarMark (
-                    x: .value("Weekday Name", weekday.abbreviated),
+                    x: .value("Weekday Name", weekday.matchesTodaysWeekday ? "Today" : weekday.abbreviated),
                     y: .value("Total Hours", viewModel.getTotalLengthOfSessions(for: weekday))
                 )
                 .annotation {
                     if viewModel.getTotalLengthOfSessions(for: weekday) != 0 {
                         Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsFullPeriodOfTime)
-                            .font(.caption)
-                            .multilineTextAlignment(.center)
-                            .frame(width: 30)
+                            .barMarkAnnotation()
                     }
                 }
             }

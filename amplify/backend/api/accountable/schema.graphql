@@ -1,7 +1,6 @@
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   username: String!
-  externalProvider: ExternalProvider
   projects: [Project] @hasMany
 }
 
@@ -9,6 +8,7 @@ type Project @model @auth(rules: [{allow: public}]) {
   id: ID!
   creator: User @belongsTo
   name: String!
+  totalSecondsPracticed: Int!
   priority: Priority!
   description: String
   sessions: [Session] @hasMany
@@ -26,11 +26,6 @@ enum Priority {
   low
   normal
   high
-}
-
-enum ExternalProvider {
-  google
-  apple
 }
 
 enum Weekday {

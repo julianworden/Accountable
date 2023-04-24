@@ -12,7 +12,7 @@ struct CustomGroupBox: View {
 
     var body: some View {
         RoundedRectangle(cornerRadius: 10)
-            .fill(colorScheme == .light ? .white : .lightGray)
+            .fill(colorScheme == .light ? .white : Color(uiColor: .secondarySystemBackground))
             .shadow(color: .purple.opacity(UiConstants.purpleShadowOpacity), radius: UiConstants.purpleShadowRadius)
     }
 }

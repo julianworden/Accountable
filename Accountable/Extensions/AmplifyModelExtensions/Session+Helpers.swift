@@ -24,9 +24,7 @@ extension Session: Equatable, Identifiable {
         Date(timeIntervalSince1970: unixDate)
     }
 
-    var occurredInLastWeek: Bool {
-        let dateOneWeekAgo = Date.now.addingTimeInterval(-DateConstants.secondsInSixDays)
-        let dateOneWeekAgoAtMidnight = Calendar.current.startOfDay(for: dateOneWeekAgo)
-        return unixDate > dateOneWeekAgoAtMidnight.timeIntervalSince1970 && unixDate <= Date.now.timeIntervalSince1970
+    var createdInLastSixDays: Bool {
+        return unixDateAsDate.isInLastSixDays
     }
 }

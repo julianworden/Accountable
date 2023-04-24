@@ -23,29 +23,35 @@ struct HomeView: View {
                     CustomProgressView()
 
                 case .error, .dataLoaded, .dataNotFound:
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: UiConstants.vStackSpacing) {
-                            if ongoingSessionController.sessionIsActive {
-                                NavigationLink {
-                                    // Force unwrap safe because NavigationLink isn't tappable unless projectForActiveSession != nil
-                                    ProjectDetailsView(project: ongoingSessionController.projectForActiveSession!)
-                                } label: {
-                                    OngoingSessionTitleAndBox()
+                    GeometryReader { geo in
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: UiConstants.vStackSpacing) {
+                                if ongoingSessionController.sessionIsActive {
+                                    NavigationLink {
+                                        // Force unwrap safe because NavigationLink isn't tappable unless projectForActiveSession != nil
+                                        ProjectDetailsView(project: ongoingSessionController.projectForActiveSession!)
+                                    } label: {
+                                        OngoingSessionTitleAndBox()
+                                    }
+                                    .allowsHitTesting(ongoingSessionController.projectForActiveSession != nil)
+                                    .padding(.horizontal)
                                 }
-                                .allowsHitTesting(ongoingSessionController.projectForActiveSession != nil)
+
+                                HomeChartCarousel(viewModel: viewModel)
+
+                                StatGrid {
+                                    StatBox(title: viewModel.totalHoursWorked, subtitle: "Total Hours Worked", iconName: "timer", geo: geo)
+                                    StatBox(title: viewModel.totalHoursWorked, subtitle: "Total Hours Worked", iconName: "timer", geo: geo)
+                                }
+                                .padding(.horizontal)
+
+                                HomeProjectsHeader(viewModel: viewModel)
+                                    .padding(.horizontal)
+
+                                HomeProjectsList(viewModel: viewModel)
+                                    .padding(.horizontal)
                             }
-
-                            VStack {
-                                SectionTitle(text: "At A Glance")
-
-                                HomeCarouselView(viewModel: viewModel)
-                            }
-
-                            HomeProjectsHeader(viewModel: viewModel)
-
-                            HomeProjectsList(viewModel: viewModel)
                         }
-                        .padding(.horizontal)
                     }
                     .navigationTitle("Accountable")
                     .transition(.opacity)
@@ -55,6 +61,13 @@ struct HomeView: View {
                                 Task {
                                     await viewModel.logOut()
                                 }
+                            }
+                        }
+                    }
+                    .onChange(of: ongoingSessionController.sessionIsActive) { sessionIsActive in
+                        if !sessionIsActive {
+                            Task {
+                                await viewModel.getLoggedInUserProjectsAndSessions()
                             }
                         }
                     }
@@ -70,7 +83,7 @@ struct HomeView: View {
                 message: { Text(viewModel.errorMessageText) }
             )
             .task {
-                await viewModel.getLoggedInUserProjects()
+                await viewModel.getLoggedInUserProjectsAndSessions()
             }
             .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)
         }

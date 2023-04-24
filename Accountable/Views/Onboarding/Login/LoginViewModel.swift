@@ -8,6 +8,8 @@
 import Amplify
 import AWSCognitoAuthPlugin
 import Foundation
+import Security
+import WidgetKit
 
 @MainActor
 final class LoginViewModel: ObservableObject {
@@ -55,36 +57,6 @@ final class LoginViewModel: ObservableObject {
         }
     }
 
-    func signInWithApple() async {
-        do {
-            viewState = .performingWork
-            let signInResult = try await Amplify.Auth.signInWithWebUI(for: .apple)
-            if signInResult.isSignedIn {
-                let currentAuthUser = try await Amplify.Auth.getCurrentUser()
-                try await handleSignInNextStep(signInResult.nextStep, forAuthUser: currentAuthUser, externalProvider: .apple)
-                postSignedInNotification()
-                viewState = .workCompleted
-            }
-        } catch {
-            handleSignInError(error)
-        }
-    }
-
-    func signInWithGoogle() async {
-        do {
-            viewState = .performingWork
-            let signInResult = try await Amplify.Auth.signInWithWebUI(for: .google)
-            if signInResult.isSignedIn {
-                let currentAuthUser = try await Amplify.Auth.getCurrentUser()
-                try await handleSignInNextStep(signInResult.nextStep, forAuthUser: currentAuthUser, externalProvider: .google)
-                postSignedInNotification()
-                viewState = .workCompleted
-            }
-        } catch {
-            handleSignInError(error)
-        }
-    }
-
     func sendConfirmationCode() async {
         do {
             viewState = .performingWork
@@ -105,10 +77,10 @@ final class LoginViewModel: ObservableObject {
         }
     }
 
-    func addAuthUserToDataStore(_ authUser: AuthUser, externalProvider: ExternalProvider?) async {
+    func addAuthUserToDataStore(_ authUser: AuthUser) async {
         do {
             let username = try await AuthService.shared.getLoggedInUserEmailAddress()
-            let authUserAsUser = User(id: authUser.userId, username: username, externalProvider: externalProvider)
+            let authUserAsUser = User(id: authUser.userId, username: username)
             try await DatabaseService.shared.createOrUpdateUser(authUserAsUser)
         } catch {
             viewState = .error(message: error.localizedDescription)
@@ -117,8 +89,7 @@ final class LoginViewModel: ObservableObject {
 
     func handleSignInNextStep(
         _ nextStep: AuthSignInStep,
-        forAuthUser authUser: AuthUser?,
-        externalProvider: ExternalProvider? = nil
+        forAuthUser authUser: AuthUser?
     ) async throws {
         do {
             switch nextStep {
@@ -127,12 +98,13 @@ final class LoginViewModel: ObservableObject {
             case .done:
                 guard let authUser else { viewState = .error(message: ErrorMessageConstants.unknown); return }
 
-                if try await currentAuthUserExistsInDataStore(authUser) {
-                    return
-                } else {
-                    await addAuthUserToDataStore(authUser, externalProvider: externalProvider)
-                    return
+                if try await !currentAuthUserExistsInDataStore(authUser) {
+                    await addAuthUserToDataStore(authUser)
                 }
+
+                addUserToKeychain()
+
+                WidgetCenter.shared.reloadAllTimelines()
             default:
                 print("Unknown next step: \(nextStep).")
                 viewState = .error(message: ErrorMessageConstants.unknown)
@@ -167,6 +139,26 @@ final class LoginViewModel: ObservableObject {
         } else {
             print(error)
             viewState = .error(message: error.localizedDescription)
+        }
+    }
+
+    func addUserToKeychain() {
+        let passwordAsData = password.data(using: String.Encoding.utf8)!
+
+        let query: [String: Any] = [
+            // Needs to be kSecClassInternetPassword to differentiate this from the login
+            kSecClass as String: kSecClassInternetPassword,
+            kSecAttrAccount as String: emailAddress,
+            kSecAttrAccessGroup as String: KeychainConstants.accessGroup,
+            kSecValueData as String: passwordAsData
+        ]
+
+        let status = SecItemAdd(query as CFDictionary, nil)
+
+        guard status == errSecSuccess || status == errSecDuplicateItem else {
+            print(String(describing: SecCopyErrorMessageString(status, nil)))
+            viewState = .error(message: KeychainError.unhandledError(status: status).localizedDescription)
+            return
         }
     }
 

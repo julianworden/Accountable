@@ -35,7 +35,7 @@ class AuthService {
             let currentUser = try await Amplify.Auth.getCurrentUser()
             return currentUser.userId
         } catch {
-            throw AuthServiceError.unknown(message: "Failed to fetch logged in user's ID. \(ErrorMessageConstants.unknown)")
+            throw AuthServiceError.unknown(message: "Failed to fetch logged in user's ID. \(ErrorMessageConstants.unknown). \(error.localizedDescription) \(error)")
         }
     }
 }

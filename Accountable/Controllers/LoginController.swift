@@ -28,7 +28,7 @@ class LoginController: ObservableObject {
         } catch AuthError.signedOut {
             loginStatus = .loggedOut
         } catch {
-            loginStatus = .error
+            loginStatus = .error(message: error.localizedDescription)
             errorMessageText = error.localizedDescription
             errorMessageShowing = true
         }

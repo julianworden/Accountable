@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import SwiftUI
+import WidgetKit
 
 @MainActor
 final class OngoingSessionController: ObservableObject {
@@ -98,7 +99,6 @@ final class OngoingSessionController: ObservableObject {
     }
 
     func stopTimer() async {
-        sessionIsActive = false
         unsubscribeToTimer()
         timer.upstream.connect().cancel()
         timerIsRunning = false
@@ -146,7 +146,7 @@ final class OngoingSessionController: ObservableObject {
     }
 
     func createSession() async {
-        guard let projectForActiveSession else { return }
+        guard var projectForActiveSession else { return }
 
         do {
             let newSession = Session(
@@ -156,9 +156,18 @@ final class OngoingSessionController: ObservableObject {
                 weekday: Weekday.getWeekdayFor(Date.now)
             )
 
+            projectForActiveSession.totalSecondsPracticed += timerDuration
             try await DatabaseService.shared.createSession(newSession)
             postSessionCreatedNotification(forNewSession: newSession)
+            let allLoggedInUserProjects = try await DatabaseService.shared.getAllLoggedInUserProjects()
+            var allUserSessions = [Session]()
+            for project in allLoggedInUserProjects {
+                let sessions = try await project.getSessions()
+                allUserSessions.append(contentsOf: sessions)
+            }
+            try FileManagerController.shared.saveSession(allUserSessions)
             sessionIsActive = false
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             viewState = .error(message: error.localizedDescription)
         }

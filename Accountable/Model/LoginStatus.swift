@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum LoginStatus {
-    case notDetermined, loggedIn, loggedOut, error
+enum LoginStatus: Equatable {
+    case notDetermined, loggedIn, loggedOut, error(message: String)
 }

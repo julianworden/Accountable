@@ -39,7 +39,7 @@ final class ProjectDetailsViewModel: ObservableObject {
     }
 
     var projectSessionsInPastWeek: [Session] {
-        projectSessions.filter { $0.occurredInLastWeek }
+        projectSessions.filter { $0.createdInLastSixDays }
     }
 
     var totalHoursWorked: String {

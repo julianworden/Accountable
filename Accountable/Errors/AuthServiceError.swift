@@ -10,6 +10,7 @@ import Foundation
 enum AuthServiceError: LocalizedError {
     case unknown(message: String)
     case logic(message: String)
+    case userSignedOut
 
     var errorDescription: String? {
         switch self {
@@ -17,6 +18,8 @@ enum AuthServiceError: LocalizedError {
             return message
         case .logic(let message):
             return message
+        case .userSignedOut:
+            return "The current user is signed out."
         }
     }
 }

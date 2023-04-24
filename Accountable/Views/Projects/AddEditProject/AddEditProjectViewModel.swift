@@ -48,16 +48,19 @@ final class AddEditProjectViewModel: ObservableObject {
         do {
             viewState = .performingWork
             let loggedInUser = try await DatabaseService.shared.getLoggedInUser()
-            try await loggedInUser.projects?.fetch()
 
             let project = Project(
                 creator: loggedInUser,
                 name: projectName,
+                totalSecondsPracticed: 0,
                 priority: Priority.allCases[selectedPriorityIndex],
                 description: projectDescription
             )
 
-            try await DatabaseService.shared.createProject(project)
+            try await DatabaseService.shared.createOrUpdateProject(project)
+            let allUserProjects = try await loggedInUser.getProjects()
+            try FileManagerController.shared.saveProjects(allUserProjects)
+
             viewState = .workCompleted
         } catch {
             viewState = .error(message: error.localizedDescription)

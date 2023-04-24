@@ -21,7 +21,7 @@ struct HomeProjectsHeader: View {
                 isPresented: $viewModel.addEditProjectSheetIsShowing,
                 onDismiss: {
                     Task {
-                        await viewModel.getLoggedInUserProjects()
+                        await viewModel.getLoggedInUserProjectsAndSessions()
                     }
                 },
                 content: {

@@ -9,6 +9,7 @@ import Foundation
 
 struct ErrorMessageConstants {
     static let unknown = "Something went wrong, please check your internet connection and try again."
+    static let unknownForWidget = "Something went wrong, please use the Accountable app to sign out and sign back in."
     static let emailAddressesDontMatchOnSignUp = "The email addresses you entered do not match. Please try again."
     static let emailAddressAlreadyInUse = "This email address is already registered with Accountable. Please try a different email address or go back and sign in."
     static let invalidEmailAddressOnSignUp = "Please enter a valid email address."

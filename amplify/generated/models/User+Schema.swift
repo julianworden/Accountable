@@ -7,7 +7,6 @@ extension User {
    public enum CodingKeys: String, ModelKey {
     case id
     case username
-    case externalProvider
     case projects
     case createdAt
     case updatedAt
@@ -32,7 +31,6 @@ extension User {
     model.fields(
       .field(user.id, is: .required, ofType: .string),
       .field(user.username, is: .required, ofType: .string),
-      .field(user.externalProvider, is: .optional, ofType: .enum(type: ExternalProvider.self)),
       .hasMany(user.projects, is: .optional, ofType: Project.self, associatedWith: Project.keys.creator),
       .field(user.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(user.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)

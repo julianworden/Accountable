@@ -6,6 +6,7 @@ public struct Project: Model {
   public let id: String
   public var creator: User?
   public var name: String
+  public var totalSecondsPracticed: Int
   public var priority: Priority
   public var description: String?
   public var sessions: List<Session>?
@@ -15,12 +16,14 @@ public struct Project: Model {
   public init(id: String = UUID().uuidString,
       creator: User? = nil,
       name: String,
+      totalSecondsPracticed: Int,
       priority: Priority,
       description: String? = nil,
       sessions: List<Session>? = []) {
     self.init(id: id,
       creator: creator,
       name: name,
+      totalSecondsPracticed: totalSecondsPracticed,
       priority: priority,
       description: description,
       sessions: sessions,
@@ -30,6 +33,7 @@ public struct Project: Model {
   internal init(id: String = UUID().uuidString,
       creator: User? = nil,
       name: String,
+      totalSecondsPracticed: Int,
       priority: Priority,
       description: String? = nil,
       sessions: List<Session>? = [],
@@ -38,6 +42,7 @@ public struct Project: Model {
       self.id = id
       self.creator = creator
       self.name = name
+      self.totalSecondsPracticed = totalSecondsPracticed
       self.priority = priority
       self.description = description
       self.sessions = sessions

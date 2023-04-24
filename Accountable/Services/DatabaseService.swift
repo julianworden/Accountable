@@ -41,6 +41,8 @@ final class DatabaseService {
             } else {
                 throw DataStoreError.dataDoesNotExist
             }
+        } catch AuthError.signedOut {
+            throw AuthServiceError.userSignedOut
         } catch {
             throw DataStoreError.unknown(message: "Failed to fetch user data. \(ErrorMessageConstants.unknown)")
         }
@@ -58,26 +60,21 @@ final class DatabaseService {
         }
     }
 
-    func getLoggedInUserProjects() async throws -> [Project] {
+    // MARK: - Projects
+
+    func getAllLoggedInUserProjects() async throws -> [Project] {
         do {
             let loggedInUser = try await DatabaseService.shared.getLoggedInUser()
-            try await loggedInUser.projects?.fetch()
-
-            if let loggedInUserProjects = loggedInUser.projects {
-                return loggedInUserProjects.map { $0 }
-            } else {
-                return []
-            }
+            return try await loggedInUser.getProjects()
         } catch {
             throw DataStoreError.unknown(message: "Failed to fetch project data. \(ErrorMessageConstants.unknown)")
         }
     }
 
-    // MARK: - Projects
-
-    func createProject(_ project: Project) async throws {
+    func createOrUpdateProject(_ project: Project) async throws {
         do {
             try await Amplify.DataStore.save(project)
+
         } catch {
             throw DataStoreError.unknown(message: "Failed to save project. \(ErrorMessageConstants.unknown)")
         }
@@ -103,12 +100,7 @@ final class DatabaseService {
 
     func getSessions(for project: Project) async throws -> [Session] {
         do {
-            try await project.sessions?.fetch()
-            if let projectSessions = project.sessions {
-                return projectSessions.map { $0 }.sorted { $0.unixDate > $1.unixDate }
-            }
-
-            return []
+            return try await project.getSessions().map { $0 }.sorted { $0.unixDate > $1.unixDate }
         } catch {
             throw DataStoreError.unknown(message: "Failed to fetch project sessions. \(ErrorMessageConstants.unknown)")
         }

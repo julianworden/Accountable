@@ -67,16 +67,6 @@ struct LoginView: View {
                         }
 
                         HStack {
-                            CustomDivider()
-
-                            Text("Or log in with:")
-
-                            CustomDivider()
-                        }
-
-                        LoginSocialMediaButtons(viewModel: viewModel)
-
-                        HStack {
                             Text("Don't have an account?")
                             Button("Sign Up") {
                                 onboardingNavigationController.navigateToSignUpView()
