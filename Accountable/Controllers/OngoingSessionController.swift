@@ -160,7 +160,9 @@ final class OngoingSessionController: ObservableObject {
 
             projectForActiveSession.totalSecondsPracticed += timerDuration
             try await DatabaseService.shared.createSession(newSession)
+            try await DatabaseService.shared.createOrUpdateProject(projectForActiveSession)
             try FileManagerController.shared.saveSession(newSession)
+            try FileManagerController.shared.updateProject(projectForActiveSession)
             postSessionCreatedNotification(forNewSession: newSession)
             WidgetCenter.shared.reloadAllTimelines()
         } catch {

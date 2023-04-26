@@ -162,6 +162,8 @@ final class LoginViewModel: ObservableObject {
         }
     }
 
+    #warning("save all projects and sessions to device storage")
+
     func postSignedInNotification() {
         NotificationCenter.default.post(name: .userLoggedIn, object: nil)
     }

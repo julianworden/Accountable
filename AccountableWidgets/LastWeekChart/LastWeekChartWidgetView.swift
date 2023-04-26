@@ -18,7 +18,7 @@ struct LastWeekChartWidgetView: View {
             Text(errorMessage)
                 .multilineTextAlignment(.center)
                 .padding()
-        } else {
+        } else if !entry.isForPlaceholder {
             VStack {
                 SectionTitle(text: "Total Work (This Past Week)")
 
@@ -42,14 +42,15 @@ struct LastWeekChartWidgetView: View {
                 .chartYAxis(.hidden)
             }
             .padding()
+        } else if entry.isForPlaceholder {
+            LastWeekChartPlaceholder()
         }
-
     }
 }
 
-struct AccountableWidgets_Previews: PreviewProvider {
+struct LastWeekChartWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        LastWeekChartWidgetView(entry: SimpleEntry(date: Date.now, userProjects: [], userSessions: []))
+        LastWeekChartWidgetView(entry: SimpleEntry(date: Date.now, userProjects: [], userSessions: [], isForPlaceholder: false))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

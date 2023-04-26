@@ -15,7 +15,7 @@ enum KeychainError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .itemDoesNotExist:
-            return "You aren't logged into Accountable, so this widget cannot display any data. Log in via the Accountable app to see your data."
+            return "Log in via the Accountable app to see your data."
         case .unexpectedPasswordData:
             return ErrorMessageConstants.unknownForWidget
         case .unhandledError(let status):

@@ -29,10 +29,21 @@ final class FileManagerController {
         }
     }
 
-    private func saveProjects(_ projects: [Project]) throws {
+    func saveProjects(_ projects: [Project]) throws {
         if let jsonData = try? JSONEncoder().encode(projects) {
             let url = FileManagerConstants.projectsUrl
             try jsonData.write(to: url)
+        }
+    }
+
+    func updateProject(_ project: Project) throws {
+        guard projectsJsonFileHasBeenCreated else { throw FileManagerError.writeFailed(message: "No projects exist on the user's device, so the project cannot be updated.") }
+
+        var existingProjects = getProjects()
+        if let projectIndex = existingProjects.firstIndex(where: { $0.id == project.id }) {
+            existingProjects.remove(at: projectIndex)
+            existingProjects.append(project)
+            try saveProjects(existingProjects)
         }
     }
 
@@ -105,7 +116,7 @@ final class FileManagerController {
         }
     }
 
-    private func saveSessions(_ sessions: [Session]) throws {
+    func saveSessions(_ sessions: [Session]) throws {
         if let jsonData = try? JSONEncoder().encode(sessions) {
             let url = FileManagerConstants.sessionsUrl
             try jsonData.write(to: url)

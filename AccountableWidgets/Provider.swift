@@ -11,17 +11,18 @@ import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date.now, userProjects: [], userSessions: [])
+        SimpleEntry(date: Date.now, userProjects: PlaceholderData.projects, userSessions: [], isForPlaceholder: true)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        var entry = SimpleEntry(date: Date.now, userProjects: [], userSessions: [])
+        var entry = SimpleEntry(date: Date.now, userProjects: [], userSessions: [], isForPlaceholder: true)
 
-        // Check to see if data has been fetched. If it hasn't, use sample data. If it has, use real data
-        if context.isPreview {
-            entry = SimpleEntry(date: Date.now, userProjects: [], userSessions: [])
-        } else {
-            entry = SimpleEntry(date: Date.now, userProjects: [], userSessions: [])
+        let existingSessions = FileManagerController.shared.getSessions()
+        if existingSessions.isEmpty {
+            entry = SimpleEntry(date: Date.now, userProjects: PlaceholderData.projects, userSessions: [], isForPlaceholder: true)
+        } else if !existingSessions.isEmpty {
+            let existingProjects = FileManagerController.shared.getProjects()
+            entry = SimpleEntry(date: Date.now, userProjects: existingProjects, userSessions: existingSessions, isForPlaceholder: true)
         }
 
         completion(entry)
@@ -31,18 +32,11 @@ struct Provider: TimelineProvider {
         let refreshPolicyInterval = Calendar.current.date(byAdding: .second, value: 30, to: Date.now)!
 
         Task {
-            do {
-                try await checkKeychain()
-                let userProjects = FileManagerController.shared.getProjects()
-                let userSessions = FileManagerController.shared.getSessions()
-                let entry = SimpleEntry(date: Date.now, userProjects: userProjects, userSessions: userSessions)
-                let timeline = Timeline(entries: [entry], policy: .after(refreshPolicyInterval))
-                completion(timeline)
-            } catch {
-                let entry = SimpleEntry(date: Date.now, userProjects: [], userSessions: [], errorMessage: error.localizedDescription)
-                let timeline = Timeline(entries: [entry], policy: .after(refreshPolicyInterval))
-                completion(timeline)
-            }
+            let userProjects = FileManagerController.shared.getProjects()
+            let userSessions = FileManagerController.shared.getSessions()
+            let entry = SimpleEntry(date: Date.now, userProjects: userProjects, userSessions: userSessions, isForPlaceholder: false)
+            let timeline = Timeline(entries: [entry], policy: .after(refreshPolicyInterval))
+            completion(timeline)
         }
     }
 

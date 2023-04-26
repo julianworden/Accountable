@@ -23,8 +23,4 @@ extension Session: Equatable, Identifiable {
     var unixDateAsDate: Date {
         Date(timeIntervalSince1970: unixDate)
     }
-
-    var createdInLastSixDays: Bool {
-        return unixDateAsDate.isInLastSixDays
-    }
 }

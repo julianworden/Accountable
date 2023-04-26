@@ -16,7 +16,6 @@ struct ProjectDetailsStatsGrid: View {
         StatGrid {
             GridRow {
                 StatBox(title: viewModel.totalHoursWorked, subtitle: "Total Hours Worked (All Time)", iconName: "timer", geo: geo)
-
                 StatBox(title: viewModel.averageHourWorkedPerSession, subtitle: "Average Hours Worked Per Session", iconName: "timer", geo: geo)
             }
         }

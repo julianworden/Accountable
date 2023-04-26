@@ -10,7 +10,7 @@ import SwiftUI
 import WidgetKit
 
 struct LastWeekChartWidget: Widget {
-    let kind: String = "LastWeekChartWidget"
+    let kind = "LastWeekChartWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in

@@ -13,16 +13,28 @@ struct SimpleEntry: TimelineEntry {
     let userProjects: [Project]
     let userSessions: [Session]
     let errorMessage: String?
+    let isForPlaceholder: Bool
 
     var projectSessionsInPastSixDays: [Session] {
-        return userSessions.filter { $0.createdInLastSixDays }
+        return userSessions.filter { $0.unixDateAsDate.isInLastSixDays }
     }
 
-    init(date: Date, userProjects: [Project], userSessions: [Session], errorMessage: String? = nil) {
+    var totalHoursWorkedAcrossAllProjects: String {
+        var hoursCount = 0
+
+        userProjects.forEach {
+            hoursCount += $0.totalSecondsPracticed
+        }
+
+        return hoursCount.secondsAsHours
+    }
+
+    init(date: Date, userProjects: [Project], userSessions: [Session], errorMessage: String? = nil, isForPlaceholder: Bool) {
         self.date = date
         self.userProjects = userProjects
         self.userSessions = userSessions
         self.errorMessage = errorMessage
+        self.isForPlaceholder = isForPlaceholder
     }
 
     func getTotalLengthOfSessionsInPastSixDays(for weekday: Weekday) -> Int {

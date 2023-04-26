@@ -44,7 +44,7 @@ final class HomeViewModel: ObservableObject {
     }
 
     var projectSessionsInPastWeek: [Session] {
-        userSessions.filter { $0.createdInLastSixDays }
+        userSessions.filter { $0.unixDateAsDate.isInLastSixDays }
     }
 
     init() {
@@ -82,6 +82,7 @@ final class HomeViewModel: ObservableObject {
 
     func logOut() async {
         _ = await Amplify.Auth.signOut()
+        #warning("Clear all sessions and projects from device storage")
         clearKeychain()
         postLoggedOutNotification()
         WidgetCenter.shared.reloadAllTimelines()

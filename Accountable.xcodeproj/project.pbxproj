@@ -19,6 +19,10 @@
 		AB06CDE329DA2CC000F4D912 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06CDE229DA2CC000F4D912 /* AuthService.swift */; };
 		AB06CDE529DA2D4F00F4D912 /* AuthServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06CDE429DA2D4F00F4D912 /* AuthServiceError.swift */; };
 		AB06CDE829DB08EF00F4D912 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06CDE729DB08EF00F4D912 /* SectionTitle.swift */; };
+		AB0967B629F9518B0023C055 /* TotalHoursWorkedWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B429F950EE0023C055 /* TotalHoursWorkedWidget.swift */; };
+		AB0967B729F9518B0023C055 /* TotalHoursWorkedWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B529F9512B0023C055 /* TotalHoursWorkedWidgetView.swift */; };
+		AB0967BB29F95A5F0023C055 /* PlaceholderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B929F95A5C0023C055 /* PlaceholderData.swift */; };
+		AB0967BD29F9632E0023C055 /* LastWeekChartPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967BC29F9632E0023C055 /* LastWeekChartPlaceholder.swift */; };
 		AB1F41FE29EEDEE700344FDA /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D9179760947888B9F0613F4B /* amplifyconfiguration.json */; };
 		AB1F41FF29EEDEE700344FDA /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DE0EC291922DAB9CFB2C068 /* awsconfiguration.json */; };
 		AB1F420129F01EFE00344FDA /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1F420029F01EFE00344FDA /* KeychainError.swift */; };
@@ -194,6 +198,10 @@
 		AB06CDE229DA2CC000F4D912 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AB06CDE429DA2D4F00F4D912 /* AuthServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceError.swift; sourceTree = "<group>"; };
 		AB06CDE729DB08EF00F4D912 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
+		AB0967B429F950EE0023C055 /* TotalHoursWorkedWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursWorkedWidget.swift; sourceTree = "<group>"; };
+		AB0967B529F9512B0023C055 /* TotalHoursWorkedWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursWorkedWidgetView.swift; sourceTree = "<group>"; };
+		AB0967B929F95A5C0023C055 /* PlaceholderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderData.swift; sourceTree = "<group>"; };
+		AB0967BC29F9632E0023C055 /* LastWeekChartPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekChartPlaceholder.swift; sourceTree = "<group>"; };
 		AB1F420029F01EFE00344FDA /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
 		AB1F420229F0208600344FDA /* KeychainConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
 		AB2C0A5F29DB11660018B62F /* AddEditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProjectView.swift; sourceTree = "<group>"; };
@@ -344,6 +352,23 @@
 			name = AmplifyConfig;
 			sourceTree = "<group>";
 		};
+		AB0967B329F950DF0023C055 /* TotalHoursWorked */ = {
+			isa = PBXGroup;
+			children = (
+				AB0967B429F950EE0023C055 /* TotalHoursWorkedWidget.swift */,
+				AB0967B529F9512B0023C055 /* TotalHoursWorkedWidgetView.swift */,
+			);
+			path = TotalHoursWorked;
+			sourceTree = "<group>";
+		};
+		AB0967B829F95A420023C055 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AB0967B929F95A5C0023C055 /* PlaceholderData.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		AB250F6629D32B5100CE6728 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,8 +402,10 @@
 				AB32079C29E6E81A007AC36E /* AccountableWidgetsBundle.swift */,
 				AB68D9FB29F2D28E008F5077 /* Provider.swift */,
 				AB68DA0129F2D448008F5077 /* SimpleEntry.swift */,
-				ABDCA77529F58379009B0DA9 /* Individual Elements */,
 				ABF5093D29F2D5F6004D80FA /* LastWeekChart */,
+				AB0967B329F950DF0023C055 /* TotalHoursWorked */,
+				AB0967B829F95A420023C055 /* Utilities */,
+				ABDCA77529F58379009B0DA9 /* Individual Elements */,
 				ABF5093E29F2D600004D80FA /* LiveActivity */,
 				AB3207A229E6E81B007AC36E /* Assets.xcassets */,
 				AB3207A429E6E81B007AC36E /* Info.plist */,
@@ -691,6 +718,7 @@
 		ABDCA77529F58379009B0DA9 /* Individual Elements */ = {
 			isa = PBXGroup;
 			children = (
+				AB0967BC29F9632E0023C055 /* LastWeekChartPlaceholder.swift */,
 			);
 			path = "Individual Elements";
 			sourceTree = "<group>";
@@ -854,6 +882,7 @@
 				AB75E35A29EC751300609496 /* SectionTitle.swift in Sources */,
 				AB3207C729E6EF1C007AC36E /* Project+Schema.swift in Sources */,
 				AB75E35929EC742F00609496 /* BarMarkAnnotationTextStyle.swift in Sources */,
+				AB0967B729F9518B0023C055 /* TotalHoursWorkedWidgetView.swift in Sources */,
 				ABC1CE6E29F6D2DD007452C7 /* Data+prettyPrintedJSONString().swift in Sources */,
 				AB3207CA29E6EF1C007AC36E /* User+Schema.swift in Sources */,
 				AB3207C929E6EF1C007AC36E /* Priority.swift in Sources */,
@@ -870,16 +899,19 @@
 				AB3207D229E6EF2B007AC36E /* NotificationConstants.swift in Sources */,
 				ABF5093C29F2D591004D80FA /* LastWeekChartWidget.swift in Sources */,
 				AB3207C429E6EF1C007AC36E /* Project.swift in Sources */,
+				AB0967B629F9518B0023C055 /* TotalHoursWorkedWidget.swift in Sources */,
 				AB3207D429E6EF3A007AC36E /* AuthServiceError.swift in Sources */,
 				ABC1267029E70EE4007C2996 /* User+Helpers.swift in Sources */,
 				AB68DA0229F2D448008F5077 /* SimpleEntry.swift in Sources */,
 				ABC1267229E70EE4007C2996 /* Session+Helpers.swift in Sources */,
 				AB3207D329E6EF3A007AC36E /* DataStoreError.swift in Sources */,
 				ABC1CE9529F6DC8A007452C7 /* URL+storeUrl.swift in Sources */,
+				AB0967BD29F9632E0023C055 /* LastWeekChartPlaceholder.swift in Sources */,
 				AB3207CE29E6EF24007AC36E /* AuthService.swift in Sources */,
 				ABC1267129E70EE4007C2996 /* Project+Helpers.swift in Sources */,
 				AB3207A129E6E81A007AC36E /* LastWeekChartWidgetView.swift in Sources */,
 				ABDCA78529F5E3B7009B0DA9 /* AppGroupConstants.swift in Sources */,
+				AB0967BB29F95A5F0023C055 /* PlaceholderData.swift in Sources */,
 				ABC1CE6B29F6D1F6007452C7 /* FileManagerError.swift in Sources */,
 				AB3207CB29E6EF1C007AC36E /* Session+Schema.swift in Sources */,
 			);
