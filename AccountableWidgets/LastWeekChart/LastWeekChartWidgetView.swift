@@ -14,28 +14,35 @@ struct LastWeekChartWidgetView: View {
     let entry: SimpleEntry
 
     var body: some View {
-        VStack {
-            SectionTitle(text: "Total Work (This Past Week)")
+        if let errorMessage = entry.errorMessage {
+            Text(errorMessage)
+                .multilineTextAlignment(.center)
+                .padding()
+        } else {
+            VStack {
+                SectionTitle(text: "Total Work (This Past Week)")
 
-            Chart {
-                ForEach(Weekday.allCases) { weekday in
-                    BarMark (
-                        x: .value("Weekday Name", weekday.matchesTodaysWeekday ? "Today" : weekday.abbreviated),
-                        y: .value("Total Hours", entry.getTotalLengthOfSessionsInPastSixDays(for: weekday))
-                    )
-                    .annotation {
-                        let totalLengthOfSessionsForWeekday = entry.getTotalLengthOfSessionsInPastSixDays(for: weekday)
+                Chart {
+                    ForEach(Weekday.allCases) { weekday in
+                        BarMark (
+                            x: .value("Weekday Name", weekday.matchesTodaysWeekday ? "Today" : weekday.abbreviated),
+                            y: .value("Total Hours", entry.getTotalLengthOfSessionsInPastSixDays(for: weekday))
+                        )
+                        .foregroundStyle(.purple)
+                        .annotation {
+                            let totalLengthOfSessionsForWeekday = entry.getTotalLengthOfSessionsInPastSixDays(for: weekday)
 
-                        if totalLengthOfSessionsForWeekday != 0 {
-                            Text(totalLengthOfSessionsForWeekday.secondsAsFullPeriodOfTime)
-                                .barMarkAnnotation()
+                            if totalLengthOfSessionsForWeekday != 0 {
+                                Text(totalLengthOfSessionsForWeekday.secondsAsFullPeriodOfTime)
+                                    .barMarkAnnotation()
+                            }
                         }
                     }
                 }
+                .chartYAxis(.hidden)
             }
-            .chartYAxis(.hidden)
+            .padding()
         }
-        .padding()
 
     }
 }

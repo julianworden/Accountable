@@ -14,10 +14,11 @@ struct ProjectDetailsSessionChart: View {
     var body: some View {
         Chart {
             ForEach(Weekday.allCases) { weekday in
-                BarMark (
+                BarMark(
                     x: .value("Weekday Name", weekday.matchesTodaysWeekday ? "Today" : weekday.abbreviated),
                     y: .value("Total Hours", viewModel.getTotalLengthOfSessions(for: weekday))
                 )
+
                 .annotation {
                     if viewModel.getTotalLengthOfSessions(for: weekday) != 0 {
                         Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsFullPeriodOfTime)
@@ -27,7 +28,7 @@ struct ProjectDetailsSessionChart: View {
             }
         }
         .chartYAxis(.hidden)
-//        .animation(.easeInOut, value: viewModel.projectSessionsInPastWeek)
+        .animation(.easeInOut, value: viewModel.projectSessions)
     }
 }
 
