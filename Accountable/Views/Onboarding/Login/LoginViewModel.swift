@@ -103,7 +103,7 @@ final class LoginViewModel: ObservableObject {
                 }
 
                 addUserToKeychain()
-
+                await syncUserDataWithOnDeviceStorage()
                 WidgetCenter.shared.reloadAllTimelines()
             default:
                 print("Unknown next step: \(nextStep).")
@@ -162,7 +162,24 @@ final class LoginViewModel: ObservableObject {
         }
     }
 
-    #warning("save all projects and sessions to device storage")
+    func syncUserDataWithOnDeviceStorage() async {
+        do {
+            let userProjects = try await DatabaseService.shared.getAllLoggedInUserProjects()
+            var userSessions = [Session]()
+            for project in userProjects {
+                if let projectSessions = project.sessions {
+                    try await project.sessions?.fetch()
+                    let userSessionsAsArray = projectSessions.map { $0 }
+                    userSessions.append(contentsOf: userSessionsAsArray)
+                }
+            }
+
+            try FileManagerController.shared.saveProjects(userProjects)
+            try FileManagerController.shared.saveSessions(userSessions)
+        } catch {
+
+        }
+    }
 
     func postSignedInNotification() {
         NotificationCenter.default.post(name: .userLoggedIn, object: nil)

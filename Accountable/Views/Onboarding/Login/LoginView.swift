@@ -92,6 +92,10 @@ struct LoginView: View {
                     ConfirmCodeView(onboardingNavigationController: onboardingNavigationController)
                 }
             }
+            .onAppear {
+                print("SESSIONS: \(FileManagerController.shared.getSessions())")
+                print("PROJECTS: \(FileManagerController.shared.getProjects())")
+            }
         }
     }
 }

@@ -81,11 +81,15 @@ final class HomeViewModel: ObservableObject {
     }
 
     func logOut() async {
-        _ = await Amplify.Auth.signOut()
-        #warning("Clear all sessions and projects from device storage")
-        clearKeychain()
-        postLoggedOutNotification()
-        WidgetCenter.shared.reloadAllTimelines()
+        do {
+            _ = await Amplify.Auth.signOut()
+            try FileManagerController.shared.clearStoredUserData()
+            clearKeychain()
+            postLoggedOutNotification()
+            WidgetCenter.shared.reloadAllTimelines()
+        } catch {
+            viewState = .error(message: error.localizedDescription)
+        }
     }
 
     func postLoggedOutNotification() {

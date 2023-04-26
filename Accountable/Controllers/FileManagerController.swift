@@ -154,9 +154,9 @@ final class FileManagerController {
         }
     }
 
-    func deleteAllSessions() throws {
-        let existingSessions: [Session] = []
-        try saveSessions(existingSessions)
+    func clearStoredUserData() throws {
+        try saveSessions([])
+        try saveProjects([])
         WidgetCenter.shared.reloadAllTimelines()
     }
 }
