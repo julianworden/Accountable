@@ -5,6 +5,7 @@
 //  Created by Julian Worden on 4/5/23.
 //
 
+import ActivityKit
 import Combine
 import Foundation
 import SwiftUI
@@ -12,7 +13,6 @@ import WidgetKit
 
 @MainActor
 final class OngoingSessionController: ObservableObject {
-    @Published var startTime = Date.now
     @Published var display = "00:00:00"
     @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Published var timerIsRunning = false
@@ -37,6 +37,8 @@ final class OngoingSessionController: ObservableObject {
     var projectForActiveSession: Project?
     var cancellables = Set<AnyCancellable>()
     var timerDuration = 0
+
+    // MARK: - Timer Modifications
 
     var primaryTimerButtonText: String {
         if timerIsRunning {
@@ -92,7 +94,6 @@ final class OngoingSessionController: ObservableObject {
         sessionIsActive = true
         display = "00:00:00"
         timerDuration = 0
-        startTime = Date.now
         timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         subscribeToTimer()
         timerIsRunning = true
@@ -144,6 +145,8 @@ final class OngoingSessionController: ObservableObject {
     func unsubscribeToTimer() {
         cancellables.removeAll()
     }
+
+    // MARK: - Session Creation
 
     func createSession() async {
         guard var projectForActiveSession else { return }

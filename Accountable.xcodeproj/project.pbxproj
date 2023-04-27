@@ -39,7 +39,6 @@
 		AB32079929E6E81A007AC36E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB32077F29E6E7EB007AC36E /* WidgetKit.framework */; };
 		AB32079A29E6E81A007AC36E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB32078129E6E7EB007AC36E /* SwiftUI.framework */; };
 		AB32079D29E6E81A007AC36E /* AccountableWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32079C29E6E81A007AC36E /* AccountableWidgetsBundle.swift */; };
-		AB32079F29E6E81A007AC36E /* AccountableWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32079E29E6E81A007AC36E /* AccountableWidgetsLiveActivity.swift */; };
 		AB3207A129E6E81A007AC36E /* LastWeekChartWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3207A029E6E81A007AC36E /* LastWeekChartWidgetView.swift */; };
 		AB3207A329E6E81B007AC36E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3207A229E6E81B007AC36E /* Assets.xcassets */; };
 		AB3207A729E6E81B007AC36E /* AccountableWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AB32079829E6E81A007AC36E /* AccountableWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -84,7 +83,7 @@
 		AB67AA0529DDFCD700D797BD /* HomeProjectsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */; };
 		AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */; };
 		AB67AA0929DE2CA100D797BD /* OngoingSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0829DE2CA100D797BD /* OngoingSessionController.swift */; };
-		AB67AA0C29DE327F00D797BD /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0B29DE327F00D797BD /* SessionView.swift */; };
+		AB67AA0C29DE327F00D797BD /* StartStopSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0B29DE327F00D797BD /* StartStopSessionView.swift */; };
 		AB68D9FD29F2D2C8008F5077 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68D9FB29F2D28E008F5077 /* Provider.swift */; };
 		AB68DA0229F2D448008F5077 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68DA0129F2D448008F5077 /* SimpleEntry.swift */; };
 		AB6D7C3D29E30AD800C2DB1F /* DateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D7C3C29E30AD800C2DB1F /* DateConstants.swift */; };
@@ -215,7 +214,6 @@
 		AB32078129E6E7EB007AC36E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AB32079829E6E81A007AC36E /* AccountableWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AccountableWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB32079C29E6E81A007AC36E /* AccountableWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountableWidgetsBundle.swift; sourceTree = "<group>"; };
-		AB32079E29E6E81A007AC36E /* AccountableWidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountableWidgetsLiveActivity.swift; sourceTree = "<group>"; };
 		AB3207A029E6E81A007AC36E /* LastWeekChartWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekChartWidgetView.swift; sourceTree = "<group>"; };
 		AB3207A229E6E81B007AC36E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB3207A429E6E81B007AC36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -244,7 +242,7 @@
 		AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProjectsHeader.swift; sourceTree = "<group>"; };
 		AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBox.swift; sourceTree = "<group>"; };
 		AB67AA0829DE2CA100D797BD /* OngoingSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingSessionController.swift; sourceTree = "<group>"; };
-		AB67AA0B29DE327F00D797BD /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		AB67AA0B29DE327F00D797BD /* StartStopSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopSessionView.swift; sourceTree = "<group>"; };
 		AB68D9FB29F2D28E008F5077 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		AB68D9FE29F2D3FB008F5077 /* LastWeekChartWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekChartWidget.swift; sourceTree = "<group>"; };
 		AB68DA0129F2D448008F5077 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
@@ -410,7 +408,6 @@
 				AB0967B329F950DF0023C055 /* TotalHoursWorked */,
 				AB0967B829F95A420023C055 /* Utilities */,
 				ABDCA77529F58379009B0DA9 /* Individual Elements */,
-				ABF5093E29F2D600004D80FA /* LiveActivity */,
 				AB3207A229E6E81B007AC36E /* Assets.xcassets */,
 				AB3207A429E6E81B007AC36E /* Info.plist */,
 			);
@@ -494,7 +491,7 @@
 		AB67AA0A29DE326700D797BD /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
-				AB67AA0B29DE327F00D797BD /* SessionView.swift */,
+				AB67AA0B29DE327F00D797BD /* StartStopSessionView.swift */,
 				ABDC752729E239F40020E5F9 /* AllSessions */,
 				ABF6DA1229DEFABB003F412A /* IndividualElements */,
 			);
@@ -754,14 +751,6 @@
 			path = LastWeekChart;
 			sourceTree = "<group>";
 		};
-		ABF5093E29F2D600004D80FA /* LiveActivity */ = {
-			isa = PBXGroup;
-			children = (
-				AB32079E29E6E81A007AC36E /* AccountableWidgetsLiveActivity.swift */,
-			);
-			path = LiveActivity;
-			sourceTree = "<group>";
-		};
 		ABF6DA1229DEFABB003F412A /* IndividualElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,7 +898,6 @@
 				AB3207CA29E6EF1C007AC36E /* User+Schema.swift in Sources */,
 				AB3207C929E6EF1C007AC36E /* Priority.swift in Sources */,
 				ABDCA77829F585EA009B0DA9 /* ViewState.swift in Sources */,
-				AB32079F29E6E81A007AC36E /* AccountableWidgetsLiveActivity.swift in Sources */,
 				AB3207C829E6EF1C007AC36E /* AmplifyModels.swift in Sources */,
 				AB3207C529E6EF1C007AC36E /* Session.swift in Sources */,
 				AB1F420529F0285200344FDA /* KeychainConstants.swift in Sources */,
@@ -1009,7 +997,7 @@
 				AB4ADC0D29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift in Sources */,
 				ABA4DE5629E607C800D65434 /* StatGrid.swift in Sources */,
 				ABDCA77929F585EB009B0DA9 /* ViewState.swift in Sources */,
-				AB67AA0C29DE327F00D797BD /* SessionView.swift in Sources */,
+				AB67AA0C29DE327F00D797BD /* StartStopSessionView.swift in Sources */,
 				ABA4DE5129E5EB7900D65434 /* HomeChartCarousel.swift in Sources */,
 				ABB998EC29D9B7C700421E01 /* HomeView.swift in Sources */,
 				ABB8CD9629DB815D00367A62 /* View+HideKeyboard.swift in Sources */,
@@ -1231,6 +1219,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Accountable/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1264,6 +1253,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Accountable/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

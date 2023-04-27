@@ -20,7 +20,6 @@ struct AccountableWidgetsBundle: WidgetBundle {
         LastWeekChartWidget()
         TotalHoursWorkedHomeScreenWidget()
         TotalHoursWorkedLockScreenWidget()
-        AccountableWidgetsLiveActivity()
     }
 
     init() {

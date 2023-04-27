@@ -69,7 +69,7 @@ struct ProjectDetailsView: View {
                     Image(systemName: ongoingSessionController.primaryTimerButtonIconName)
                 }
                 .sheet(isPresented: $viewModel.sessionViewIsShowing) {
-                    SessionView(project: viewModel.project)
+                    StartStopSessionView(project: viewModel.project)
                         .presentationDetents([.medium])
                         .presentationDragIndicator(.visible)
                 }

@@ -1,5 +1,5 @@
 //
-//  SessionView.swift
+//  StartStopSessionView.swift
 //  Accountable
 //
 //  Created by Julian Worden on 4/5/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SessionView: View {
+struct StartStopSessionView: View {
     @Environment(\.dismiss) var dismiss
 
     @EnvironmentObject var ongoingSessionController: OngoingSessionController
@@ -65,7 +65,7 @@ struct SessionView: View {
 
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionView(project: Project.example)
+        StartStopSessionView(project: Project.example)
             .environmentObject(OngoingSessionController())
     }
 }
