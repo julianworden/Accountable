@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 @MainActor
 final class AllSessionsViewModel: ObservableObject {
@@ -42,6 +43,7 @@ final class AllSessionsViewModel: ObservableObject {
             }
 
             sessions.remove(atOffsets: indexSet)
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             viewState = .error(message: error.localizedDescription)
         }

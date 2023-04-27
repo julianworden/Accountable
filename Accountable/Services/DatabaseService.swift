@@ -107,8 +107,12 @@ final class DatabaseService {
 
     func deleteSession(_ session: Session) async throws {
         do {
+            guard var sessionProject = session.project else { throw DataStoreError.unknown(message: "The session could not be deleted because it is not associated with a project.") }
+
+            let sessionTime = session.durationInSeconds
+            sessionProject.totalSecondsPracticed -= sessionTime
+            try await createOrUpdateProject(sessionProject)
             try await Amplify.DataStore.delete(session)
-            #warning("Subtract the session's time from the project")
         } catch {
             throw DataStoreError.unknown(message: "Failed to delete session. \(ErrorMessageConstants.unknown)")
         }

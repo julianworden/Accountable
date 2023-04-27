@@ -145,12 +145,20 @@ final class FileManagerController {
             guard sessionsJsonFileHasBeenCreated else { return }
 
             var existingSessions = getSessions()
-            if let sessionIndex = existingSessions.firstIndex(of: session) {
-                existingSessions.remove(at: sessionIndex)
-                try saveSessions(existingSessions)
-            }
+            var existingProjects = getProjects()
 
-            #warning("Remove session seconds from correct project")
+            if let sessionIndex = existingSessions.firstIndex(of: session),
+               let projectIndex = existingProjects.firstIndex(where: { session.project?.id == $0.id}) {
+                existingSessions.remove(at: sessionIndex)
+                var projectToEdit = existingProjects[projectIndex]
+                existingProjects.remove(at: projectIndex)
+                projectToEdit.totalSecondsPracticed -= session.durationInSeconds
+                existingProjects.append(projectToEdit)
+                try saveSessions(existingSessions)
+                try saveProjects(existingProjects)
+            } else {
+                throw FileManagerError.readFailed(message: "Delete failed, the session or project does not exist in device storage.")
+            }
         } catch {
             throw FileManagerError.writeFailed(message: "Failed to update projects. System Error: \(error.localizedDescription)")
         }

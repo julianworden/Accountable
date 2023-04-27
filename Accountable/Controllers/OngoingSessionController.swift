@@ -153,12 +153,12 @@ final class OngoingSessionController: ObservableObject {
         do {
             let newSession = Session(
                 project: projectForActiveSession,
-                durationInSeconds: timerDuration + 28_800_000,
+                durationInSeconds: timerDuration,
                 unixDate: Date.now.timeIntervalSince1970,
                 weekday: Weekday.getWeekdayFor(Date.now)
             )
 
-            projectForActiveSession.totalSecondsPracticed += (timerDuration + 28_800_000)
+            projectForActiveSession.totalSecondsPracticed += timerDuration
             try await DatabaseService.shared.createSession(newSession)
             try await DatabaseService.shared.createOrUpdateProject(projectForActiveSession)
             try FileManagerController.shared.saveSession(newSession)
