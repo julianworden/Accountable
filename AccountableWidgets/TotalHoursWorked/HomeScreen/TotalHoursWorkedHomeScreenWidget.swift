@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-struct TotalHoursWorkedWidget: Widget {
-    let kind = "TotalHoursWorkedWidget"
+struct TotalHoursWorkedHomeScreenWidget: Widget {
+    let kind = "TotalHoursWorkedHomeScreenWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            TotalHoursWorkedWidgetView(entry: entry)
+            TotalHoursWorkedHomeScreenWidgetView(entry: entry)
         }
         .configurationDisplayName("Total Hours (All Projects)")
         .description("Shows the sum of all hours worked in Accountable")

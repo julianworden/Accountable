@@ -50,7 +50,7 @@ final class ProjectDetailsViewModel: ObservableObject {
             totalTime += $0.durationInSeconds
         }
 
-        return totalTime.secondsAsHours
+        return totalTime.secondsAsHoursString
     }
 
     var averageHourWorkedPerSession: String {
@@ -60,9 +60,9 @@ final class ProjectDetailsViewModel: ObservableObject {
         }
 
         if !projectSessions.isEmpty {
-            return Int(totalTime / projectSessions.count).secondsAsHours
+            return Int(totalTime / projectSessions.count).secondsAsHoursString
         } else {
-            return 0.secondsAsHours
+            return 0.secondsAsHoursString
         }
     }
 

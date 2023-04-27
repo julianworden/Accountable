@@ -18,7 +18,8 @@ import WidgetKit
 struct AccountableWidgetsBundle: WidgetBundle {
     var body: some Widget {
         LastWeekChartWidget()
-        TotalHoursWorkedWidget()
+        TotalHoursWorkedHomeScreenWidget()
+        TotalHoursWorkedLockScreenWidget()
         AccountableWidgetsLiveActivity()
     }
 

@@ -149,6 +149,8 @@ final class FileManagerController {
                 existingSessions.remove(at: sessionIndex)
                 try saveSessions(existingSessions)
             }
+
+            #warning("Remove session seconds from correct project")
         } catch {
             throw FileManagerError.writeFailed(message: "Failed to update projects. System Error: \(error.localizedDescription)")
         }

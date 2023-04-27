@@ -16,7 +16,7 @@ struct SessionRow: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(session.durationInSeconds.secondsAsFullPeriodOfTime)
+                    Text(session.durationInSeconds.secondsAsFullPeriodOfTimeString)
                     Text(session.unixDateAsDate.formatted(date: .numeric, time: .omitted))
                         .font(.caption)
                 }

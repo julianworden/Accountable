@@ -40,7 +40,7 @@ final class HomeViewModel: ObservableObject {
         userProjects.forEach {
             totalHoursWorked += $0.totalSecondsPracticed
         }
-        return totalHoursWorked.secondsAsHours
+        return totalHoursWorked.secondsAsHoursString
     }
 
     var projectSessionsInPastWeek: [Session] {

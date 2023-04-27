@@ -10,18 +10,13 @@ import Charts
 import SwiftUI
 import WidgetKit
 
-struct TotalHoursWorkedWidgetView: View {
+struct TotalHoursWorkedHomeScreenWidgetView: View {
     let entry: SimpleEntry
 
     var body: some View {
-        if let errorMessage = entry.errorMessage {
-            Text(errorMessage)
-                .multilineTextAlignment(.center)
-                .padding()
-        } else {
             VStack {
                 Label {
-                    Text(entry.totalHoursWorkedAcrossAllProjects)
+                    Text(entry.totalHoursWorkedAcrossAllProjectsAsString)
                         .lineLimit(1)
                         .minimumScaleFactor(0.01)
                 } icon: {
@@ -35,14 +30,12 @@ struct TotalHoursWorkedWidgetView: View {
                     .multilineTextAlignment(.center)
             }
             .padding()
-        }
-
     }
 }
 
-struct TotalHoursWorkedWidgetView_Previews: PreviewProvider {
+struct TotalHoursWorkedHomeScreenWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        LastWeekChartWidgetView(entry: SimpleEntry(date: Date.now, userProjects: [], userSessions: [], isForPlaceholder: false))
+        TotalHoursWorkedHomeScreenWidgetView(entry: SimpleEntry(date: Date.now, userProjects: [], userSessions: [], isForPlaceholder: false))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

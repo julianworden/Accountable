@@ -23,7 +23,7 @@ struct LastWeekChartPlaceholder: View {
                     )
                     .foregroundStyle(.purple)
                     .annotation {
-                        Text(placeholderHoursValue.secondsAsFullPeriodOfTime)
+                        Text(placeholderHoursValue.secondsAsFullPeriodOfTimeString)
                             .barMarkAnnotation()
                     }
                 }

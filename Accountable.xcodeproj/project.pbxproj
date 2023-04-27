@@ -19,8 +19,8 @@
 		AB06CDE329DA2CC000F4D912 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06CDE229DA2CC000F4D912 /* AuthService.swift */; };
 		AB06CDE529DA2D4F00F4D912 /* AuthServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06CDE429DA2D4F00F4D912 /* AuthServiceError.swift */; };
 		AB06CDE829DB08EF00F4D912 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06CDE729DB08EF00F4D912 /* SectionTitle.swift */; };
-		AB0967B629F9518B0023C055 /* TotalHoursWorkedWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B429F950EE0023C055 /* TotalHoursWorkedWidget.swift */; };
-		AB0967B729F9518B0023C055 /* TotalHoursWorkedWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B529F9512B0023C055 /* TotalHoursWorkedWidgetView.swift */; };
+		AB0967B629F9518B0023C055 /* TotalHoursWorkedHomeScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B429F950EE0023C055 /* TotalHoursWorkedHomeScreenWidget.swift */; };
+		AB0967B729F9518B0023C055 /* TotalHoursWorkedHomeScreenWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B529F9512B0023C055 /* TotalHoursWorkedHomeScreenWidgetView.swift */; };
 		AB0967BB29F95A5F0023C055 /* PlaceholderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B929F95A5C0023C055 /* PlaceholderData.swift */; };
 		AB0967BD29F9632E0023C055 /* LastWeekChartPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967BC29F9632E0023C055 /* LastWeekChartPlaceholder.swift */; };
 		AB1F41FE29EEDEE700344FDA /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D9179760947888B9F0613F4B /* amplifyconfiguration.json */; };
@@ -95,6 +95,8 @@
 		AB77867329D5C9AE00CE5989 /* SocialSignInButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */; };
 		AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867429D5CFB600CE5989 /* SplashScreenView.swift */; };
 		AB77867C29D5D37900CE5989 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */; };
+		AB80C9B429F9D82B00E637F5 /* TotalHoursWorkedLockScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB80C9B229F9D59B00E637F5 /* TotalHoursWorkedLockScreenWidget.swift */; };
+		AB80C9B529F9D82B00E637F5 /* TotalHoursWorkedLockScreenWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB80C9B329F9D59C00E637F5 /* TotalHoursWorkedLockScreenWidgetView.swift */; };
 		AB88C8C529D780D400F5DAD1 /* ConfirmCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88C8C429D780D400F5DAD1 /* ConfirmCodeTextField.swift */; };
 		AB88C8C729D7988000F5DAD1 /* NotificationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88C8C629D7988000F5DAD1 /* NotificationConstants.swift */; };
 		ABA4DE5129E5EB7900D65434 /* HomeChartCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA4DE5029E5EB7900D65434 /* HomeChartCarousel.swift */; };
@@ -198,8 +200,8 @@
 		AB06CDE229DA2CC000F4D912 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AB06CDE429DA2D4F00F4D912 /* AuthServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceError.swift; sourceTree = "<group>"; };
 		AB06CDE729DB08EF00F4D912 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
-		AB0967B429F950EE0023C055 /* TotalHoursWorkedWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursWorkedWidget.swift; sourceTree = "<group>"; };
-		AB0967B529F9512B0023C055 /* TotalHoursWorkedWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursWorkedWidgetView.swift; sourceTree = "<group>"; };
+		AB0967B429F950EE0023C055 /* TotalHoursWorkedHomeScreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursWorkedHomeScreenWidget.swift; sourceTree = "<group>"; };
+		AB0967B529F9512B0023C055 /* TotalHoursWorkedHomeScreenWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursWorkedHomeScreenWidgetView.swift; sourceTree = "<group>"; };
 		AB0967B929F95A5C0023C055 /* PlaceholderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderData.swift; sourceTree = "<group>"; };
 		AB0967BC29F9632E0023C055 /* LastWeekChartPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekChartPlaceholder.swift; sourceTree = "<group>"; };
 		AB1F420029F01EFE00344FDA /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
@@ -253,6 +255,8 @@
 		AB77867229D5C9AE00CE5989 /* SocialSignInButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignInButtonStyle.swift; sourceTree = "<group>"; };
 		AB77867429D5CFB600CE5989 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		AB77867B29D5D37900CE5989 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		AB80C9B229F9D59B00E637F5 /* TotalHoursWorkedLockScreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursWorkedLockScreenWidget.swift; sourceTree = "<group>"; };
+		AB80C9B329F9D59C00E637F5 /* TotalHoursWorkedLockScreenWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalHoursWorkedLockScreenWidgetView.swift; sourceTree = "<group>"; };
 		AB88C8C429D780D400F5DAD1 /* ConfirmCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeTextField.swift; sourceTree = "<group>"; };
 		AB88C8C629D7988000F5DAD1 /* NotificationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstants.swift; sourceTree = "<group>"; };
 		ABA4DE5029E5EB7900D65434 /* HomeChartCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChartCarousel.swift; sourceTree = "<group>"; };
@@ -355,8 +359,8 @@
 		AB0967B329F950DF0023C055 /* TotalHoursWorked */ = {
 			isa = PBXGroup;
 			children = (
-				AB0967B429F950EE0023C055 /* TotalHoursWorkedWidget.swift */,
-				AB0967B529F9512B0023C055 /* TotalHoursWorkedWidgetView.swift */,
+				AB80C9AD29F9D4A500E637F5 /* HomeScreen */,
+				AB80C9AC29F9D49E00E637F5 /* LockScreen */,
 			);
 			path = TotalHoursWorked;
 			sourceTree = "<group>";
@@ -561,6 +565,24 @@
 				ABCD330529D475E900BA9529 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		AB80C9AC29F9D49E00E637F5 /* LockScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AB80C9B229F9D59B00E637F5 /* TotalHoursWorkedLockScreenWidget.swift */,
+				AB80C9B329F9D59C00E637F5 /* TotalHoursWorkedLockScreenWidgetView.swift */,
+			);
+			path = LockScreen;
+			sourceTree = "<group>";
+		};
+		AB80C9AD29F9D4A500E637F5 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AB0967B429F950EE0023C055 /* TotalHoursWorkedHomeScreenWidget.swift */,
+				AB0967B529F9512B0023C055 /* TotalHoursWorkedHomeScreenWidgetView.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 		ABA4DE5229E5EC8800D65434 /* ChartCarousel */ = {
@@ -882,7 +904,7 @@
 				AB75E35A29EC751300609496 /* SectionTitle.swift in Sources */,
 				AB3207C729E6EF1C007AC36E /* Project+Schema.swift in Sources */,
 				AB75E35929EC742F00609496 /* BarMarkAnnotationTextStyle.swift in Sources */,
-				AB0967B729F9518B0023C055 /* TotalHoursWorkedWidgetView.swift in Sources */,
+				AB0967B729F9518B0023C055 /* TotalHoursWorkedHomeScreenWidgetView.swift in Sources */,
 				ABC1CE6E29F6D2DD007452C7 /* Data+prettyPrintedJSONString().swift in Sources */,
 				AB3207CA29E6EF1C007AC36E /* User+Schema.swift in Sources */,
 				AB3207C929E6EF1C007AC36E /* Priority.swift in Sources */,
@@ -895,11 +917,13 @@
 				AB3207CD29E6EF24007AC36E /* DatabaseService.swift in Sources */,
 				AB75E35829EC741D00609496 /* Int+secondsAsPeriodOfTime.swift in Sources */,
 				AB3207CF29E6EF2B007AC36E /* DateConstants.swift in Sources */,
+				AB80C9B429F9D82B00E637F5 /* TotalHoursWorkedLockScreenWidget.swift in Sources */,
 				AB32079D29E6E81A007AC36E /* AccountableWidgetsBundle.swift in Sources */,
 				AB3207D229E6EF2B007AC36E /* NotificationConstants.swift in Sources */,
+				AB80C9B529F9D82B00E637F5 /* TotalHoursWorkedLockScreenWidgetView.swift in Sources */,
 				ABF5093C29F2D591004D80FA /* LastWeekChartWidget.swift in Sources */,
 				AB3207C429E6EF1C007AC36E /* Project.swift in Sources */,
-				AB0967B629F9518B0023C055 /* TotalHoursWorkedWidget.swift in Sources */,
+				AB0967B629F9518B0023C055 /* TotalHoursWorkedHomeScreenWidget.swift in Sources */,
 				AB3207D429E6EF3A007AC36E /* AuthServiceError.swift in Sources */,
 				ABC1267029E70EE4007C2996 /* User+Helpers.swift in Sources */,
 				AB68DA0229F2D448008F5077 /* SimpleEntry.swift in Sources */,

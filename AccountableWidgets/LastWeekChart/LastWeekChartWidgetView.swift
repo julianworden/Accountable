@@ -14,11 +14,7 @@ struct LastWeekChartWidgetView: View {
     let entry: SimpleEntry
 
     var body: some View {
-        if let errorMessage = entry.errorMessage {
-            Text(errorMessage)
-                .multilineTextAlignment(.center)
-                .padding()
-        } else if !entry.isForPlaceholder {
+        if !entry.isForPlaceholder {
             VStack {
                 SectionTitle(text: "Total Work (This Past Week)")
 
@@ -33,7 +29,7 @@ struct LastWeekChartWidgetView: View {
                             let totalLengthOfSessionsForWeekday = entry.getTotalLengthOfSessionsInPastSixDays(for: weekday)
 
                             if totalLengthOfSessionsForWeekday != 0 {
-                                Text(totalLengthOfSessionsForWeekday.secondsAsFullPeriodOfTime)
+                                Text(totalLengthOfSessionsForWeekday.secondsAsFullPeriodOfTimeString)
                                     .barMarkAnnotation()
                             }
                         }

@@ -12,28 +12,36 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let userProjects: [Project]
     let userSessions: [Session]
-    let errorMessage: String?
     let isForPlaceholder: Bool
 
     var projectSessionsInPastSixDays: [Session] {
         return userSessions.filter { $0.unixDateAsDate.isInLastSixDays }
     }
 
-    var totalHoursWorkedAcrossAllProjects: String {
-        var hoursCount = 0
+    var totalHoursWorkedAcrossAllProjectsAsString: String {
+        var secondsCount = 0
 
         userProjects.forEach {
-            hoursCount += $0.totalSecondsPracticed
+            secondsCount += $0.totalSecondsPracticed
         }
 
-        return hoursCount.secondsAsHours
+        return secondsCount.secondsAsHoursString
     }
 
-    init(date: Date, userProjects: [Project], userSessions: [Session], errorMessage: String? = nil, isForPlaceholder: Bool) {
+    var totalHoursWorkedAcrossAllProjectsAsInt: Int {
+        var secondsCount = 0
+
+        userProjects.forEach {
+            secondsCount += $0.totalSecondsPracticed
+        }
+
+        return secondsCount.secondsAsHoursInt
+    }
+
+    init(date: Date, userProjects: [Project], userSessions: [Session], isForPlaceholder: Bool) {
         self.date = date
         self.userProjects = userProjects
         self.userSessions = userSessions
-        self.errorMessage = errorMessage
         self.isForPlaceholder = isForPlaceholder
     }
 

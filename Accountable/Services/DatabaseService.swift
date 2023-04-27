@@ -108,6 +108,7 @@ final class DatabaseService {
     func deleteSession(_ session: Session) async throws {
         do {
             try await Amplify.DataStore.delete(session)
+            #warning("Subtract the session's time from the project")
         } catch {
             throw DataStoreError.unknown(message: "Failed to delete session. \(ErrorMessageConstants.unknown)")
         }

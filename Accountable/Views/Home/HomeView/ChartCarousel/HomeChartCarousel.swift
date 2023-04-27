@@ -28,7 +28,7 @@ struct HomeChartCarousel: View {
                                 )
                                 .annotation {
                                     if project.totalSecondsPracticed > 0 {
-                                        Text(project.totalSecondsPracticed.secondsAsHours)
+                                        Text(project.totalSecondsPracticed.secondsAsHoursString)
                                             .barMarkAnnotation()
                                     }
                                 }
@@ -58,7 +58,7 @@ struct HomeChartCarousel: View {
                                 )
                                 .annotation {
                                     if viewModel.getTotalLengthOfSessions(for: weekday) != 0 {
-                                        Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsFullPeriodOfTime)
+                                        Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsFullPeriodOfTimeString)
                                             .barMarkAnnotation()
                                     }
                                 }

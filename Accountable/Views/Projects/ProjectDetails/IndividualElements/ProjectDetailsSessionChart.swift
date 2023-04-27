@@ -21,7 +21,7 @@ struct ProjectDetailsSessionChart: View {
 
                 .annotation {
                     if viewModel.getTotalLengthOfSessions(for: weekday) != 0 {
-                        Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsFullPeriodOfTime)
+                        Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsFullPeriodOfTimeString)
                             .barMarkAnnotation()
                     }
                 }
