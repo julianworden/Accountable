@@ -44,6 +44,13 @@ struct AccountableApp: App {
                 await loginController.determineLoginStatus()
             }
             .environmentObject(ongoingSessionController)
+            // Used instead of scenePhase because scenePhase was not storing values when app was made inactive
+            .onForeground {
+                ongoingSessionController.calculateNewTimerValue()
+            }
+            .onBackground {
+                ongoingSessionController.preserveTimerStateInBackground()
+            }
         }
     }
 

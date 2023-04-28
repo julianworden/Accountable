@@ -60,6 +60,7 @@
 		AB3207D329E6EF3A007AC36E /* DataStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB998F429D9CE7900421E01 /* DataStoreError.swift */; };
 		AB3207D429E6EF3A007AC36E /* AuthServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB06CDE429DA2D4F00F4D912 /* AuthServiceError.swift */; };
 		AB3207D629E6EF8D007AC36E /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = AB3207D529E6EF8D007AC36E /* Amplify */; };
+		AB38AA2D29FB5922008F6368 /* View+scenePhaseChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38AA2C29FB5922008F6368 /* View+scenePhaseChanges.swift */; };
 		AB44AD4829E244DF003175BB /* SessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB44AD4729E244DF003175BB /* SessionRow.swift */; };
 		AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45540729D7110700A5CFEB /* SignUpView.swift */; };
 		AB45540A29D7110F00A5CFEB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45540929D7110F00A5CFEB /* SignUpViewModel.swift */; };
@@ -217,6 +218,7 @@
 		AB3207A029E6E81A007AC36E /* LastWeekChartWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastWeekChartWidgetView.swift; sourceTree = "<group>"; };
 		AB3207A229E6E81B007AC36E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB3207A429E6E81B007AC36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB38AA2C29FB5922008F6368 /* View+scenePhaseChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+scenePhaseChanges.swift"; sourceTree = "<group>"; };
 		AB3CF95429D2874A00E7FD45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AB44AD4729E244DF003175BB /* SessionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRow.swift; sourceTree = "<group>"; };
 		AB45540729D7110700A5CFEB /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 			children = (
 				AB59AB2929DDBA8E0041F6F8 /* AmplifyModelExtensions */,
 				ABB2D84529D68BB1004F9278 /* Notification.Name+CustomNotifications.swift */,
+				AB38AA2C29FB5922008F6368 /* View+scenePhaseChanges.swift */,
 				ABC1CE6C29F6D2DB007452C7 /* Data+prettyPrintedJSONString().swift */,
 				AB019BD929DCC57D007010ED /* String+isReallyEmpty.swift */,
 				ABB8CD9529DB815D00367A62 /* View+HideKeyboard.swift */,
@@ -1014,6 +1017,7 @@
 				244EB944306004A5CB42C338 /* User+Schema.swift in Sources */,
 				A6D207C73E6C0835E2EE6E4C /* User.swift in Sources */,
 				AB1F420129F01EFE00344FDA /* KeychainError.swift in Sources */,
+				AB38AA2D29FB5922008F6368 /* View+scenePhaseChanges.swift in Sources */,
 				AB1F420329F0208600344FDA /* KeychainConstants.swift in Sources */,
 				AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */,
 				ABDCA78229F5D36C009B0DA9 /* AppGroupConstants.swift in Sources */,

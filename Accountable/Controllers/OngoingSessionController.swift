@@ -37,6 +37,13 @@ final class OngoingSessionController: ObservableObject {
     var projectForActiveSession: Project?
     var cancellables = Set<AnyCancellable>()
     var timerDuration = 0
+    var appBackgroundDate: Date?
+
+    var timeSpentInactive: TimeInterval {
+        guard let appBackgroundDate else { return 0 }
+
+        return Date.now.timeIntervalSince(appBackgroundDate)
+    }
 
     // MARK: - Timer Modifications
 
@@ -97,6 +104,7 @@ final class OngoingSessionController: ObservableObject {
         timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         subscribeToTimer()
         timerIsRunning = true
+        appBackgroundDate = nil
     }
 
     func stopTimer() async {
@@ -104,6 +112,7 @@ final class OngoingSessionController: ObservableObject {
         timer.upstream.connect().cancel()
         timerIsRunning = false
         display = "00:00:00"
+        appBackgroundDate = nil
 
         await createSession()
     }
@@ -179,5 +188,25 @@ final class OngoingSessionController: ObservableObject {
             object: nil,
             userInfo: [NotificationConstants.newSession: newSession]
         )
+    }
+
+    /// Calculates the value of the active session after the app has been removed from a background or inactive state into an active state.
+    func calculateNewTimerValue() {
+        guard appBackgroundDate != nil else { return }
+
+        timerDuration += Int(timeSpentInactive)
+        resumeTimer()
+        appBackgroundDate = nil
+    }
+
+    /// Preserves the date at which the app was moved into the background or made inactive while a session is active. This will allow
+    /// the app to calculate the amount of time it was inactive or in the background so that it can be added to the timer duration once
+    /// the app enters the foreground again.
+    func preserveTimerStateInBackground() {
+        // Prevents the appBackgroundDate from being stored when the timer is paused.
+        guard timerIsRunning else { return }
+
+        appBackgroundDate = Date.now
+        pauseTimer()
     }
 }
