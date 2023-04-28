@@ -8,5 +8,5 @@
 import Foundation
 
 enum LoginStatus: Equatable {
-    case notDetermined, loggedIn, loggedOut, error(message: String)
+    case notDetermined, loggedIn(currentUser: User), loggedOut, error(message: String)
 }

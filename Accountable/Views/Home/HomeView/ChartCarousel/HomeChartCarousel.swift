@@ -82,6 +82,6 @@ struct HomeChartCarousel: View {
 
 struct HomeChartCarousel_Previews: PreviewProvider {
     static var previews: some View {
-        HomeChartCarousel(viewModel: HomeViewModel())
+        HomeChartCarousel(viewModel: HomeViewModel(currentUser: User.example))
     }
 }

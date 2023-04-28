@@ -27,6 +27,6 @@ struct HomeProjectsList: View {
 
 struct HomeProjectsList_Previews: PreviewProvider {
     static var previews: some View {
-        HomeProjectsList(viewModel: HomeViewModel())
+        HomeProjectsList(viewModel: HomeViewModel(currentUser: User.example))
     }
 }

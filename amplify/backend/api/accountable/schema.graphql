@@ -1,6 +1,7 @@
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   username: String!
+  isPremium: Boolean!
   projects: [Project] @hasMany
 }
 

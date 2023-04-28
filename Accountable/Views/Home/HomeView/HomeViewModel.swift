@@ -15,6 +15,7 @@ final class HomeViewModel: ObservableObject {
     @Published var userProjects = [Project]()
     @Published var userSessions = [Session]()
     @Published var addEditProjectSheetIsShowing = false
+    @Published var upgradeSheetIsShowing = false
 
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
@@ -35,6 +36,8 @@ final class HomeViewModel: ObservableObject {
         }
     }
 
+    let currentUser: User
+
     var totalHoursWorked: String {
         var totalHoursWorked = 0
         userProjects.forEach {
@@ -47,7 +50,8 @@ final class HomeViewModel: ObservableObject {
         userSessions.filter { $0.unixDateAsDate.isInLastSixDays }
     }
 
-    init() {
+    init(currentUser: User) {
+        self.currentUser = currentUser
         viewState = .dataLoading
     }
 

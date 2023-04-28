@@ -46,8 +46,9 @@ final class LoginViewModel: ObservableObject {
             let result = try await Amplify.Auth.signIn(username: emailAddress, password: password)
             if result.isSignedIn {
                 let currentAuthUser = try await Amplify.Auth.getCurrentUser()
+                let currentUser = try await DatabaseService.shared.getLoggedInUser()
                 try await handleSignInNextStep(result.nextStep, forAuthUser: currentAuthUser)
-                postSignedInNotification()
+                postSignedInNotification(forUser: currentUser)
                 viewState = .workCompleted
             } else {
                 try await handleSignInNextStep(result.nextStep, forAuthUser: nil)
@@ -80,7 +81,7 @@ final class LoginViewModel: ObservableObject {
     func addAuthUserToDataStore(_ authUser: AuthUser) async {
         do {
             let username = try await AuthService.shared.getLoggedInUserEmailAddress()
-            let authUserAsUser = User(id: authUser.userId, username: username)
+            let authUserAsUser = User(id: authUser.userId, username: username, isPremium: false)
             try await DatabaseService.shared.createOrUpdateUser(authUserAsUser)
         } catch {
             viewState = .error(message: error.localizedDescription)
@@ -181,8 +182,8 @@ final class LoginViewModel: ObservableObject {
         }
     }
 
-    func postSignedInNotification() {
-        NotificationCenter.default.post(name: .userLoggedIn, object: nil)
+    func postSignedInNotification(forUser user: User) {
+        NotificationCenter.default.post(name: .userLoggedIn, object: nil, userInfo: [NotificationConstants.currentUser: user])
     }
 
     func postUserSignedUpNotification() {

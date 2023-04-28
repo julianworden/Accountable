@@ -34,6 +34,6 @@ struct HomeProjectsHeader: View {
 
 struct HomeProjectSection_Previews: PreviewProvider {
     static var previews: some View {
-        HomeProjectsHeader(viewModel: HomeViewModel())
+        HomeProjectsHeader(viewModel: HomeViewModel(currentUser: User.example))
     }
 }

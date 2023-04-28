@@ -23,10 +23,13 @@ class LoginController: ObservableObject {
     func determineLoginStatus() async {
         do {
             try await Task.sleep(seconds: 2)
-            _ = try await Amplify.Auth.getCurrentUser()
-            loginStatus = .loggedIn
-        } catch AuthError.signedOut {
-            loginStatus = .loggedOut
+            let result = try await Amplify.Auth.fetchAuthSession()
+            if result.isSignedIn {
+                let currentUser = try await DatabaseService.shared.getLoggedInUser()
+                loginStatus = .loggedIn(currentUser: currentUser)
+            } else {
+                loginStatus = .loggedOut
+            }
         } catch {
             loginStatus = .error(message: error.localizedDescription)
             errorMessageText = error.localizedDescription
@@ -35,9 +38,11 @@ class LoginController: ObservableObject {
     }
 
     func addUserLoggedInObserver() {
-        NotificationCenter.default.addObserver(forName: .userLoggedIn, object: nil, queue: nil) { _ in
-            Task { @MainActor in
-                self.loginStatus = .loggedIn
+        NotificationCenter.default.addObserver(forName: .userLoggedIn, object: nil, queue: nil) { notification in
+            if let currentUser = notification.userInfo?[NotificationConstants.currentUser] as? User {
+                Task { @MainActor in
+                    self.loginStatus = .loggedIn(currentUser: currentUser)
+                }
             }
         }
     }

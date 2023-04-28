@@ -69,6 +69,10 @@
 		AB45541129D71C0500A5CFEB /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541029D71C0500A5CFEB /* ConfirmCodeView.swift */; };
 		AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541229D725AA00A5CFEB /* AuthController.swift */; };
 		AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */; };
+		AB47E61E29FC04110016AB7F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB47E61D29FC04110016AB7F /* StoreKit.framework */; };
+		AB47E62029FC0C270016AB7F /* StoreKitConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47E61F29FC0C270016AB7F /* StoreKitConstants.swift */; };
+		AB47E62529FC10F20016AB7F /* UpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47E62429FC10F20016AB7F /* UpgradeView.swift */; };
+		AB47E62729FC10F80016AB7F /* UpgradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47E62629FC10F80016AB7F /* UpgradeViewModel.swift */; };
 		AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */; };
 		AB4ADC0B29E06291000AFDCA /* Session+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0A29E06291000AFDCA /* Session+Helpers.swift */; };
 		AB4ADC0D29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0C29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift */; };
@@ -229,6 +233,10 @@
 		AB45541229D725AA00A5CFEB /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		AB45541429D726F200A5CFEB /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
+		AB47E61D29FC04110016AB7F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AB47E61F29FC0C270016AB7F /* StoreKitConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitConstants.swift; sourceTree = "<group>"; };
+		AB47E62429FC10F20016AB7F /* UpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeView.swift; sourceTree = "<group>"; };
+		AB47E62629FC10F80016AB7F /* UpgradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeViewModel.swift; sourceTree = "<group>"; };
 		AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingSessionTitleAndBox.swift; sourceTree = "<group>"; };
 		AB4ADC0A29E06291000AFDCA /* Session+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Helpers.swift"; sourceTree = "<group>"; };
 		AB4ADC0C29E063AE000AFDCA /* Int+secondsAsPeriodOfTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+secondsAsPeriodOfTime.swift"; sourceTree = "<group>"; };
@@ -323,6 +331,7 @@
 			files = (
 				ABD8B57329D0E185007BF1BC /* Amplify in Frameworks */,
 				ABD8B56F29D0E185007BF1BC /* AWSAPIPlugin in Frameworks */,
+				AB47E61E29FC04110016AB7F /* StoreKit.framework in Frameworks */,
 				ABD8B57129D0E185007BF1BC /* AWSDataStorePlugin in Frameworks */,
 				AB250F6829D32B5100CE6728 /* AWSCognitoAuthPlugin in Frameworks */,
 			);
@@ -376,6 +385,7 @@
 		AB250F6629D32B5100CE6728 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB47E61D29FC04110016AB7F /* StoreKit.framework */,
 				AB32077F29E6E7EB007AC36E /* WidgetKit.framework */,
 				AB32078129E6E7EB007AC36E /* SwiftUI.framework */,
 			);
@@ -433,6 +443,15 @@
 				AB88C8C429D780D400F5DAD1 /* ConfirmCodeTextField.swift */,
 			);
 			path = ConfirmCode;
+			sourceTree = "<group>";
+		};
+		AB47E62129FC10D70016AB7F /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				AB47E62429FC10F20016AB7F /* UpgradeView.swift */,
+				AB47E62629FC10F80016AB7F /* UpgradeViewModel.swift */,
+			);
+			path = StoreKit;
 			sourceTree = "<group>";
 		};
 		AB4ADC0E29E06610000AFDCA /* IndividualElements */ = {
@@ -524,6 +543,7 @@
 		AB77867829D5D24C00CE5989 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB47E62129FC10D70016AB7F /* StoreKit */,
 				AB77867A29D5D2DC00CE5989 /* Onboarding */,
 				ABB998EA29D9B7C000421E01 /* Home */,
 				AB2C0A5D29DB11500018B62F /* Projects */,
@@ -627,6 +647,7 @@
 				AB1F420229F0208600344FDA /* KeychainConstants.swift */,
 				ABDCA77F29F5D359009B0DA9 /* FileManagerConstants.swift */,
 				ABDCA78129F5D36C009B0DA9 /* AppGroupConstants.swift */,
+				AB47E61F29FC0C270016AB7F /* StoreKitConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -948,6 +969,7 @@
 				AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */,
 				ABA4DE5829E60FF000D65434 /* BarMarkAnnotationTextStyle.swift in Sources */,
 				AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */,
+				AB47E62029FC0C270016AB7F /* StoreKitConstants.swift in Sources */,
 				ABD8B56229D0DB42007BF1BC /* LoginView.swift in Sources */,
 				ABDC752929E23A100020E5F9 /* AllSessionsView.swift in Sources */,
 				AB59AB2B29DDBAA00041F6F8 /* Project+Helpers.swift in Sources */,
@@ -1005,6 +1027,7 @@
 				ABB998EC29D9B7C700421E01 /* HomeView.swift in Sources */,
 				ABB8CD9629DB815D00367A62 /* View+HideKeyboard.swift in Sources */,
 				ABCD330C29D4841400BA9529 /* TextFieldWithLine.swift in Sources */,
+				AB47E62529FC10F20016AB7F /* UpgradeView.swift in Sources */,
 				ABC1CE6D29F6D2DB007452C7 /* Data+prettyPrintedJSONString().swift in Sources */,
 				ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */,
 				AB74D08D29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift in Sources */,
@@ -1023,6 +1046,7 @@
 				ABDCA78229F5D36C009B0DA9 /* AppGroupConstants.swift in Sources */,
 				ABC1CE6A29F6D193007452C7 /* FileManagerError.swift in Sources */,
 				B0B82126D421A137CB3DF277 /* Session+Schema.swift in Sources */,
+				AB47E62729FC10F80016AB7F /* UpgradeViewModel.swift in Sources */,
 				64C6A9509AE91BF8107231E0 /* Session.swift in Sources */,
 				B544ADD6DEC40FB4F639C956 /* Weekday.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 import Foundation
 
 extension User: Equatable {
-    static var example = User(username: "example@gmail.com")
+    static var example = User(username: "example@gmail.com", isPremium: true)
 
     func getProjects() async throws -> [Project] {
         do {

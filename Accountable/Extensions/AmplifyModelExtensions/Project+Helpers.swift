@@ -22,7 +22,7 @@ extension Project: Equatable, Identifiable {
     }
 
     static let example = Project(
-        creator: User(username: "example@test.com"),
+        creator: User(username: "example@test.com", isPremium: true),
         name: "Run a marathon",
         totalSecondsPracticed: 0,
         priority: .high,

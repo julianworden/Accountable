@@ -23,8 +23,8 @@ struct AccountableApp: App {
                 switch loginController.loginStatus {
                 case .notDetermined:
                     SplashScreenView()
-                case .loggedIn:
-                    HomeView()
+                case .loggedIn(let currentUser):
+                    HomeView(currentUser: currentUser)
                         .transition(.opacity)
                 case .loggedOut:
                     LoginView()

@@ -12,7 +12,11 @@ struct HomeView: View {
 
     @EnvironmentObject var ongoingSessionController: OngoingSessionController
 
-    @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var viewModel: HomeViewModel
+
+    init(currentUser: User) {
+        _viewModel = StateObject(wrappedValue: HomeViewModel(currentUser: currentUser))
+    }
 
     var body: some View {
         NavigationStack {
@@ -57,9 +61,24 @@ struct HomeView: View {
                     .transition(.opacity)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Log Out") {
-                                Task {
-                                    await viewModel.logOut()
+                            Menu {
+                                if !viewModel.currentUser.isPremium {
+                                    Button("Upgrade") {
+                                        viewModel.upgradeSheetIsShowing = true
+                                    }
+                                }
+
+                                Button("Log Out") {
+                                    Task {
+                                        await viewModel.logOut()
+                                    }
+                                }
+                            } label: {
+                                Image(systemName: "gear")
+                            }
+                            .fullScreenCover(isPresented: $viewModel.upgradeSheetIsShowing) {
+                                NavigationStack {
+                                    UpgradeView()
                                 }
                             }
                         }
@@ -85,8 +104,6 @@ struct HomeView: View {
             .task {
                 await viewModel.getLoggedInUserProjectsAndSessions()
 //                try? FileManagerController.shared.deleteAllSessions()
-                print("SESSIONS: \(FileManagerController.shared.getSessions())")
-                print("PROJECTS: \(FileManagerController.shared.getProjects())")
             }
             .animation(.easeInOut, value: ongoingSessionController.sessionIsActive)
         }
@@ -95,7 +112,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(currentUser: User.example)
             .environmentObject(OngoingSessionController())
     }
 }
