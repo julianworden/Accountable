@@ -18,36 +18,6 @@ struct HomeChartCarousel: View {
                     CustomGroupBox()
 
                     VStack {
-                        SectionTitle(text: "Hours Worked by Project")
-
-                        Chart {
-                            ForEach(viewModel.userProjects) { project in
-                                BarMark(
-                                    x: .value("Project Name", project.name),
-                                    y: .value("Number of Hours", project.totalSecondsPracticed)
-                                )
-                                .annotation {
-                                    if project.totalSecondsPracticed > 0 {
-                                        Text(project.totalSecondsPracticed.secondsAsHoursString)
-                                            .barMarkAnnotation()
-                                    }
-                                }
-                            }
-                        }
-                        .chartYAxis(.hidden)
-                        .animation(.easeInOut, value: viewModel.userProjects)
-                    }
-                    .padding()
-                }
-                .padding()
-            }
-            .padding(.bottom, 40)
-
-            ZStack {
-                ZStack {
-                    CustomGroupBox()
-
-                    VStack {
                         SectionTitle(text: "Hours Worked This Past Week")
 
                         Chart {
@@ -73,6 +43,35 @@ struct HomeChartCarousel: View {
             }
             .padding(.bottom, 40)
 
+            ZStack {
+                ZStack {
+                    CustomGroupBox()
+
+                    VStack {
+                        SectionTitle(text: "Hours Worked by Project")
+
+                        Chart {
+                            ForEach(viewModel.userProjects) { project in
+                                BarMark(
+                                    x: .value("Project Name", project.name),
+                                    y: .value("Number of Hours", project.totalSecondsPracticed)
+                                )
+                                .annotation {
+                                    if project.totalSecondsPracticed > 0 {
+                                        Text(project.totalSecondsPracticed.secondsAsHoursString)
+                                            .barMarkAnnotation()
+                                    }
+                                }
+                            }
+                        }
+                        .chartYAxis(.hidden)
+                        .animation(.easeInOut, value: viewModel.userProjects)
+                    }
+                    .padding()
+                }
+                .padding()
+            }
+            .padding(.bottom, 40)
         }
         .frame(height: 400)
         .tabViewStyle(.page(indexDisplayMode: .always))

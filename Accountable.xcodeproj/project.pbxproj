@@ -162,6 +162,7 @@
 		ABDCA78529F5E3B7009B0DA9 /* AppGroupConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDCA78129F5D36C009B0DA9 /* AppGroupConstants.swift */; };
 		ABEECFC229FD4A640011C15D /* StoreKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEECFC129FD4A640011C15D /* StoreKitError.swift */; };
 		ABEECFC729FD5BD50011C15D /* StoreKitTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEECFC629FD5BD50011C15D /* StoreKitTransactionController.swift */; };
+		ABEECFCC29FD9C1C0011C15D /* StoreKitConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEECFCB29FD9C1C0011C15D /* StoreKitConstants.swift */; };
 		ABF5093C29F2D591004D80FA /* LastWeekChartWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68D9FE29F2D3FB008F5077 /* LastWeekChartWidget.swift */; };
 		ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6EF4129D4722000918FD2 /* LoginController.swift */; };
 		B0B82126D421A137CB3DF277 /* Session+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DB6D200749F1674B76C74 /* Session+Schema.swift */; };
@@ -309,6 +310,7 @@
 		ABDCA78129F5D36C009B0DA9 /* AppGroupConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupConstants.swift; sourceTree = "<group>"; };
 		ABEECFC129FD4A640011C15D /* StoreKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitError.swift; sourceTree = "<group>"; };
 		ABEECFC629FD5BD50011C15D /* StoreKitTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitTransactionController.swift; sourceTree = "<group>"; };
+		ABEECFCB29FD9C1C0011C15D /* StoreKitConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitConstants.swift; sourceTree = "<group>"; };
 		ABF6EF4129D4722000918FD2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D781533A5E6CD22C412C1473 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		D9179760947888B9F0613F4B /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 				AB1F420229F0208600344FDA /* KeychainConstants.swift */,
 				ABDCA77F29F5D359009B0DA9 /* FileManagerConstants.swift */,
 				ABDCA78129F5D36C009B0DA9 /* AppGroupConstants.swift */,
+				ABEECFCB29FD9C1C0011C15D /* StoreKitConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1052,6 +1055,7 @@
 				AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */,
 				ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */,
 				ABA728AC29DC6E4100E66D98 /* Color+CustomColors.swift in Sources */,
+				ABEECFCC29FD9C1C0011C15D /* StoreKitConstants.swift in Sources */,
 				AB67AA0529DDFCD700D797BD /* HomeProjectsHeader.swift in Sources */,
 				244EB944306004A5CB42C338 /* User+Schema.swift in Sources */,
 				A6D207C73E6C0835E2EE6E4C /* User.swift in Sources */,
