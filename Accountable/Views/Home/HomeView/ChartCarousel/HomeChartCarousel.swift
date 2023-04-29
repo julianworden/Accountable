@@ -17,29 +17,36 @@ struct HomeChartCarousel: View {
                 ZStack {
                     CustomGroupBox()
 
-                    VStack {
-                        SectionTitle(text: "Hours Worked This Past Week")
+                    if !viewModel.projectSessionsInPastWeek.isEmpty && !viewModel.userProjects.isEmpty {
+                        VStack {
+                            SectionTitle(text: "Time Worked This Past Week")
 
-                        Chart {
-                            ForEach(Weekday.allCases) { weekday in
-                                BarMark (
-                                    x: .value("Weekday Name", weekday.matchesTodaysWeekday ? "Today" : weekday.abbreviated),
-                                    y: .value("Total Hours", viewModel.getTotalLengthOfSessions(for: weekday))
-                                )
-                                .annotation {
-                                    if viewModel.getTotalLengthOfSessions(for: weekday) != 0 {
-                                        Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsFullPeriodOfTimeString)
-                                            .barMarkAnnotation()
+                            Chart {
+                                ForEach(Weekday.allCases) { weekday in
+                                    BarMark (
+                                        x: .value("Weekday Name", weekday.matchesTodaysWeekday ? "Today" : weekday.abbreviated),
+                                        y: .value("Total Hours", viewModel.getTotalLengthOfSessions(for: weekday))
+                                    )
+                                    .annotation {
+                                        if viewModel.getTotalLengthOfSessions(for: weekday) != 0 {
+                                            Text(viewModel.getTotalLengthOfSessions(for: weekday).secondsAsFullPeriodOfTimeString)
+                                                .barMarkAnnotation()
+                                        }
                                     }
                                 }
                             }
+                            .chartYAxis(.hidden)
+                            .animation(.easeInOut, value: viewModel.projectSessionsInPastWeek)
                         }
-                        .chartYAxis(.hidden)
-                        .animation(.easeInOut, value: viewModel.projectSessionsInPastWeek)
+                        .padding()
+                    } else if viewModel.projectSessionsInPastWeek.isEmpty || viewModel.userProjects.isEmpty {
+                        Text("You haven't worked on Accountable within the last week. Once you have session data from the last week, it will appear here in a chart.")
+                            .multilineTextAlignment(.center)
+                            .padding()
                     }
-                    .padding()
                 }
                 .padding()
+                .animation(.easeInOut, value: viewModel.projectSessionsInPastWeek)
             }
             .padding(.bottom, 40)
 
@@ -47,29 +54,36 @@ struct HomeChartCarousel: View {
                 ZStack {
                     CustomGroupBox()
 
-                    VStack {
-                        SectionTitle(text: "Hours Worked by Project")
+                    if !viewModel.userSessions.isEmpty {
+                        VStack {
+                            SectionTitle(text: "Hours Worked by Project")
 
-                        Chart {
-                            ForEach(viewModel.userProjects) { project in
-                                BarMark(
-                                    x: .value("Project Name", project.name),
-                                    y: .value("Number of Hours", project.totalSecondsPracticed)
-                                )
-                                .annotation {
-                                    if project.totalSecondsPracticed > 0 {
-                                        Text(project.totalSecondsPracticed.secondsAsHoursString)
-                                            .barMarkAnnotation()
+                            Chart {
+                                ForEach(viewModel.userProjects) { project in
+                                    BarMark(
+                                        x: .value("Project Name", project.name),
+                                        y: .value("Number of Hours", project.totalSecondsPracticed)
+                                    )
+                                    .annotation {
+                                        if project.totalSecondsPracticed > 0 {
+                                            Text(project.totalSecondsPracticed.secondsAsHoursString)
+                                                .barMarkAnnotation()
+                                        }
                                     }
                                 }
                             }
+                            .chartYAxis(.hidden)
+                            .animation(.easeInOut, value: viewModel.userSessions)
                         }
-                        .chartYAxis(.hidden)
-                        .animation(.easeInOut, value: viewModel.userProjects)
+                        .padding()
+                    } else if viewModel.userSessions.isEmpty {
+                        Text("You haven't created any sessions on Acccountable. Once you have, you'll see your sessions sorted by project in a chart here.")
+                            .multilineTextAlignment(.center)
+                            .padding()
                     }
-                    .padding()
                 }
                 .padding()
+                .animation(.easeInOut, value: viewModel.userSessions)
             }
             .padding(.bottom, 40)
         }

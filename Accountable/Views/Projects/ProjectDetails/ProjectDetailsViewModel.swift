@@ -17,6 +17,7 @@ final class ProjectDetailsViewModel: ObservableObject {
     @Published var buttonsAreDisabled = false
     @Published var projectWasDeleted = false
     @Published var startNewSessionButtonIsShowing = true
+    @Published var deleteProjectConfirmationAlertIsShowing = false
 
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
@@ -100,6 +101,7 @@ final class ProjectDetailsViewModel: ObservableObject {
             try await DatabaseService.shared.deleteProject(project)
             try FileManagerController.shared.deleteProject(project)
             WidgetCenter.shared.reloadAllTimelines()
+            projectWasDeleted = true
         } catch {
             viewState = .error(message: error.localizedDescription)
         }

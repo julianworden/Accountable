@@ -78,6 +78,8 @@ final class HomeViewModel: ObservableObject {
                 }
 
                 self.userSessions = userSessions
+            } else if userProjects.isEmpty {
+                userSessions = []
             }
             viewState = .dataLoaded
         } catch {

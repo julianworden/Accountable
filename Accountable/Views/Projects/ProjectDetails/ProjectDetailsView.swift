@@ -52,9 +52,19 @@ struct ProjectDetailsView: View {
                     }
 
                     FirstThreeProjectSessionsHeader(viewModel: viewModel)
+                        .animation(.easeInOut, value: viewModel.projectSessions)
 
-                    FirstThreeProjectSessionsList(viewModel: viewModel)
-
+                    // Without this VStack, animation will behave unexpectedly when session is ended
+                    VStack {
+                        if !viewModel.projectSessions.isEmpty {
+                            FirstThreeProjectSessionsList(viewModel: viewModel)
+                        } else {
+                            Text("You haven't created any sessions for this project yet. When you do, they will appear here.")
+                                .multilineTextAlignment(.center)
+                                .transition(.opacity)
+                        }
+                    }
+                    .animation(.easeInOut, value: viewModel.projectSessions)
                 }
                 .padding(.horizontal)
             }
@@ -75,12 +85,24 @@ struct ProjectDetailsView: View {
                 }
 
                 Button(role: .destructive) {
-                    Task {
-                        await viewModel.deleteProject()
-                    }
+                    viewModel.deleteProjectConfirmationAlertIsShowing.toggle()
                 } label: {
                     Image(systemName: "trash")
                 }
+                .tint(.red)
+                .alert(
+                    "Are You Sure?",
+                    isPresented: $viewModel.deleteProjectConfirmationAlertIsShowing,
+                    actions: {
+                        Button("Cancel", role: .cancel) { }
+                        Button("Delete Project", role: .destructive) {
+                            Task {
+                                await viewModel.deleteProject()
+                            }
+                        }
+                    },
+                    message: { Text("Deleting this project will also delete all of its sessions. This cannot be undone.") }
+                )
             }
         }
         .alert(

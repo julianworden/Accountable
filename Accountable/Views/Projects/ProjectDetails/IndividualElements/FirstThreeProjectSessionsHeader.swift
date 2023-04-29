@@ -14,10 +14,12 @@ struct FirstThreeProjectSessionsHeader: View {
         HStack {
             SectionTitle(text: "Recent Sessions")
 
-            NavigationLink {
-                AllSessionsView(sessions: viewModel.projectSessions)
-            } label: {
-                Text("Edit")
+            if !viewModel.projectSessions.isEmpty {
+                NavigationLink {
+                    AllSessionsView(sessions: viewModel.projectSessions)
+                } label: {
+                    Text("Edit")
+                }
             }
         }
     }

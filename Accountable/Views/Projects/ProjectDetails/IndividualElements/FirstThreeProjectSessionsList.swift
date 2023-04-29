@@ -16,7 +16,6 @@ struct FirstThreeProjectSessionsList: View {
                 SessionRow(session: session)
             }
         }
-        .animation(.easeInOut, value: viewModel.projectSessions)
     }
 }
 

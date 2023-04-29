@@ -51,9 +51,19 @@ struct HomeView: View {
 
                                 HomeProjectsHeader(viewModel: viewModel)
                                     .padding(.horizontal)
+                                    .animation(.easeInOut, value: viewModel.userProjects)
 
-                                HomeProjectsList(viewModel: viewModel)
-                                    .padding(.horizontal)
+                                VStack {
+                                    if !viewModel.userProjects.isEmpty {
+                                        HomeProjectsList(viewModel: viewModel)
+                                            .padding(.horizontal)
+                                    } else {
+                                        Text("You haven't created any projects in Accountable yet. When you do, they will appear here.")
+                                            .multilineTextAlignment(.center)
+                                            .padding(.horizontal)
+                                    }
+                                }
+                                .animation(.easeInOut, value: viewModel.userProjects)
                             }
                         }
                     }
