@@ -44,8 +44,8 @@ struct HomeView: View {
                                 HomeChartCarousel(viewModel: viewModel)
 
                                 StatGrid {
-                                    StatBox(title: viewModel.totalHoursWorked, subtitle: "Total Hours Worked", iconName: "timer", geo: geo)
-                                    StatBox(title: viewModel.totalHoursWorked, subtitle: "Total Hours Worked", iconName: "timer", geo: geo)
+                                    StatBox(title: viewModel.totalHoursWorked, subtitle: "Total Hours Worked (All Time)", iconName: "timer", geo: geo)
+                                    StatBox(title: viewModel.averageHourWorkedPerSession, subtitle: "Average Hours Worked Per Session", iconName: "timer", geo: geo)
                                 }
                                 .padding(.horizontal)
 
@@ -78,7 +78,7 @@ struct HomeView: View {
                                     }
                                 }
 
-                                Button("Log Out") {
+                                Button("Log Out", role: .destructive) {
                                     Task {
                                         await viewModel.logOut()
                                     }

@@ -60,6 +60,7 @@ final class ProjectDetailsViewModel: ObservableObject {
             totalTime += $0.durationInSeconds
         }
 
+        // Without this check, having no sessions will result in "Division by zero" crash
         if !projectSessions.isEmpty {
             return Int(totalTime / projectSessions.count).secondsAsHoursString
         } else {

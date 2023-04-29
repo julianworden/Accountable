@@ -60,6 +60,21 @@ final class HomeViewModel: ObservableObject {
         userSessions.filter { $0.unixDateAsDate.isInLastSixDays }
     }
 
+
+    var averageHourWorkedPerSession: String {
+        var totalTime = 0
+        userSessions.forEach {
+            totalTime += $0.durationInSeconds
+        }
+        
+        // Without this check, having no sessions will result in "Division by zero" crash
+        if !userSessions.isEmpty {
+            return Int(totalTime / userSessions.count).secondsAsHoursString
+        } else {
+            return 0.secondsAsHoursString
+        }
+    }
+
     init(currentUser: User) {
         self.currentUser = currentUser
         if !currentUser.isPremium {

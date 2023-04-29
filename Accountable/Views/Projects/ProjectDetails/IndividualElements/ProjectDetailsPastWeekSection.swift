@@ -15,12 +15,21 @@ struct ProjectDetailsPastWeekSection: View {
             CustomGroupBox()
 
             VStack {
-                SectionTitle(text: "The Past Week")
-                ProjectDetailsSessionChart(viewModel: viewModel)
+                if !viewModel.projectSessions.isEmpty {
+                    VStack {
+                        SectionTitle(text: "The Past Week")
+                        ProjectDetailsSessionChart(viewModel: viewModel)
+                    }
+                    .padding()
+                } else {
+                    Text("You haven't created any sessions for this project. When you do, they will appear here in a chart.")
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                }
             }
-            .padding()
         }
         .frame(height: UiConstants.primaryBoxHeight)
+        .animation(.easeInOut, value: viewModel.projectSessions)
     }
 }
 
