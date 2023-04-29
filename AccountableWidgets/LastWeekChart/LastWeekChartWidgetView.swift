@@ -15,29 +15,35 @@ struct LastWeekChartWidgetView: View {
 
     var body: some View {
         if !entry.isForPlaceholder {
-            VStack {
-                SectionTitle(text: "Total Work (This Past Week)")
+            if !entry.projectSessionsInPastSixDays.isEmpty {
+                VStack {
+                    SectionTitle(text: "Total Work (This Past Week)")
 
-                Chart {
-                    ForEach(Weekday.allCases) { weekday in
-                        BarMark (
-                            x: .value("Weekday Name", weekday.matchesTodaysWeekday ? "Today" : weekday.abbreviated),
-                            y: .value("Total Hours", entry.getTotalLengthOfSessionsInPastSixDays(for: weekday))
-                        )
-                        .foregroundStyle(.purple)
-                        .annotation {
-                            let totalLengthOfSessionsForWeekday = entry.getTotalLengthOfSessionsInPastSixDays(for: weekday)
+                    Chart {
+                        ForEach(Weekday.allCases) { weekday in
+                            BarMark (
+                                x: .value("Weekday Name", weekday.matchesTodaysWeekday ? "Today" : weekday.abbreviated),
+                                y: .value("Total Hours", entry.getTotalLengthOfSessionsInPastSixDays(for: weekday))
+                            )
+                            .foregroundStyle(.purple)
+                            .annotation {
+                                let totalLengthOfSessionsForWeekday = entry.getTotalLengthOfSessionsInPastSixDays(for: weekday)
 
-                            if totalLengthOfSessionsForWeekday != 0 {
-                                Text(totalLengthOfSessionsForWeekday.secondsAsFullPeriodOfTimeString)
-                                    .barMarkAnnotation()
+                                if totalLengthOfSessionsForWeekday != 0 {
+                                    Text(totalLengthOfSessionsForWeekday.secondsAsFullPeriodOfTimeString)
+                                        .barMarkAnnotation()
+                                }
                             }
                         }
                     }
+                    .chartYAxis(.hidden)
                 }
-                .chartYAxis(.hidden)
+                .padding()
+            } else if entry.projectSessionsInPastSixDays.isEmpty {
+                Text("You haven't worked on Accountable within the last week. Once you have session data from the last week, it will appear here in a chart.")
+                    .multilineTextAlignment(.center)
+                    .padding()
             }
-            .padding()
         } else if entry.isForPlaceholder {
             LastWeekChartPlaceholder()
         }
