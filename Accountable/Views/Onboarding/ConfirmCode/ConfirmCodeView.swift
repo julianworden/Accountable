@@ -20,7 +20,7 @@ struct ConfirmCodeView: View {
         GeometryReader { geo in
             ScrollView {
                 VStack(spacing: UiConstants.vStackSpacing) {
-                    OnboardingViewHeader(
+                    CenteredHeader(
                         title: "Enter Code",
                         subtitle: "A verification code was sent to your email address, please enter it below."
                     )

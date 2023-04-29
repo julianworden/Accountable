@@ -70,7 +70,6 @@
 		AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541229D725AA00A5CFEB /* AuthController.swift */; };
 		AB45541A29D72B4300A5CFEB /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */; };
 		AB47E61E29FC04110016AB7F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB47E61D29FC04110016AB7F /* StoreKit.framework */; };
-		AB47E62029FC0C270016AB7F /* StoreKitConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47E61F29FC0C270016AB7F /* StoreKitConstants.swift */; };
 		AB47E62529FC10F20016AB7F /* UpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47E62429FC10F20016AB7F /* UpgradeView.swift */; };
 		AB47E62729FC10F80016AB7F /* UpgradeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47E62629FC10F80016AB7F /* UpgradeViewModel.swift */; };
 		AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */; };
@@ -109,7 +108,7 @@
 		ABA4DE5829E60FF000D65434 /* BarMarkAnnotationTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA4DE5729E60FF000D65434 /* BarMarkAnnotationTextStyle.swift */; };
 		ABA728AA29DC5C6D00E66D98 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA728A929DC5C6D00E66D98 /* CustomBackButton.swift */; };
 		ABA728AC29DC6E4100E66D98 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA728AB29DC6E4100E66D98 /* Color+CustomColors.swift */; };
-		ABAC1F3529D87358007B0A0B /* OnboardingViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3429D87358007B0A0B /* OnboardingViewHeader.swift */; };
+		ABAC1F3529D87358007B0A0B /* CenteredHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3429D87358007B0A0B /* CenteredHeader.swift */; };
 		ABAC1F3729D8751C007B0A0B /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3629D8751C007B0A0B /* UiConstants.swift */; };
 		ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3829D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift */; };
 		ABAC1F3B29D87CBA007B0A0B /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAC1F3A29D87CBA007B0A0B /* TextFieldType.swift */; };
@@ -146,6 +145,7 @@
 		ABD8B56F29D0E185007BF1BC /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B56E29D0E185007BF1BC /* AWSAPIPlugin */; };
 		ABD8B57129D0E185007BF1BC /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B57029D0E185007BF1BC /* AWSDataStorePlugin */; };
 		ABD8B57329D0E185007BF1BC /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = ABD8B57229D0E185007BF1BC /* Amplify */; };
+		ABD8C84E29FCAA7200F942CA /* StoreKitConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = ABD8C84D29FCAA7200F942CA /* StoreKitConfiguration.storekit */; };
 		ABDB663E29E2FFA300684219 /* Weekday+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB663D29E2FFA300684219 /* Weekday+Helpers.swift */; };
 		ABDC752629E237D70020E5F9 /* User+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC752529E237D70020E5F9 /* User+Helpers.swift */; };
 		ABDC752929E23A100020E5F9 /* AllSessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC752829E23A100020E5F9 /* AllSessionsView.swift */; };
@@ -160,6 +160,8 @@
 		ABDCA78329F5E2D2009B0DA9 /* FileManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDCA77D29F5D328009B0DA9 /* FileManagerController.swift */; };
 		ABDCA78429F5E3A9009B0DA9 /* FileManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDCA77F29F5D359009B0DA9 /* FileManagerConstants.swift */; };
 		ABDCA78529F5E3B7009B0DA9 /* AppGroupConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDCA78129F5D36C009B0DA9 /* AppGroupConstants.swift */; };
+		ABEECFC229FD4A640011C15D /* StoreKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEECFC129FD4A640011C15D /* StoreKitError.swift */; };
+		ABEECFC729FD5BD50011C15D /* StoreKitTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEECFC629FD5BD50011C15D /* StoreKitTransactionController.swift */; };
 		ABF5093C29F2D591004D80FA /* LastWeekChartWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68D9FE29F2D3FB008F5077 /* LastWeekChartWidget.swift */; };
 		ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6EF4129D4722000918FD2 /* LoginController.swift */; };
 		B0B82126D421A137CB3DF277 /* Session+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DB6D200749F1674B76C74 /* Session+Schema.swift */; };
@@ -234,7 +236,6 @@
 		AB45541429D726F200A5CFEB /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		AB45541929D72B4300A5CFEB /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
 		AB47E61D29FC04110016AB7F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		AB47E61F29FC0C270016AB7F /* StoreKitConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitConstants.swift; sourceTree = "<group>"; };
 		AB47E62429FC10F20016AB7F /* UpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeView.swift; sourceTree = "<group>"; };
 		AB47E62629FC10F80016AB7F /* UpgradeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeViewModel.swift; sourceTree = "<group>"; };
 		AB4ADC0629E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingSessionTitleAndBox.swift; sourceTree = "<group>"; };
@@ -273,7 +274,7 @@
 		ABA4DE5729E60FF000D65434 /* BarMarkAnnotationTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMarkAnnotationTextStyle.swift; sourceTree = "<group>"; };
 		ABA728A929DC5C6D00E66D98 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		ABA728AB29DC6E4100E66D98 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
-		ABAC1F3429D87358007B0A0B /* OnboardingViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewHeader.swift; sourceTree = "<group>"; };
+		ABAC1F3429D87358007B0A0B /* CenteredHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredHeader.swift; sourceTree = "<group>"; };
 		ABAC1F3629D8751C007B0A0B /* UiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
 		ABAC1F3829D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAutoCapsOrCorrectionsTextField.swift; sourceTree = "<group>"; };
 		ABAC1F3A29D87CBA007B0A0B /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
@@ -297,6 +298,7 @@
 		ABD8B56129D0DB42007BF1BC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ABD8B56329D0DB43007BF1BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABD8B56629D0DB43007BF1BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABD8C84D29FCAA7200F942CA /* StoreKitConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfiguration.storekit; sourceTree = "<group>"; };
 		ABDB663D29E2FFA300684219 /* Weekday+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weekday+Helpers.swift"; sourceTree = "<group>"; };
 		ABDC752529E237D70020E5F9 /* User+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Helpers.swift"; sourceTree = "<group>"; };
 		ABDC752829E23A100020E5F9 /* AllSessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSessionsView.swift; sourceTree = "<group>"; };
@@ -305,6 +307,8 @@
 		ABDCA77D29F5D328009B0DA9 /* FileManagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerController.swift; sourceTree = "<group>"; };
 		ABDCA77F29F5D359009B0DA9 /* FileManagerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerConstants.swift; sourceTree = "<group>"; };
 		ABDCA78129F5D36C009B0DA9 /* AppGroupConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupConstants.swift; sourceTree = "<group>"; };
+		ABEECFC129FD4A640011C15D /* StoreKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitError.swift; sourceTree = "<group>"; };
+		ABEECFC629FD5BD50011C15D /* StoreKitTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitTransactionController.swift; sourceTree = "<group>"; };
 		ABF6EF4129D4722000918FD2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D781533A5E6CD22C412C1473 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		D9179760947888B9F0613F4B /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
@@ -526,6 +530,7 @@
 				AB45541229D725AA00A5CFEB /* AuthController.swift */,
 				AB67AA0829DE2CA100D797BD /* OngoingSessionController.swift */,
 				ABDCA77D29F5D328009B0DA9 /* FileManagerController.swift */,
+				ABEECFC629FD5BD50011C15D /* StoreKitTransactionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -570,7 +575,6 @@
 				AB77867D29D5D53700CE5989 /* Login */,
 				AB45540629D710F000A5CFEB /* SignUp */,
 				AB45540F29D71BF500A5CFEB /* ConfirmCode */,
-				ABAC1F3429D87358007B0A0B /* OnboardingViewHeader.swift */,
 				AB45540B29D71A6B00A5CFEB /* OnboardingNavigationController.swift */,
 				AB45540D29D71B1300A5CFEB /* OnboardingNavigationDestination.swift */,
 			);
@@ -647,7 +651,6 @@
 				AB1F420229F0208600344FDA /* KeychainConstants.swift */,
 				ABDCA77F29F5D359009B0DA9 /* FileManagerConstants.swift */,
 				ABDCA78129F5D36C009B0DA9 /* AppGroupConstants.swift */,
-				AB47E61F29FC0C270016AB7F /* StoreKitConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 		ABB998ED29D9B7CA00421E01 /* IndividualElements */ = {
 			isa = PBXGroup;
 			children = (
+				ABAC1F3429D87358007B0A0B /* CenteredHeader.swift */,
 				ABA728A929DC5C6D00E66D98 /* CustomBackButton.swift */,
 				AB5609E729D86AEC00B75F46 /* AsyncButton.swift */,
 				AB2D1EF729D5C30E00215C9C /* CustomDivider.swift */,
@@ -695,6 +699,7 @@
 				AB06CDE429DA2D4F00F4D912 /* AuthServiceError.swift */,
 				AB1F420029F01EFE00344FDA /* KeychainError.swift */,
 				ABC1CE6929F6D193007452C7 /* FileManagerError.swift */,
+				ABEECFC129FD4A640011C15D /* StoreKitError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -727,6 +732,7 @@
 				AB75E34D29EC4C5200609496 /* Accountable.entitlements */,
 				AB3CF95429D2874A00E7FD45 /* Info.plist */,
 				ABD8B55F29D0DB42007BF1BC /* AccountableApp.swift */,
+				ABD8C84C29FCAA4600F942CA /* StoreKit */,
 				AB77867729D5D24500CE5989 /* Model */,
 				AB77867829D5D24C00CE5989 /* Views */,
 				AB77867629D5D23A00CE5989 /* Controllers */,
@@ -747,6 +753,14 @@
 				ABD8B56629D0DB43007BF1BC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ABD8C84C29FCAA4600F942CA /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				ABD8C84D29FCAA7200F942CA /* StoreKitConfiguration.storekit */,
+			);
+			path = StoreKit;
 			sourceTree = "<group>";
 		};
 		ABDC752729E239F40020E5F9 /* AllSessions */ = {
@@ -892,6 +906,7 @@
 				ABD8B56729D0DB43007BF1BC /* Preview Assets.xcassets in Resources */,
 				ABD8B56429D0DB43007BF1BC /* Assets.xcassets in Resources */,
 				5DDAF38E01F93465CFBA5EAE /* awsconfiguration.json in Resources */,
+				ABD8C84E29FCAA7200F942CA /* StoreKitConfiguration.storekit in Resources */,
 				392EF8EAE755C271A9472C1C /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -969,7 +984,6 @@
 				AB45541329D725AA00A5CFEB /* AuthController.swift in Sources */,
 				ABA4DE5829E60FF000D65434 /* BarMarkAnnotationTextStyle.swift in Sources */,
 				AB77867529D5CFB600CE5989 /* SplashScreenView.swift in Sources */,
-				AB47E62029FC0C270016AB7F /* StoreKitConstants.swift in Sources */,
 				ABD8B56229D0DB42007BF1BC /* LoginView.swift in Sources */,
 				ABDC752929E23A100020E5F9 /* AllSessionsView.swift in Sources */,
 				AB59AB2B29DDBAA00041F6F8 /* Project+Helpers.swift in Sources */,
@@ -988,8 +1002,9 @@
 				ABDB663E29E2FFA300684219 /* Weekday+Helpers.swift in Sources */,
 				AB06CDE829DB08EF00F4D912 /* SectionTitle.swift in Sources */,
 				74FAED5A93C9CA1CBA468188 /* Priority.swift in Sources */,
+				ABEECFC729FD5BD50011C15D /* StoreKitTransactionController.swift in Sources */,
 				AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */,
-				ABAC1F3529D87358007B0A0B /* OnboardingViewHeader.swift in Sources */,
+				ABAC1F3529D87358007B0A0B /* CenteredHeader.swift in Sources */,
 				AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */,
 				ABDCA78029F5D359009B0DA9 /* FileManagerConstants.swift in Sources */,
 				AB45540C29D71A6B00A5CFEB /* OnboardingNavigationController.swift in Sources */,
@@ -1032,6 +1047,7 @@
 				ABAC1F3929D877FB007B0A0B /* NoAutoCapsOrCorrectionsTextField.swift in Sources */,
 				AB74D08D29E4F72E00BFEA2B /* ProjectDetailsStatsGrid.swift in Sources */,
 				AB59AB2629DDB9F80041F6F8 /* ProjectDetailsView.swift in Sources */,
+				ABEECFC229FD4A640011C15D /* StoreKitError.swift in Sources */,
 				AB88C8C729D7988000F5DAD1 /* NotificationConstants.swift in Sources */,
 				AB45540829D7110700A5CFEB /* SignUpView.swift in Sources */,
 				ABF6EF4229D4722000918FD2 /* LoginController.swift in Sources */,

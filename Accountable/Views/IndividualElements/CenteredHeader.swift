@@ -1,5 +1,5 @@
 //
-//  OnboardingViewHeader.swift
+//  CenteredHeader.swift
 //  Accountable
 //
 //  Created by Julian Worden on 4/1/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OnboardingViewHeader: View {
+struct CenteredHeader: View {
     let title: String
     let subtitle: String
 
@@ -25,6 +25,6 @@ struct OnboardingViewHeader: View {
 
 struct OnboardingViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingViewHeader(title: "Sign Up", subtitle: "You'll need to create an account before you can use Accountable")
+        CenteredHeader(title: "Sign Up", subtitle: "You'll need to create an account before you can use Accountable")
     }
 }

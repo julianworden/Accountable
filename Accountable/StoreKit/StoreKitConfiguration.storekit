@@ -1,0 +1,33 @@
+{
+  "identifier" : "9E01E778",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : true,
+      "internalID" : "6448633791",
+      "localizations" : [
+        {
+          "description" : "Create Unlimited Projects",
+          "displayName" : "Accountable Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "AccountablePremium",
+      "referenceName" : "Premium",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

@@ -16,6 +16,7 @@ import SwiftUI
 struct AccountableApp: App {
     @StateObject private var loginController = LoginController()
     @StateObject private var ongoingSessionController = OngoingSessionController()
+    @StateObject private var storeKitTransactionController = StoreKitTransactionController()
 
     var body: some Scene {
         WindowGroup {

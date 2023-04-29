@@ -60,6 +60,17 @@ final class DatabaseService {
         }
     }
 
+    func makeCurrentUserPremium() async throws -> User {
+        do {
+            var currentUser = try await getLoggedInUser()
+            currentUser.isPremium = true
+            try await createOrUpdateUser(currentUser)
+            return currentUser
+        } catch {
+            throw DataStoreError.unknown(message: "Failed to establish premium status. \(ErrorMessageConstants.unknown)")
+        }
+    }
+
     // MARK: - Projects
 
     func getAllLoggedInUserProjects() async throws -> [Project] {

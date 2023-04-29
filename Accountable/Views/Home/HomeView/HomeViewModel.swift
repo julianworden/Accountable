@@ -12,10 +12,12 @@ import WidgetKit
 
 @MainActor
 final class HomeViewModel: ObservableObject {
+    @Published var currentUser: User
     @Published var userProjects = [Project]()
     @Published var userSessions = [Session]()
     @Published var addEditProjectSheetIsShowing = false
     @Published var upgradeSheetIsShowing = false
+    @Published var upgradeNeededAlertIsShowing = false
 
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
@@ -36,7 +38,15 @@ final class HomeViewModel: ObservableObject {
         }
     }
 
-    let currentUser: User
+    var userCanCreateNewProject: Bool {
+        if currentUser.isPremium {
+            return true
+        } else if !currentUser.isPremium && userProjects.count >= 3 {
+            return false
+        } else {
+            return false
+        }
+    }
 
     var totalHoursWorked: String {
         var totalHoursWorked = 0
@@ -52,7 +62,9 @@ final class HomeViewModel: ObservableObject {
 
     init(currentUser: User) {
         self.currentUser = currentUser
-        viewState = .dataLoading
+        if !currentUser.isPremium {
+            addUserUpgradedNotificationObserver()
+        }
     }
 
     func getLoggedInUserProjectsAndSessions() async {
@@ -94,6 +106,21 @@ final class HomeViewModel: ObservableObject {
         } catch {
             viewState = .error(message: error.localizedDescription)
         }
+    }
+
+    func addUserUpgradedNotificationObserver() {
+        NotificationCenter.default.addObserver(forName: .userUpgraded, object: nil, queue: nil) { notification in
+            if let currentUser = notification.userInfo?[NotificationConstants.upgradedUser] as? User {
+                Task { @MainActor in
+                    self.currentUser = currentUser
+                    self.removeUserUpgradedNotificationObserver()
+                }
+            }
+        }
+    }
+
+    func removeUserUpgradedNotificationObserver() {
+        NotificationCenter.default.removeObserver(self, name: .userUpgraded, object: nil)
     }
 
     func postLoggedOutNotification() {

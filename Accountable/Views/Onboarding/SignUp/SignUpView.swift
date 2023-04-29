@@ -19,7 +19,7 @@ struct SignUpView: View {
             GeometryReader { geo in
                 ScrollView {
                     VStack(spacing: UiConstants.vStackSpacing) {
-                        OnboardingViewHeader(
+                        CenteredHeader(
                             title: "Sign Up",
                             subtitle: "You'll need to create an account before you can use Accountable"
                         )

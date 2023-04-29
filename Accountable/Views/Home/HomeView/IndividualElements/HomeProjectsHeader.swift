@@ -15,7 +15,11 @@ struct HomeProjectsHeader: View {
             SectionTitle(text: "Your Projects")
             Spacer()
             Button("Create a Project") {
-                viewModel.addEditProjectSheetIsShowing.toggle()
+                if viewModel.userCanCreateNewProject {
+                    viewModel.addEditProjectSheetIsShowing.toggle()
+                } else {
+                    viewModel.upgradeNeededAlertIsShowing.toggle()
+                }
             }
             .sheet(
                 isPresented: $viewModel.addEditProjectSheetIsShowing,
@@ -27,6 +31,15 @@ struct HomeProjectsHeader: View {
                 content: {
                     AddEditProjectView()
                 }
+            )
+            .alert(
+                "Error",
+                isPresented: $viewModel.upgradeNeededAlertIsShowing,
+                actions: {
+                    Button("Cancel", role: .cancel) { }
+                    Button("Upgrade") { viewModel.upgradeSheetIsShowing.toggle() }
+                },
+                message: { Text("You're using the free version of Accountable, which means you can only create up to 3 projects. If you'd like to create more than 3 projects, you'll need to Upgrade to Accountable Premium.") }
             )
         }
     }

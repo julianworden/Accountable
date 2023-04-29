@@ -78,7 +78,7 @@ struct HomeView: View {
                             }
                             .fullScreenCover(isPresented: $viewModel.upgradeSheetIsShowing) {
                                 NavigationStack {
-                                    UpgradeView()
+                                    UpgradeView(currentUser: viewModel.currentUser)
                                 }
                             }
                         }

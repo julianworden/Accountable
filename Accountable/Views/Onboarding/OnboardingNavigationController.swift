@@ -32,7 +32,7 @@ final class OnboardingNavigationController: ObservableObject {
     }
 
     func addUserSignedUpNotificationObserver() {
-        NotificationCenter.default.addObserver(forName: .userSignedUp, object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: .userSignedUp, object: nil, queue: .main) { notification in
             if let emailAddress = notification.userInfo?[NotificationConstants.userEmailAddress] as? String {
                 self.userEmailAddress = emailAddress
             }
@@ -40,7 +40,7 @@ final class OnboardingNavigationController: ObservableObject {
     }
 
     func addUserConfirmedAccountNotificationObserver() {
-        NotificationCenter.default.addObserver(forName: .userConfirmedAccount, object: nil, queue: nil) { _ in
+        NotificationCenter.default.addObserver(forName: .userConfirmedAccount, object: nil, queue: .main) { _ in
             self.popToRoot()
         }
     }

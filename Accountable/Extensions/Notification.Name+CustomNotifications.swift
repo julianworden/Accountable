@@ -18,4 +18,8 @@ extension Notification.Name {
     // MARK: - Sessions
 
     static let newSessionCreated = Notification.Name("newSessionCreated")
+
+    // MARK: - IAPS
+
+    static let userUpgraded = Notification.Name("userUpgraded")
 }

@@ -16,7 +16,7 @@ struct LoginView: View {
             GeometryReader { geo in
                 ScrollView {
                     VStack(spacing: UiConstants.vStackSpacing) {
-                        OnboardingViewHeader(
+                        CenteredHeader(
                             title: "Welcome!",
                             subtitle: "Thank you for staying Accountable with us."
                         )

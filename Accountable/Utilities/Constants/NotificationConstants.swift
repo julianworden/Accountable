@@ -11,4 +11,5 @@ struct NotificationConstants {
     static let userEmailAddress = "userEmailAddress"
     static let newSession = "newSession"
     static let currentUser = "currentUser"
+    static let upgradedUser = "upgradedUser"
 }
