@@ -15,7 +15,7 @@ struct SplashScreenView: View {
             Image("appIcon")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 100)
+                .frame(width: 129, height: 128)
         }
         .ignoresSafeArea()
     }

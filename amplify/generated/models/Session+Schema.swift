@@ -24,7 +24,7 @@ extension Session {
       rule(allow: .public, operations: [.create, .update, .delete, .read])
     ]
     
-    model.pluralName = "Sessions"
+    model.syncPluralName = "Sessions"
     
     model.attributes(
       .primaryKey(fields: [session.id])

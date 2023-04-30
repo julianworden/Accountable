@@ -23,7 +23,7 @@ extension User {
       rule(allow: .public, operations: [.create, .update, .delete, .read])
     ]
     
-    model.pluralName = "Users"
+    model.syncPluralName = "Users"
     
     model.attributes(
       .primaryKey(fields: [user.id])

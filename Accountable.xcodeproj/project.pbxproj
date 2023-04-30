@@ -83,6 +83,7 @@
 		AB59AB2B29DDBAA00041F6F8 /* Project+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2A29DDBAA00041F6F8 /* Project+Helpers.swift */; };
 		AB59AB2D29DDBCA20041F6F8 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */; };
 		AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */; };
+		AB6071B229FEB08400F18BFF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6071B129FEB08400F18BFF /* Launch Screen.storyboard */; };
 		AB67AA0129DDFBD400D797BD /* HomeProjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */; };
 		AB67AA0529DDFCD700D797BD /* HomeProjectsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */; };
 		AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */; };
@@ -250,6 +251,7 @@
 		AB59AB2A29DDBAA00041F6F8 /* Project+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Helpers.swift"; sourceTree = "<group>"; };
 		AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProjectRow.swift; sourceTree = "<group>"; };
+		AB6071B129FEB08400F18BFF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProjectsList.swift; sourceTree = "<group>"; };
 		AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProjectsHeader.swift; sourceTree = "<group>"; };
 		AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBox.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 		AB77867829D5D24C00CE5989 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB6071B129FEB08400F18BFF /* Launch Screen.storyboard */,
 				AB47E62129FC10D70016AB7F /* StoreKit */,
 				AB77867A29D5D2DC00CE5989 /* Onboarding */,
 				ABB998EA29D9B7C000421E01 /* Home */,
@@ -906,6 +909,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB6071B229FEB08400F18BFF /* Launch Screen.storyboard in Resources */,
 				ABD8B56729D0DB43007BF1BC /* Preview Assets.xcassets in Resources */,
 				ABD8B56429D0DB43007BF1BC /* Assets.xcassets in Resources */,
 				5DDAF38E01F93465CFBA5EAE /* awsconfiguration.json in Resources */,
@@ -1267,9 +1271,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Accountable/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Accountable;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1301,9 +1307,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Accountable/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Accountable;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
