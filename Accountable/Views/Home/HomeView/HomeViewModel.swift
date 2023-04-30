@@ -43,6 +43,8 @@ final class HomeViewModel: ObservableObject {
             return true
         } else if !currentUser.isPremium && userProjects.count >= 3 {
             return false
+        } else if !currentUser.isPremium && userProjects.count < 3 {
+            return true
         } else {
             return false
         }
