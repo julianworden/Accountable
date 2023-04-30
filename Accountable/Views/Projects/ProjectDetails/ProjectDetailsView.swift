@@ -72,38 +72,25 @@ struct ProjectDetailsView: View {
         .navigationTitle(viewModel.project.name)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(role: ongoingSessionController.sessionIsActive ? .destructive : nil) {
-                    viewModel.sessionViewIsShowing.toggle()
-                } label: {
-                    Image(systemName: ongoingSessionController.primaryTimerButtonIconName)
-                }
-                .sheet(isPresented: $viewModel.sessionViewIsShowing) {
-                    StartStopSessionView(project: viewModel.project)
-                        .presentationDetents([.medium])
-                        .presentationDragIndicator(.visible)
-                }
-
-                Button(role: .destructive) {
-                    viewModel.deleteProjectConfirmationAlertIsShowing.toggle()
-                } label: {
-                    Image(systemName: "trash")
-                }
-                .tint(.red)
-                .alert(
-                    "Are You Sure?",
-                    isPresented: $viewModel.deleteProjectConfirmationAlertIsShowing,
-                    actions: {
-                        Button("Cancel", role: .cancel) { }
-                        Button("Delete Project", role: .destructive) {
-                            Task {
-                                await viewModel.deleteProject()
-                            }
-                        }
-                    },
-                    message: { Text("Deleting this project will also delete all of its sessions. This cannot be undone.") }
-                )
+            Button(role: .destructive) {
+                viewModel.deleteProjectConfirmationAlertIsShowing.toggle()
+            } label: {
+                Image(systemName: "trash")
             }
+            .tint(.red)
+            .alert(
+                "Are You Sure?",
+                isPresented: $viewModel.deleteProjectConfirmationAlertIsShowing,
+                actions: {
+                    Button("Cancel", role: .cancel) { }
+                    Button("Delete Project", role: .destructive) {
+                        Task {
+                            await viewModel.deleteProject()
+                        }
+                    }
+                },
+                message: { Text("Deleting this project will also delete all of its sessions. This cannot be undone.") }
+            )
         }
         .alert(
             "Error",
@@ -111,6 +98,11 @@ struct ProjectDetailsView: View {
             actions: { Button("OK") { } },
             message: { Text(viewModel.errorMessageText) }
         )
+        .sheet(isPresented: $viewModel.sessionViewIsShowing) {
+            StartStopSessionView(project: viewModel.project)
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+        }
         .onChange(of: viewModel.projectWasDeleted) { projectWasDeleted in
             if projectWasDeleted {
                 dismiss()

@@ -15,6 +15,8 @@ final class AllSessionsViewModel: ObservableObject {
     @Published var errorMessageIsShowing = false
     var errorMessageText = ""
 
+    @Published var dismissView = false
+
     @Published var viewState = ViewState.displayingView {
         didSet {
             switch viewState {
@@ -43,6 +45,10 @@ final class AllSessionsViewModel: ObservableObject {
             }
 
             sessions.remove(atOffsets: indexSet)
+            if sessions.isEmpty {
+                dismissView = true
+            }
+
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
             viewState = .error(message: error.localizedDescription)

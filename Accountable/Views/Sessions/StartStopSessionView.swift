@@ -15,9 +15,10 @@ struct StartStopSessionView: View {
     let project: Project
 
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Text(ongoingSessionController.display)
-                .font(.largeTitle)
+                .font(.largeTitle.bold())
+                .padding(.bottom, -5)
 
             HStack {
                 AsyncButton {
@@ -42,6 +43,11 @@ struct StartStopSessionView: View {
                 }
             }
             .buttonStyle(Primary(backgroundColor: ongoingSessionController.timerIsRunning ? .red : .accentColor))
+
+            Text("When you stop your session, it will automatically get saved. You can also pause and resume your session, if necessary. Quitting Accountable from the App Switcher will terminate your session, but the app will still track your time if you lock your phone or use other apps.")
+                .font(.caption)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
         }
         .padding(.horizontal)
         .navigationTitle("Create Session")
@@ -65,7 +71,12 @@ struct StartStopSessionView: View {
 
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
-        StartStopSessionView(project: Project.example)
-            .environmentObject(OngoingSessionController())
+        Text("Background")
+            .sheet(isPresented: .constant(true)) {
+                StartStopSessionView(project: Project.example)
+                    .environmentObject(OngoingSessionController())
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.visible)
+            }
     }
 }

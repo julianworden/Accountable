@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AllSessionsView: View {
+    @Environment(\.dismiss) var dismiss
+
     @StateObject private var viewModel: AllSessionsViewModel
 
     init(sessions: [Session]) {
@@ -38,6 +40,11 @@ struct AllSessionsView: View {
             actions: { Button("OK") { } },
             message: { Text(viewModel.errorMessageText) }
         )
+        .onChange(of: viewModel.dismissView) { dismissView in
+            if dismissView {
+                dismiss()
+            }
+        }
     }
 }
 
