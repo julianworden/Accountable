@@ -84,6 +84,7 @@
 		AB59AB2D29DDBCA20041F6F8 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB2C29DDBCA20041F6F8 /* CustomProgressView.swift */; };
 		AB59AB3229DDBDB90041F6F8 /* HomeViewProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59AB3129DDBDB90041F6F8 /* HomeViewProjectRow.swift */; };
 		AB6071B229FEB08400F18BFF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6071B129FEB08400F18BFF /* Launch Screen.storyboard */; };
+		AB6071B429FEBBAF00F18BFF /* PlaceholderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0967B929F95A5C0023C055 /* PlaceholderData.swift */; };
 		AB67AA0129DDFBD400D797BD /* HomeProjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0029DDFBD400D797BD /* HomeProjectsList.swift */; };
 		AB67AA0529DDFCD700D797BD /* HomeProjectsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0429DDFCD700D797BD /* HomeProjectsHeader.swift */; };
 		AB67AA0729DE00AF00D797BD /* CustomGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67AA0629DE00AF00D797BD /* CustomGroupBox.swift */; };
@@ -553,9 +554,9 @@
 			isa = PBXGroup;
 			children = (
 				AB6071B129FEB08400F18BFF /* Launch Screen.storyboard */,
+				ABB998EA29D9B7C000421E01 /* Home */,
 				AB47E62129FC10D70016AB7F /* StoreKit */,
 				AB77867A29D5D2DC00CE5989 /* Onboarding */,
-				ABB998EA29D9B7C000421E01 /* Home */,
 				AB2C0A5D29DB11500018B62F /* Projects */,
 				AB67AA0A29DE326700D797BD /* Sessions */,
 				ABB998ED29D9B7CA00421E01 /* IndividualElements */,
@@ -1066,6 +1067,7 @@
 				AB1F420129F01EFE00344FDA /* KeychainError.swift in Sources */,
 				AB38AA2D29FB5922008F6368 /* View+scenePhaseChanges.swift in Sources */,
 				AB1F420329F0208600344FDA /* KeychainConstants.swift in Sources */,
+				AB6071B429FEBBAF00F18BFF /* PlaceholderData.swift in Sources */,
 				AB4ADC0729E04FCF000AFDCA /* OngoingSessionTitleAndBox.swift in Sources */,
 				ABDCA78229F5D36C009B0DA9 /* AppGroupConstants.swift in Sources */,
 				ABC1CE6A29F6D193007452C7 /* FileManagerError.swift in Sources */,
