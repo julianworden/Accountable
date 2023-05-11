@@ -10,7 +10,7 @@ Accountable is a productivity tracking app built with SwiftUI, Swift Charts, AWS
 </p>
 
 ## On The Surface
-Here's how Accountable works: To start, the user creates a project that represents a skill they want to learn. Then, every time the user wants to work on this skill, they can start a session. Starting a session will start a stopwatch that will run until the user ends the session. Once the session is ended, it will be saved alongside its project and shown within various charts and work analytics throughout the app. The user can also help themselves stay motiviated to work towards their goal by adding Accountable's Home Screen and Lock Screen Widgets to their phone.
+Here's how Accountable works: To start, the user creates a project that represents a skill they want to learn. Then, every time the user wants to work on this skill, they can start a session. Starting a session will start a stopwatch that will run until the user ends the session. Once the session is ended, it will be saved alongside its project and shown within various charts and work analytics throughout the app. The user can also help themselves stay motivated to work towards their goal by adding Accountable's Home Screen and Lock Screen Widgets to their phone. Finally, the user can create up to three projects for free, but once they try to create more they will be prompted to purchase a $0.99 Upgrade to the Premium version of the app
 
 ## Under the Hood
 Accountable was built with:
